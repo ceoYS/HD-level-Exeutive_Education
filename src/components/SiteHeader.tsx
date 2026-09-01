@@ -5,9 +5,21 @@ type SiteHeaderProps = {
   bookMode?: boolean
   progress?: number
   currentChapter?: number
+  bookNumber?: string
+  bookKeyword?: string
+  total?: number
+  unit?: string
 }
 
-export function SiteHeader({ bookMode = false, progress = 0, currentChapter = 1 }: SiteHeaderProps) {
+export function SiteHeader({
+  bookMode = false,
+  progress = 0,
+  currentChapter = 1,
+  bookNumber = '01',
+  bookKeyword = 'UNDERSTAND',
+  total,
+  unit = 'CH',
+}: SiteHeaderProps) {
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -19,9 +31,12 @@ export function SiteHeader({ bookMode = false, progress = 0, currentChapter = 1 
         </NavigateLink>
         {bookMode ? (
           <div className="book-header__meta" aria-label="현재 읽는 책">
-            <span>BOOK 01</span>
-            <strong>UNDERSTAND</strong>
-            <em>CH {String(currentChapter).padStart(2, '0')} / 08 · {Math.round(progress * 100)}%</em>
+            <span>BOOK {bookNumber}</span>
+            <strong>{bookKeyword}</strong>
+            <em>
+              {total ? `${unit} ${String(currentChapter).padStart(2, '0')} / ${String(total).padStart(2, '0')} · ` : ''}
+              {Math.round(progress * 100)}%
+            </em>
           </div>
         ) : (
           <nav aria-label="주요 탐색">

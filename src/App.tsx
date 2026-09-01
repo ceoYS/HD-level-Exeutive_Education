@@ -1,10 +1,20 @@
 import { useEffect } from 'react'
 import { NavigateLink } from './components/NavigateLink'
-import { books } from './content/books'
 import { usePathname } from './hooks/usePathname'
 import { BookPage } from './pages/BookPage'
+import { Book02Page } from './pages/Book02Page'
+import { Book03Page } from './pages/Book03Page'
+import { Book04Page } from './pages/Book04Page'
+import { Book05Page } from './pages/Book05Page'
 import { HomePage } from './pages/HomePage'
-import { TeaserPage } from './pages/TeaserPage'
+
+const bookPages = {
+  '/book/understand': BookPage,
+  '/book/instruct': Book02Page,
+  '/book/choose': Book03Page,
+  '/book/build': Book04Page,
+  '/book/practice': Book05Page,
+} as const
 
 export default function App() {
   const pathname = usePathname()
@@ -19,10 +29,11 @@ export default function App() {
   }, [pathname])
 
   if (pathname === '/') return <HomePage />
-  if (pathname === '/book/understand') return <BookPage />
 
-  const teaser = books.find((book) => pathname === `/book/${book.slug}`)
-  if (teaser) return <TeaserPage book={teaser} />
+  if (pathname in bookPages) {
+    const Page = bookPages[pathname as keyof typeof bookPages]
+    return <Page />
+  }
 
   return (
     <main className="not-found">

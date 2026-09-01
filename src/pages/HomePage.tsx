@@ -88,9 +88,7 @@ function LibraryBook({ book, index, isOpening, onOpen }: LibraryBookProps) {
               <em>{book.koreanTitle}</em>
             </span>
             <span className="book-cover__line">{book.libraryLine}</span>
-            <span className="book-cover__edition">
-              {book.status === 'available' ? '01 · FULL EDITION' : 'PREVIEW EDITION'}
-            </span>
+            <span className="book-cover__edition">{book.note}</span>
           </span>
           <span className="book-object__spine">{book.keyword}</span>
         </span>
