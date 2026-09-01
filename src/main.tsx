@@ -6,6 +6,10 @@ import './styles/global.css'
 import './styles/components.css'
 import './styles/home.css'
 import './styles/book.css'
+import './styles/editorial.css'
+import './styles/book03.css'
+import './styles/book04.css'
+import './styles/book05.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

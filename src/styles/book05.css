@@ -1,0 +1,11 @@
+/* Book 05 — book-specific styles only. Reuse editorial.css + book.css classes first;
+   add here ONLY what those cannot express. */
+
+/* "이 도구는 바뀔 수 있다" 류의 가벼운 각주. */
+.mission__note {
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--color-yellow);
+  color: var(--color-ink-soft);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
