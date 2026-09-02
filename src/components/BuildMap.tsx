@@ -23,7 +23,7 @@ const buildSteps: BuildStep[] = [
     options: ['Blank Build', 'Reference-driven', 'Existing-workflow'],
   },
   { phase: 'DESIGN', title: 'UI / UX 설계', note: '사용 흐름을 먼저 그립니다.' },
-  { phase: 'PROTOTYPE', title: 'Frontend · Prototype', note: 'Dummy Data로 보이는 경험을 만듭니다.' },
+  { phase: 'PROTOTYPE', title: 'Frontend · Prototype', note: '샘플 데이터로 보이는 경험을 만듭니다.' },
   { phase: 'REVIEW', title: '실장이 직접 검토', note: '업무가 이 화면에서 도는지 봅니다.' },
   {
     phase: 'GATE',

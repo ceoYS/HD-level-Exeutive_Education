@@ -83,10 +83,10 @@ export const weeks: WeekData[] = [
     week: '04',
     phase: 'PROTOTYPE',
     title: '처음으로 눈에 보이게',
-    intent: '첫 번째 가시 버전을 만든다. Dummy Data로 충분하다. 실장이 직접 써보는 것이 핵심.',
+    intent: '첫 번째 가시 버전을 만든다. 샘플 데이터로 충분하다. 실장이 직접 써보는 것이 핵심.',
     tasks: [
       '핵심 화면 1개를 Prototype으로 생성',
-      'Dummy Data로 사용자 흐름 확인',
+      '샘플 데이터로 사용자 흐름 확인',
       '실장이 직접 조작해본다',
       '문제를 최소 1개 찾는다',
       '수정 1건을 직접 요청한다',
@@ -94,7 +94,7 @@ export const weeks: WeekData[] = [
     deliverable: 'V0.1 (Prototype)',
     prompt: {
       label: 'Prototype만 만들 때',
-      text: '지금은 Prototype만 만든다. 실제 데이터·로그인·Database는 연결하지 마. 첨부한 방향대로 핵심 화면 하나를 Dummy Data로 만들어서, 내가 흐름을 눌러볼 수 있게 해줘.',
+      text: '지금은 Prototype만 만든다. 실제 데이터·로그인·Database는 연결하지 마. 첨부한 방향대로 핵심 화면 하나를 샘플 데이터로 만들어서, 내가 흐름을 눌러볼 수 있게 해줘.',
       tone: 'signal',
     },
     certs: [

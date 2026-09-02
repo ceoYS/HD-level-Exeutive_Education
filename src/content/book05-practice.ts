@@ -1,4 +1,4 @@
-// BOOK 05 — PRACTICE. 휴대폰/태블릿에서도 따라갈 수 있는 6개 미션.
+// BOOK 05 — PRACTICE. 작게 직접 해보는 6개 미션. 화면 제작 미션(04–05)은 태블릿·PC 권장.
 // 도구 UI가 바뀌어도 대체 가능하도록 스크린샷은 placeholder, 단계는 원리 중심(2026.09 기준).
 
 export type MissionData = {
@@ -75,7 +75,7 @@ export const missions: MissionData[] = [
       annotation: 'instructions / knowledge / try 3 questions',
     },
     cert: { id: 'b05-m03', statement: '나는 반복 지시와 자료를 담은 나만의 Custom AI를 만들 수 있다.' },
-    note: '도구의 화면과 이름은 바뀔 수 있습니다(2026.09 기준). 중요한 것은 "지시 + 지식을 저장한다"는 원리입니다.',
+    note: '도구의 화면과 이름은 바뀔 수 있습니다(2026.09 기준). 바뀌지 않는 것은 "지시 + 지식을 저장한다"는 원리입니다.',
   },
   {
     number: '04',
@@ -85,21 +85,21 @@ export const missions: MissionData[] = [
     steps: [
       '쉬운 현재 빌더를 하나 연다 (예: Google AI Studio · Manus · Claude Design).',
       '만들고 싶은 화면을 한 문장으로 설명한다.',
-      '실제 데이터 대신 합성(가짜) 데이터로 만들어 달라고 한다.',
+      '실제 데이터 대신 샘플 데이터로 만들어 달라고 한다.',
       '생성된 화면을 눌러보며 흐름을 확인한다.',
       '마음에 안 드는 부분 하나를 골라 수정을 요청한다.',
     ],
     prompt: {
       label: '첫 화면 요청',
-      text: '건설 프로젝트 현황을 보여주는 간단한 화면을 만들어줘. 프로젝트 이름·공정률·주요 리스크가 카드로 보이면 돼. 실제 데이터는 없으니 합성 데이터로 채워줘. 지금은 Prototype만, 로그인이나 저장 기능은 넣지 마.',
+      text: '건설 프로젝트 현황을 보여주는 간단한 화면을 만들어줘. 프로젝트 이름·공정률·주요 리스크가 카드로 보이면 돼. 실제 데이터는 없으니 샘플 데이터로 채워줘. 지금은 Prototype만, 로그인이나 저장 기능은 넣지 마.',
     },
     screenshot: {
       tool: '웹 빌더 결과 화면',
-      purpose: '합성 데이터로 생성된 첫 프로토타입 화면',
+      purpose: '샘플 데이터로 생성된 첫 프로토타입 화면',
       description: '생성된 대시보드 카드 + 프롬프트 입력 영역',
-      annotation: 'synthetic data / generated UI / iterate',
+      annotation: 'sample data / generated UI / iterate',
     },
-    cert: { id: 'b05-m04', statement: '나는 합성 데이터로 첫 웹 화면 Prototype을 직접 만들 수 있다.' },
+    cert: { id: 'b05-m04', statement: '나는 샘플 데이터로 첫 웹 화면 Prototype을 직접 만들 수 있다.' },
   },
   {
     number: '05',
@@ -111,11 +111,11 @@ export const missions: MissionData[] = [
       'AI에게 "이 화면의 정보구조와 사용자 흐름을 분석해줘"라고 요청한다.',
       '"재사용 가능한 원칙만 추출해줘. 브랜드·문구·고유 자산은 제외"라고 덧붙인다.',
       '"이 구조를 내 업무용으로 재구성해줘"라고 요청한다.',
-      '합성 데이터로 Prototype을 만든다.',
+      '샘플 데이터로 Prototype을 만든다.',
     ],
     prompt: {
       label: '분석 → 재구성',
-      text: '첨부한 화면을 디자인이 아니라 정보구조와 사용자 행동 관점에서 분석해줘. 재사용 가능한 UX 원칙만 추출하고 브랜드·문구·고유 자산은 제외해. 그다음 이 구조를 내 업무(프로젝트 현황 관리)용으로 재구성해서, 합성 데이터로 Prototype만 만들어줘.',
+      text: '첨부한 화면을 디자인이 아니라 정보구조와 사용자 행동 관점에서 분석해줘. 재사용 가능한 UX 원칙만 추출하고 브랜드·문구·고유 자산은 제외해. 그다음 이 구조를 내 업무(프로젝트 현황 관리)용으로 재구성해서, 샘플 데이터로 Prototype만 만들어줘.',
       tone: 'signal',
     },
     cert: { id: 'b05-m05', statement: '나는 좋은 화면에서 원리를 뽑아 내 업무용으로 재구성할 수 있다.' },

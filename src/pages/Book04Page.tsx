@@ -88,13 +88,12 @@ export function Book04Page() {
                 </div>
               </div>
               <p className="editorial-lead">
-                매주 <strong>산출물</strong>이 하나씩 쌓이고, 그 주에 실장이 <strong>직접 할 수 있게 된
-                것</strong>을 스스로 인증합니다. 자기인증은 시험이 아니라, 습득한 역량을 확인하는
-                기록입니다.
+                매주 산출물이 하나씩 쌓이고, 그 주에 실장이 <strong>직접 할 수 있게 된
+                것</strong>을 스스로 인증합니다. 자기인증은 익힌 것을 남기는 짧은 기록입니다.
               </p>
               <ExecutiveTakeaway>
-                8주가 끝나면 남는 것은 지식이 아니라 <strong>작동하는 도구 하나와, 그것을 3분 안에
-                설명할 수 있는 실장 자신</strong>입니다.
+                8주가 끝나면 <strong>작동하는 도구 하나와, 그것을 3분 안에 설명할 수 있는 실장
+                자신</strong>이 남습니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -119,7 +118,7 @@ export function Book04Page() {
                 )}
                 {week.security && (
                   <SecurityGate>
-                    이번 주의 핵심은 속도가 아니라 안전입니다. 기밀 사내 정보를 승인되지 않은 외부
+                    이번 주는 속도보다 안전이 먼저입니다. 기밀 사내 정보를 승인되지 않은 외부
                     AI에 넣지 마세요. 연결이 필요하면 <strong>승인·권한·거버넌스</strong>를 먼저
                     확인하고, 그전까지는 합성·공개 데이터로 진행합니다.
                   </SecurityGate>
@@ -140,7 +139,7 @@ export function Book04Page() {
               <h2>작동하는 도구 하나를 직접 만들어냅니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
-              <p>가장 중요한 것은 그 도구가 아니라</p>
+              <p>도구보다 오래가는 것은</p>
               <h2>
                 이제 실장이
                 <br />

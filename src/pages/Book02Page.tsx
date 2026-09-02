@@ -48,7 +48,7 @@ export function Book02Page() {
                 좋은 업무지시.
               </h1>
               <p className="book-opening__sub">
-                통제 가능한 결과는 요령이 아니라
+                통제 가능한 결과는
                 <br />
                 <em>지시 · 맥락 · 피드백</em>의 언어에서 나옵니다.
               </p>
@@ -83,8 +83,8 @@ export function Book02Page() {
             <div className="chapter__inner">
               <SectionIntro number="01" title="좋은 프롬프트보다 좋은 업무지시">
                 <p>
-                  AI에게 필요한 것은 마법의 문장이 아니라 <strong>분명한 업무지시</strong>입니다.
-                  부하 직원에게 일을 맡길 때처럼, 목적과 기준을 주면 결과가 통제됩니다.
+                  AI에게 마법의 문장은 필요 없습니다. 부하 직원에게 일을 맡길 때처럼
+                  <strong> 목적과 기준</strong>을 주면 결과가 통제됩니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
@@ -110,12 +110,12 @@ export function Book02Page() {
                     level: 'ADVANCED',
                     label: '목적·기준·범위까지',
                     prompt:
-                      '여러 프로젝트를 관리하는 실장급 임원용 현황 화면을 설계해줘. 목적은 주간 경영회의에서 3분 안에 프로젝트별 상태를 파악하는 것. 각 카드에 공정률·핵심 리스크·다음 결정을 표시하고, 지연된 프로젝트가 위로 오도록 정렬해. 지금은 Dummy Data로 Frontend Prototype만 만들고 실제 데이터는 연결하지 마.',
+                      '여러 프로젝트를 관리하는 실장급 임원용 현황 화면을 설계해줘. 목적은 주간 경영회의 시작 전에 프로젝트별 상태를 훑어보는 것. 각 카드에 공정률·핵심 리스크·다음 결정을 표시하고, 지연된 프로젝트가 위로 오도록 정렬해. 지금은 샘플 데이터로 Frontend Prototype만 만들고 실제 데이터는 연결하지 마.',
                   },
                 ]}
               />
               <ExecutiveTakeaway>
-                실장은 이미 좋은 지시를 내리는 사람입니다. AI에게도 똑같이 하면 됩니다 —
+                사람에게든 AI에게든, 좋은 지시의 형태는 같습니다 —
                 <strong> 목적을 말하고, 기준을 정하고, 하지 말아야 할 것을 짚어주는 것.</strong>
               </ExecutiveTakeaway>
             </div>
@@ -140,7 +140,7 @@ export function Book02Page() {
               >
                 <TryThisPrompt heading="독자를 알려주면">
                   <PromptBlock label="SAY THIS" tone="signal">
-                    이 보고서는 CEO가 3분 안에 핵심을 이해해야 합니다. 첨부한 초안을 그 기준으로 다시 구성해줘. 결론을 맨 앞에 두고, 근거는 세 가지로 압축하고, 세부 수치는 뒤로 보내줘.
+                    이 보고서는 CEO가 1분 안에 핵심을 파악해야 합니다. 첨부한 초안을 그 기준으로 다시 구성해줘. 결론을 맨 앞에 두고, 근거는 세 가지로 압축하고, 세부 수치는 뒤로 보내줘.
                   </PromptBlock>
                 </TryThisPrompt>
               </RealWorldExample>
@@ -187,8 +187,8 @@ export function Book02Page() {
             <div className="chapter__inner">
               <SectionIntro number="04" title="나온 결과를 고친다">
                 <p>
-                  첫 결과는 초안입니다. 중요한 것은 <strong>전체를 갈아엎지 않고</strong> 원하는
-                  부분만 정확히 고치게 하는 언어입니다.
+                  첫 결과는 초안입니다. <strong>전체를 갈아엎지 않고</strong> 원하는 부분만
+                  정확히 고치게 하는 언어가 필요합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
@@ -226,12 +226,12 @@ export function Book02Page() {
               <LabeledGrid items={designBrief} numbered />
               <TryThisPrompt heading="화면을 설계시킬 때">
                 <PromptBlock label="DESIGN BRIEF" tone="signal">
-                  현장 실장이 주간 회의에서 쓸 프로젝트 현황 화면을 설계해줘. 가장 먼저 보여야 할 것은 지연·리스크가 있는 프로젝트야. 각 항목에서 상세로 들어가는 동작이 필요해. 참고로 카드형 대시보드 구조가 좋아. 지금은 Dummy Data로 Prototype만, 실제 연결은 하지 마.
+                  현장 실장이 주간 회의에서 쓸 프로젝트 현황 화면을 설계해줘. 가장 먼저 보여야 할 것은 지연·리스크가 있는 프로젝트야. 각 항목에서 상세로 들어가는 동작이 필요해. 참고로 카드형 대시보드 구조가 좋아. 지금은 샘플 데이터로 Prototype만, 실제 연결은 하지 마.
                 </PromptBlock>
               </TryThisPrompt>
               <ExecutiveTakeaway>
-                디자인 지시의 핵심은 예쁜 화면이 아니라 <strong>정보의 우선순위</strong>입니다. 무엇이
-                먼저 보여야 하는지는, 그 업무를 아는 실장이 가장 잘 압니다.
+                디자인 지시에서 정할 것은 <strong>정보의 우선순위</strong>입니다. 무엇이 먼저
+                보여야 하는지는, 그 업무를 아는 실장이 가장 잘 압니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -277,7 +277,7 @@ export function Book02Page() {
                 </PromptBlock>
               </TryThisPrompt>
               <WatchOut>
-                오류를 기억으로 요약하지 마세요. "무슨 에러가 났어요"는 AI가 추측하게 만듭니다.
+                오류를 기억으로 요약하지 마세요. "무슨 에러가 났어요"는 AI가 추측하게 합니다.
                 <strong> 화면과 정확한 오류 문구를 원문 그대로</strong> 주는 것이 가장 빠른 길입니다.
               </WatchOut>
             </div>
@@ -293,7 +293,7 @@ export function Book02Page() {
                 </p>
               </SectionIntro>
               <LabeledGrid items={projectManagement} numbered />
-              <Callout variant="takeaway" eyebrow="실장 관점 · NOT A COMMAND TUTORIAL">
+              <Callout variant="takeaway" eyebrow="실장 관점 · EXECUTIVE TAKEAWAY">
                 명령어를 외울 필요는 없습니다. 실장이 할 일은 <strong>범위를 정하고, 지켜야 할 것을
                 명시하고, 의미 있는 지점에서 저장하도록</strong> 방향을 주는 것입니다. 실행은 ACE와
                 AI가 맡습니다.
