@@ -36,9 +36,9 @@ export function Book04Page() {
                 AI BUILD.
               </h1>
               <p className="book-opening__sub">
-                읽는 책이 아닙니다. 8주 동안
+                8주 동안
                 <br />
-                <em>하나의 실제 도구</em>를 함께 만드는 워크북입니다.
+                <em>실제 업무 도구 하나</em>를 함께 만듭니다.
               </p>
             </div>
             <button
@@ -68,32 +68,32 @@ export function Book04Page() {
 
           <section className="chapter chapter--light" id="intro">
             <div className="chapter__inner">
-              <SectionIntro number="00" title="실장이 문제를 소유합니다" english="HOW WE WORK">
+              <SectionIntro number="00" title="실장이 문제와 방향을 잡습니다" english="HOW WE WORK">
                 <p>
-                  이 8주는 ACE가 대신 만들어주는 과정이 아닙니다. <strong>실장이 문제·결정·우선순위·
-                  판단을 소유</strong>하고, ACE는 그것을 구조화하고 구현을 돕습니다.
+                  실장은 <strong>문제·우선순위·결정·최종 판단</strong>을 맡고, ACE는 내용을 구조화하고
+                  구현 과정을 지원합니다.
                 </p>
               </SectionIntro>
               <div className="contrast-pair">
                 <div className="contrast-pair__side contrast-pair__side--accent">
                   <span>EXECUTIVE · 실장</span>
-                  <strong>문제와 결정을 소유합니다</strong>
-                  <p>무엇이 중요한지 알고, 우선순위를 정하고, 결과가 쓸모 있는지 판단합니다.</p>
+                  <strong>문제와 결정을 맡습니다</strong>
+                  <p>무엇이 중요한지 알고, 우선순위를 정하고, 결과가 실제 업무에 맞는지 판단합니다.</p>
                 </div>
                 <span className="contrast-pair__op" aria-hidden="true">×</span>
                 <div className="contrast-pair__side">
                   <span>ACE</span>
-                  <strong>구조화하고 구현을 돕습니다</strong>
-                  <p>맥락을 정리하고, 막힌 곳을 뚫고, 구현을 지원합니다. 대신 전부 만들어주지 않습니다.</p>
+                  <strong>정리와 구현을 지원합니다</strong>
+                  <p>맥락을 정리하고, 막힌 곳을 함께 풀고, AI와 구현 작업을 이어갈 수 있게 돕습니다.</p>
                 </div>
               </div>
               <p className="editorial-lead">
-                매주 산출물이 하나씩 쌓이고, 그 주에 실장이 <strong>직접 할 수 있게 된
-                것</strong>을 스스로 인증합니다. 자기인증은 익힌 것을 남기는 짧은 기록입니다.
+                매주 산출물을 하나씩 남기고, 그 주에 <strong>직접 해본 것</strong>을 짧게 확인합니다.
+                결과물만 남기는 것이 아니라 다음 프로젝트에서도 다시 쓸 수 있는 방식까지 익히는 과정입니다.
               </p>
               <ExecutiveTakeaway>
-                8주가 끝나면 <strong>작동하는 도구 하나와, 그것을 3분 안에 설명할 수 있는 실장
-                자신</strong>이 남습니다.
+                8주 뒤에는 <strong>작동하는 도구 하나와 그 도구가 왜 필요한지 설명할 수 있는 경험</strong>이
+                남습니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -118,9 +118,9 @@ export function Book04Page() {
                 )}
                 {week.security && (
                   <SecurityGate>
-                    이번 주는 속도보다 안전이 먼저입니다. 기밀 사내 정보를 승인되지 않은 외부
-                    AI에 넣지 마세요. 연결이 필요하면 <strong>승인·권한·거버넌스</strong>를 먼저
-                    확인하고, 그전까지는 합성·공개 데이터로 진행합니다.
+                    실제 사내 정보를 연결하기 전에는 승인 범위와 권한을 먼저 확인합니다. 승인되지 않은
+                    외부 AI에는 기밀 정보를 넣지 않고, 그전까지는 <strong>합성·공개 데이터</strong>로
+                    흐름을 검증합니다.
                   </SecurityGate>
                 )}
                 <div className="cert-group">
@@ -135,20 +135,20 @@ export function Book04Page() {
 
           <footer className="book-ending">
             <div className="book-ending__opening">
-              <p>8주 뒤, 실장은</p>
-              <h2>작동하는 도구 하나를 직접 만들어냅니다.</h2>
+              <p>8주 뒤</p>
+              <h2>실제 업무에서 시험해본 도구 하나가 남습니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
-              <p>도구보다 오래가는 것은</p>
+              <p>그리고 다음 업무에서도</p>
               <h2>
-                이제 실장이
+                같은 방식으로
                 <br />
-                직접 만들 수 있다는 사실입니다.
+                다시 시작할 수 있습니다.
               </h2>
               <span>
-                문제를 정의하고, 방향을 정하고, 결과를 판단하고, 다시 지시하는 능력.
+                문제를 정리하고, 방향을 고르고, 결과를 써보고, 필요한 부분을 다시 고치는 흐름.
                 <br />
-                그것은 8주 뒤에도 사라지지 않습니다.
+                이 방식이 다음 AI Build의 출발점이 됩니다.
               </span>
             </Reveal>
             <NavigateLink href="/book/practice" className="next-book">

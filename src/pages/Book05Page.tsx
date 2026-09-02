@@ -36,9 +36,9 @@ export function Book05Page() {
                 만들어보기.
               </h1>
               <p className="book-opening__sub">
-                읽기를 멈추고, 지금
+                짧게 해보고
                 <br />
-                <em>직접 지시하고 판단하고 고쳐봅니다.</em>
+                <em>결과를 보고 다시 고쳐봅니다.</em>
               </p>
             </div>
             <button
@@ -68,16 +68,16 @@ export function Book05Page() {
 
           <section className="chapter chapter--light" id="intro">
             <div className="chapter__inner">
-              <SectionIntro number="00" title="작게, 그러나 직접" english="LEARN BY DOING">
+              <SectionIntro number="00" title="짧게 직접 해봅니다" english="LEARN BY DOING">
                 <p>
-                  각 미션은 짧습니다. 완성도보다 <strong>직접 해보는 경험</strong>이 목적입니다.
-                  읽기와 캡처 질문은 휴대폰으로도 충분하지만, 화면을 만드는 <strong>미션
-                  04–05</strong>는 태블릿이나 PC에서 더 수월합니다.
+                  각 미션은 10–25분 정도입니다. 결과물을 잘 만드는 것보다 <strong>내가 직접 요청하고,
+                  확인하고, 수정해보는 것</strong>에 초점을 둡니다. 화면 제작 미션 04–05는 태블릿이나
+                  PC에서 더 수월합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                순서대로 하면 자연스럽게 이어지지만, 지금 끌리는 미션부터 골라도 됩니다. 각 미션 끝에는
-                작은 자기인증이 있습니다.
+                순서대로 해도 되고 필요한 미션부터 골라도 됩니다. 각 미션을 끝낸 뒤 실제로 해봤는지만
+                짧게 확인합니다.
               </p>
             </div>
           </section>
@@ -122,19 +122,19 @@ export function Book05Page() {
           <footer className="book-ending" id="book-05-ending">
             <div className="book-ending__opening">
               <p>여섯 개의 미션을 마치면</p>
-              <h2>실장은 AI에게 직접 일을 시켜본 사람입니다.</h2>
+              <h2>AI에게 요청하고 결과를 고쳐보는 흐름을 한 번 경험했습니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
-              <p>이제 다시 처음으로 돌아가</p>
+              <p>이제 실제 업무에서</p>
               <h2>
-                실제 업무 문제를
+                바꿔보고 싶은 문제를
                 <br />
                 하나 골라보세요.
               </h2>
               <span>
-                Book 04의 8주 과제는 바로 그 문제에서 시작합니다.
+                작은 문제부터 같은 방식으로 시작하면 됩니다.
                 <br />
-                가장 잘 아는 현장의 문제가, 가장 좋은 출발점입니다.
+                설명하고, 만들어보고, 직접 써보고, 필요한 부분을 고칩니다.
               </span>
             </Reveal>
           </footer>

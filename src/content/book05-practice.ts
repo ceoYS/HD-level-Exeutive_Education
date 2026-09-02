@@ -34,18 +34,18 @@ export const missions: MissionData[] = [
   },
   {
     number: '02',
-    title: '캡처해서 도움받기',
-    goal: '막힌 화면을 캡처해 "한 단계"만 안내받는다.',
+    title: '막힌 화면을 보여주고 한 단계씩 묻기',
+    goal: '처음 쓰는 화면에서 막혔을 때 현재 화면을 보여주고 다음 행동을 묻는다.',
     minutes: '10분',
     steps: [
       '처음 쓰는 도구나 화면에서 막히는 지점을 연다.',
-      '그 화면을 캡처한다(요약하지 않는다).',
+      '그 화면을 캡처한다.',
       'AI에게 캡처를 첨부하고 목표와 막힌 점을 말한다.',
       '"지금 해야 할 한 단계만" 요청한다.',
-      '그 한 단계를 하고, 다음 화면을 다시 캡처해 반복한다.',
+      '그 한 단계를 한 뒤 필요하면 다음 화면을 다시 보여준다.',
     ],
     prompt: {
-      label: '초보자의 프롬프트',
+      label: '처음 쓰는 화면에서',
       text: '나는 이 도구를 처음 사용합니다. 목표는 [여기에 목표]입니다. 첨부한 화면 기준으로, 지금 해야 할 딱 한 단계만 알려주세요. 그 단계를 한 뒤 다음 화면을 다시 보여드리겠습니다.',
     },
     screenshot: {
@@ -54,7 +54,7 @@ export const missions: MissionData[] = [
       description: '실제 화면 캡처 + "지금 무엇을 눌러야 하나요?" 질문',
       annotation: 'capture / attach / one-step answer',
     },
-    cert: { id: 'b05-m02', statement: '나는 막혔을 때 캡처해서 한 단계씩 도움받을 수 있다.' },
+    cert: { id: 'b05-m02', statement: '나는 막힌 화면을 보여주고 다음 한 단계를 물어볼 수 있다.' },
   },
   {
     number: '03',
@@ -75,12 +75,12 @@ export const missions: MissionData[] = [
       annotation: 'instructions / knowledge / try 3 questions',
     },
     cert: { id: 'b05-m03', statement: '나는 반복 지시와 자료를 담은 나만의 Custom AI를 만들 수 있다.' },
-    note: '도구의 화면과 이름은 바뀔 수 있습니다(2026.09 기준). 바뀌지 않는 것은 "지시 + 지식을 저장한다"는 원리입니다.',
+    note: '도구의 화면과 이름은 바뀔 수 있습니다(2026.09 기준). 여기서 익힐 것은 반복 지시와 참고 자료를 한 작업공간에 두는 방식입니다.',
   },
   {
     number: '04',
     title: '내 첫 웹 화면 만들기',
-    goal: '화면에 무언가 작동하는 것을 직접 띄워본다.',
+    goal: '샘플 데이터로 첫 화면을 만들고 직접 눌러본다.',
     minutes: '25분',
     steps: [
       '쉬운 현재 빌더를 하나 연다 (예: Google AI Studio · Manus · Claude Design).',
@@ -103,7 +103,7 @@ export const missions: MissionData[] = [
   },
   {
     number: '05',
-    title: '좋은 앱을 보고 내 업무용으로 재구성하기',
+    title: '좋은 앱의 구조를 내 업무에 적용하기',
     goal: 'Reference-driven Build를 작게 경험한다.',
     minutes: '20분',
     steps: [
@@ -122,8 +122,8 @@ export const missions: MissionData[] = [
   },
   {
     number: '06',
-    title: 'AI에게 수정시키기',
-    goal: '첫 결과는 최종이 아니다 — 최소 3번 고쳐본다.',
+    title: '한 번 만든 결과를 나눠서 고치기',
+    goal: '한 번에 다시 만들지 않고 바꿀 부분을 좁혀 세 번 수정해본다.',
     minutes: '15분',
     steps: [
       '앞 미션에서 만든 화면 하나를 연다.',
@@ -136,6 +136,6 @@ export const missions: MissionData[] = [
       label: '부분만 고치기',
       text: '전체를 다시 만들지 마. 지금 화면에서 [바꿀 부분]만 수정하고 나머지는 그대로 유지해. 바꾸기 전에 무엇을 어떻게 바꿀지 먼저 한 줄로 설명해줘.',
     },
-    cert: { id: 'b05-m06', statement: '나는 AI의 결과를 원하는 방향으로 반복해서 고칠 수 있다.' },
+    cert: { id: 'b05-m06', statement: '나는 바꿀 범위를 좁혀 AI 결과를 단계적으로 수정할 수 있다.' },
   },
 ]

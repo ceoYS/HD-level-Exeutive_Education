@@ -78,14 +78,14 @@ export function HdecLeverageEpilogue() {
       <header className="hdec-leverage__opening">
         <p>FINAL COURSE EPILOGUE · THE REASON THIS MATTERS</p>
         <h2 id="hdec-leverage-title">HDEC AI<br />LEVERAGE</h2>
-        <span>사람과 문서에 축적된 지식을 다음 판단과 도구로 다시 흐르게 하는 일</span>
+        <span>사람과 문서에 쌓인 지식을 다음 업무에서 다시 쓸 수 있게 만드는 구조</span>
       </header>
 
       <div className="hdec-leverage__body">
         <Reveal className="knowledge-premise">
           <div className="knowledge-premise__heading">
             <span>HDEC HAS</span>
-            <h3>두 종류의<br />깊은 지식.</h3>
+            <h3>두 곳에 쌓이는<br />업무 지식.</h3>
           </div>
           <div className="knowledge-pair">
             <article>
@@ -114,10 +114,10 @@ export function HdecLeverageEpilogue() {
 
         <Reveal className="construction-knowledge-note">
           <span>EXTERNAL RESEARCH · CONSTRUCTION KNOWLEDGE</span>
-          <h3>프로젝트가 끝나도<br />지식까지 끝나서는 안 됩니다.</h3>
+          <h3>프로젝트에서 얻은 판단과 교훈을<br />다음 프로젝트가 다시 쓸 수 있어야 합니다.</h3>
           <p>
-            건설업은 프로젝트 단위로 조직과 참여자가 바뀌기 때문에, 경험과 교훈을 다음 프로젝트로
-            전달·재사용하는 일이 오랫동안 지식관리의 과제로 지적돼 왔습니다.
+            건설업은 프로젝트마다 조직과 참여자가 달라집니다. 그래서 경험과 Lessons Learned를 다음
+            프로젝트로 전달하고 다시 쓰는 일이 오래전부터 지식관리 과제로 다뤄져 왔습니다.
           </p>
           <div className="research-links">
             <a href="https://salford-repository.worktribe.com/output/1461831/collaborative-knowledge-management-a-construction-case-study" target="_blank" rel="noreferrer">Dave & Koskela · Automation in Construction ↗</a>
@@ -129,11 +129,10 @@ export function HdecLeverageEpilogue() {
         <Reveal className="internal-premise">
           <span>CONNECTING KNOWLEDGE TO AI</span>
           <p>
-            민감한 사내 지식과 데이터를 권한·감사·거버넌스까지 포함해 AI와 연결하려면, 일반
-            소비자용 AI만으로는 운영 요구사항을 충족하기 어렵습니다.
+            민감한 사내 지식과 데이터를 AI에 연결하려면 접근 권한, 감사 기록, 데이터 등급, 모델 연결,
+            내부 검색까지 함께 관리해야 합니다.
             <br />
-            접근 권한, 데이터 등급, 암호화, 로그, 모델 연결, 내부 검색과 거버넌스를 통제할 수
-            있는 ‘사내 통제형 AI 인프라’가 필요합니다.
+            이런 운영 조건을 한곳에서 통제할 수 있는 ‘사내 통제형 AI 인프라’가 필요합니다.
           </p>
         </Reveal>
 
@@ -142,8 +141,8 @@ export function HdecLeverageEpilogue() {
             <span>CONTROLLED AI INFRASTRUCTURE</span>
             <h3>사내 통제형<br />AI 인프라</h3>
             <p>
-              물리 Server 한 대가 있다고 AI가 안전해지는 것은 아닙니다. 어떤 배치 형태를 고르든 사람,
-              데이터, 모델, 비용, 행동을 통제하고 기록하는 운영 체계가 함께 있어야 합니다.
+              안전성은 서버의 물리적 위치만으로 결정되지 않습니다. 어떤 배치 형태를 쓰든 사람, 데이터,
+              모델, 비용, 행동을 통제하고 기록하는 운영 체계가 함께 있어야 합니다.
             </p>
           </div>
           <div className="deployment-options">
@@ -161,7 +160,7 @@ export function HdecLeverageEpilogue() {
         <Reveal as="figure" className="knowledge-flywheel">
           <figcaption>
             <span>HDEC KNOWLEDGE FLYWHEEL</span>
-            <strong>지식이 업무를 만들고,<br />업무가 다시 지식을 남깁니다.</strong>
+            <strong>지식을 업무에 쓰고,<br />업무에서 다시 지식을 남깁니다.</strong>
           </figcaption>
           <ol>
             {flywheel.map(([phase, label], index) => (
@@ -191,15 +190,16 @@ export function HdecLeverageEpilogue() {
             ))}
           </div>
           <p>
-            Physical AI는 긴 시간의 데이터 기반, 안전 검증, Hardware와 현장 통합, 규제와 전문
-            Engineering이 필요한 장기 과제입니다. Software Prototype의 다음 단계처럼 단순하게 이어지지 않습니다.
+            Physical AI는 데이터 기반, 안전 검증, Hardware·현장 통합, 규제와 전문 Engineering이 함께
+            필요한 장기 과제입니다. Software Prototype을 만든 뒤 바로 이어지는 단순한 다음 단계로
+            보기는 어렵습니다.
           </p>
         </Reveal>
 
         <div className="evidence-section">
           <Reveal className="evidence-section__intro">
             <span>EXTERNAL BENCHMARKS / POTENTIAL RANGE</span>
-            <h3>숫자는 약속이 아니라<br />검증 범위를 정하는 참고점입니다.</h3>
+            <h3>외부 수치는<br />Pilot 목표를 잡을 때 참고합니다.</h3>
           </Reveal>
           <div className="benchmark-evidence">
             {benchmarks.map((benchmark, index) => (
@@ -221,9 +221,8 @@ export function HdecLeverageEpilogue() {
             <h3>먼저 Baseline,<br />그다음 Pilot.</h3>
           </div>
           <p>
-            검증 가능한 목표는 타사 대비 몇 %를 선언하는 것이 아니라, Use Case별로 현재 업무시간·오류·
-            재작업을 먼저 측정하고, Pilot 이후 실제 개선률을 확인하는 것입니다. 내부 Pilot 데이터가
-            생기기 전에는 HDEC의 개선률을 말하지 않습니다.
+            Use Case마다 현재 업무시간·오류·재작업을 먼저 측정하고 Pilot 뒤에 실제 변화를 확인합니다.
+            내부 Pilot 데이터가 생기기 전에는 외부 benchmark를 HDEC의 개선률로 쓰지 않습니다.
           </p>
           <div className="pilot-kpis">
             {kpis.map((kpi) => <span key={kpi}>{kpi}</span>)}
@@ -231,8 +230,8 @@ export function HdecLeverageEpilogue() {
         </Reveal>
 
         <Reveal className="hdec-leverage__finale">
-          <p>실장의 경험이 Pain Point를 고르고,<br />통제된 AI가 그 지식을 작동하게 합니다.</p>
-          <h3>사람에게 있던 판단이 도구가 되고,<br />도구에서 나온 데이터가 다시 조직의 지식이 됩니다.</h3>
+          <p>실장의 판단이 도구에 반영되고,<br />그 도구의 사용 경험과 데이터가 다음 판단을 돕습니다.</p>
+          <h3>교육의 목표는<br />이 반복을 실제 업무에서 시작하는 것입니다.</h3>
           <span>THIS IS HDEC AI LEVERAGE.</span>
         </Reveal>
 
@@ -240,7 +239,7 @@ export function HdecLeverageEpilogue() {
           <span>BACK TO</span>
           <div>
             <strong>THE LIBRARY</strong>
-            <p>다섯 권의 지도로 돌아가기</p>
+            <p>다섯 권의 가이드로 돌아가기</p>
           </div>
           <i aria-hidden="true">↗</i>
         </NavigateLink>

@@ -48,9 +48,9 @@ export function Book02Page() {
                 좋은 업무지시.
               </h1>
               <p className="book-opening__sub">
-                통제 가능한 결과는
+                결과가 덜 빗나가려면
                 <br />
-                <em>지시 · 맥락 · 피드백</em>의 언어에서 나옵니다.
+                <em>지시 · 맥락 · 피드백</em>이 분명해야 합니다.
               </p>
             </div>
             <button
@@ -83,13 +83,13 @@ export function Book02Page() {
             <div className="chapter__inner">
               <SectionIntro number="01" title="좋은 프롬프트보다 좋은 업무지시">
                 <p>
-                  AI에게 마법의 문장은 필요 없습니다. 부하 직원에게 일을 맡길 때처럼
-                  <strong> 목적과 기준</strong>을 주면 결과가 통제됩니다.
+                  프롬프트 문구를 외우는 것보다 <strong>무엇을 왜 원하는지</strong> 분명히 말하는 편이
+                  결과를 안정적으로 만듭니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                매번 여섯 가지를 모두 쓸 필요는 없습니다. 그러나 결과가 자꾸 빗나간다면, 대개 이
-                중 하나가 빠져 있습니다.
+                매번 여섯 가지를 모두 쓸 필요는 없습니다. 결과가 자꾸 빗나간다면 아래 항목 중 빠진 것이
+                없는지 확인해보면 됩니다.
               </p>
               <LabeledGrid items={instructionParts} numbered />
               <PromptProgression
@@ -115,8 +115,8 @@ export function Book02Page() {
                 ]}
               />
               <ExecutiveTakeaway>
-                사람에게든 AI에게든, 좋은 지시의 형태는 같습니다 —
-                <strong> 목적을 말하고, 기준을 정하고, 하지 말아야 할 것을 짚어주는 것.</strong>
+                <strong>목적, 판단 기준, 유지할 범위</strong>가 보이면 AI도 무엇을 해야 하는지 훨씬
+                정확하게 이해합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -124,15 +124,15 @@ export function Book02Page() {
           {/* 02 */}
           <section className="chapter chapter--spruce" id="chapter-2">
             <div className="chapter__inner">
-              <SectionIntro number="02" title="AI가 모르면 맥락을 준다" inverse>
+              <SectionIntro number="02" title="AI가 모르는 맥락을 채운다" inverse>
                 <p>
-                  AI는 우리 회사도, 이 보고서를 볼 사람도 모릅니다. <strong>맥락을 주면</strong>
-                  같은 요청도 전혀 다른 결과가 됩니다.
+                  AI는 우리 회사의 사정이나 이 결과를 볼 사람을 저절로 알지 못합니다. 필요한
+                  <strong> 배경과 독자</strong>를 함께 알려줘야 합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                맥락은 자료·기존 문서·예시·제약·그리고 <strong>누가 이 결과를 볼 것인가</strong>
-                입니다. 특히 "대상 독자"를 알려주는 순간 결과의 밀도가 달라집니다.
+                맥락에는 자료·기존 문서·예시·제약뿐 아니라 <strong>누가, 언제, 어떤 목적으로 쓸지</strong>도
+                포함됩니다.
               </p>
               <RealWorldExample
                 title="같은 초안, 다른 독자"
@@ -145,8 +145,8 @@ export function Book02Page() {
                 </TryThisPrompt>
               </RealWorldExample>
               <WatchOut>
-                맥락 없이 "잘 정리해줘"라고 하면 AI는 평균적인 답을 냅니다. 평균은 실장에게 쓸모가
-                없습니다. <strong>누구를 위한, 어떤 자리에서 쓸 결과인지</strong>를 먼저 주세요.
+                "잘 정리해줘"만으로는 어떤 기준을 원하는지 알기 어렵습니다.
+                <strong> 누구를 위한 결과인지, 어디에서 쓸지</strong>를 먼저 알려주세요.
               </WatchOut>
             </div>
           </section>
@@ -154,10 +154,10 @@ export function Book02Page() {
           {/* 03 */}
           <section className="chapter chapter--bright" id="chapter-3">
             <div className="chapter__inner">
-              <SectionIntro number="03" title="모르면 캡처해서 물어본다">
+              <SectionIntro number="03" title="막히면 화면을 보여준다">
                 <p>
-                  처음 쓰는 도구 앞에서 막히는 것은 당연합니다. 이때 가장 강력한 방법은
-                  <strong> 화면을 캡처해서 한 단계만 물어보는 것</strong>입니다.
+                  처음 보는 도구에서 막히면 설명을 길게 하기보다 <strong>현재 화면을 보여주고 다음 한
+                  단계</strong>를 물어보는 편이 빠릅니다.
                 </p>
               </SectionIntro>
               <LabeledGrid items={captureSteps} numbered />
@@ -176,8 +176,8 @@ export function Book02Page() {
                 />
               </Reveal>
               <ExecutiveTakeaway>
-                한 번에 다 배우려 하지 마세요. <strong>캡처 → 한 단계 → 다음 캡처</strong>를 반복하면
-                어떤 새 도구도 실장이 직접 통과할 수 있습니다.
+                처음 쓰는 도구는 <strong>한 화면씩 확인하면서</strong> 익히면 됩니다. 캡처는 그때 쓰는
+                가장 간단한 보조 수단입니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -185,15 +185,14 @@ export function Book02Page() {
           {/* 04 */}
           <section className="chapter chapter--light" id="chapter-4">
             <div className="chapter__inner">
-              <SectionIntro number="04" title="나온 결과를 고친다">
+              <SectionIntro number="04" title="결과를 부분별로 고친다">
                 <p>
-                  첫 결과는 초안입니다. <strong>전체를 갈아엎지 않고</strong> 원하는 부분만
-                  정확히 고치게 하는 언어가 필요합니다.
+                  첫 결과를 본 뒤에는 <strong>유지할 것과 바꿀 것</strong>을 나눠서 말합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                AI는 지시를 넓게 해석해 멀쩡한 부분까지 다시 만들곤 합니다. 아래 표현들이
-                <strong> 의도를 지키면서 부분만 바꾸게</strong> 합니다.
+                수정 범위가 넓으면 이미 괜찮은 부분까지 달라질 수 있습니다. 바꿀 범위를 좁혀주면
+                변화도 확인하기 쉽습니다.
               </p>
               <LabeledGrid
                 items={feedbackPhrases.map((item, index) => ({
@@ -208,8 +207,8 @@ export function Book02Page() {
                 </PromptBlock>
               </TryThisPrompt>
               <WatchOut>
-                "더 좋게 만들어줘" 같은 지시는 위험합니다. AI가 마음대로 다 바꿔도 막을 수 없습니다.
-                <strong> 유지할 것과 바꿀 것을 항상 함께</strong> 말하세요.
+                "더 좋게 만들어줘"는 수정 범위가 너무 넓습니다.
+                <strong> 유지할 것과 바꿀 것</strong>을 같이 적어주세요.
               </WatchOut>
             </div>
           </section>
@@ -217,10 +216,10 @@ export function Book02Page() {
           {/* 05 */}
           <section className="chapter chapter--spruce" id="chapter-5">
             <div className="chapter__inner">
-              <SectionIntro number="05" title="AI에게 디자인을 시킨다" inverse>
+              <SectionIntro number="05" title="화면을 설계하게 한다" inverse>
                 <p>
-                  화면을 만들 때도 지시의 구조는 같습니다. <strong>누가·무엇을·무엇이 먼저 보여야
-                  하는지</strong>를 주면 AI가 화면을 제안합니다.
+                  화면 설계도 같은 원리입니다. <strong>누가 쓰는지, 무엇을 먼저 봐야 하는지, 어떤
+                  행동을 해야 하는지</strong>를 알려줍니다.
                 </p>
               </SectionIntro>
               <LabeledGrid items={designBrief} numbered />
@@ -230,8 +229,8 @@ export function Book02Page() {
                 </PromptBlock>
               </TryThisPrompt>
               <ExecutiveTakeaway>
-                디자인 지시에서 정할 것은 <strong>정보의 우선순위</strong>입니다. 무엇이 먼저
-                보여야 하는지는, 그 업무를 아는 실장이 가장 잘 압니다.
+                화면의 우선순위는 디자인 취향보다 업무 순서에서 나옵니다.
+                <strong> 무엇을 먼저 봐야 하는지</strong>는 그 업무를 하는 사람이 정합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -239,10 +238,10 @@ export function Book02Page() {
           {/* 06 */}
           <section className="chapter chapter--bright" id="chapter-6">
             <div className="chapter__inner">
-              <SectionIntro number="06" title="AI에게 개발을 시킨다">
+              <SectionIntro number="06" title="개발 작업을 단계로 맡긴다">
                 <p>
-                  개발을 시킬 때 가장 흔한 실수는 "바로 고쳐줘"입니다. <strong>먼저 분석하고 계획을
-                  받은 뒤 진행</strong>하게 하면 사고를 줄입니다.
+                  코드를 바로 바꾸게 하기보다 <strong>현재 구조와 변경 범위를 먼저 확인</strong>한 뒤
+                  구현하게 하면 엉뚱한 수정을 줄일 수 있습니다.
                 </p>
               </SectionIntro>
               <LabeledGrid items={devStages} numbered />
@@ -255,8 +254,8 @@ export function Book02Page() {
                 </PromptBlock>
               </TryThisPrompt>
               <WatchOut>
-                AI가 "다 했습니다"라고 해도 <strong>작동을 확인하기 전까지는 끝난 것이 아닙니다.</strong>
-                계획 → 구현 → 검증 → 보고의 순서를 요구하면, 어디서 어긋났는지 함께 볼 수 있습니다.
+                구현이 끝났다는 설명만으로는 충분하지 않습니다.
+                <strong> 계획 → 구현 → 검증 → 보고</strong> 순서로 확인하면 어디에서 문제가 생겼는지 보기 쉽습니다.
               </WatchOut>
             </div>
           </section>
@@ -264,10 +263,10 @@ export function Book02Page() {
           {/* 07 */}
           <section className="chapter chapter--light" id="chapter-7">
             <div className="chapter__inner">
-              <SectionIntro number="07" title="오류가 나면 AI와 같이 해결한다">
+              <SectionIntro number="07" title="오류는 원문 그대로 보여준다">
                 <p>
-                  오류는 실패가 아니라 <strong>정보</strong>입니다. AI에게 정확한 정보를 주면 대부분
-                  함께 풀 수 있습니다.
+                  오류가 나면 추측해서 설명하기보다 <strong>화면과 오류 문구, 직전 행동</strong>을 그대로
+                  전달합니다.
                 </p>
               </SectionIntro>
               <LabeledGrid items={errorInputs} numbered />
@@ -277,8 +276,8 @@ export function Book02Page() {
                 </PromptBlock>
               </TryThisPrompt>
               <WatchOut>
-                오류를 기억으로 요약하지 마세요. "무슨 에러가 났어요"는 AI가 추측하게 합니다.
-                <strong> 화면과 정확한 오류 문구를 원문 그대로</strong> 주는 것이 가장 빠른 길입니다.
+                "무슨 에러가 났어요"처럼 기억으로 줄이면 원인을 추측하게 됩니다.
+                <strong> 화면과 정확한 오류 문구를 원문 그대로</strong> 주세요.
               </WatchOut>
             </div>
           </section>
@@ -286,34 +285,33 @@ export function Book02Page() {
           {/* 08 */}
           <section className="chapter chapter--spruce" id="chapter-8">
             <div className="chapter__inner">
-              <SectionIntro number="08" title="긴 프로젝트에서 AI를 관리한다" inverse>
+              <SectionIntro number="08" title="긴 프로젝트의 맥락을 유지한다" inverse>
                 <p>
-                  8주짜리 프로젝트는 한 번의 지시로 끝나지 않습니다. AI가 <strong>같은 방향을 계속
-                  유지</strong>하도록 관리하는 습관이 필요합니다.
+                  프로젝트가 길어지면 매번 처음부터 설명할 수 없습니다. <strong>목적, 확정 사항, 범위,
+                  검증 기준</strong>을 다음 작업에도 이어지게 합니다.
                 </p>
               </SectionIntro>
               <LabeledGrid items={projectManagement} numbered />
               <Callout variant="takeaway" eyebrow="실장 관점 · EXECUTIVE TAKEAWAY">
-                명령어를 외울 필요는 없습니다. 실장이 할 일은 <strong>범위를 정하고, 지켜야 할 것을
-                명시하고, 의미 있는 지점에서 저장하도록</strong> 방향을 주는 것입니다. 실행은 ACE와
-                AI가 맡습니다.
+                명령어를 많이 아는 것보다 <strong>이번 작업의 범위와 유지할 기준</strong>을 분명히 하는 것이
+                중요합니다. ACE와 AI가 그 기준 안에서 실행을 이어갑니다.
               </Callout>
             </div>
           </section>
 
           <footer className="book-ending">
             <div className="book-ending__opening">
-              <p>이제 실장은 AI에게</p>
-              <h2>통제 가능한 결과를 지시할 수 있습니다.</h2>
+              <p>Book 02를 마치며</p>
+              <h2>AI에게 필요한 일을 더 정확하게 맡길 수 있습니다.</h2>
             </div>
 
             <Reveal className="cert-group">
               <p className="cert-group__intro">스스로 확인합니다.</p>
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
               <CapabilityCheck id="b02-instruction" evidence={false} statement="목적·결과·판단 기준을 담아 AI에게 업무지시를 쓸 수 있다." />
-              <CapabilityCheck id="b02-capture" evidence={false} statement="막혔을 때 화면을 캡처해 '한 단계만' 물어볼 수 있다." />
-              <CapabilityCheck id="b02-feedback" evidence={false} statement="전체를 갈아엎지 않고 원하는 부분만 고치도록 피드백할 수 있다." />
-              <CapabilityCheck id="b02-debug" evidence={false} statement="오류가 났을 때 화면과 정확한 문구를 갖춰 AI와 함께 해결할 수 있다." />
+              <CapabilityCheck id="b02-capture" evidence={false} statement="막힌 화면을 보여주고 다음 한 단계를 물어볼 수 있다." />
+              <CapabilityCheck id="b02-feedback" evidence={false} statement="유지할 것과 바꿀 것을 나눠 부분 수정 요청을 할 수 있다." />
+              <CapabilityCheck id="b02-debug" evidence={false} statement="오류 화면과 정확한 문구를 갖춰 문제 해결을 요청할 수 있다." />
             </Reveal>
 
             <NavigateLink href="/book/choose" className="next-book">
