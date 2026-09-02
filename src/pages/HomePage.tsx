@@ -16,7 +16,7 @@ const libraryJourney = [
 
 const libraryShelves = [
   { label: 'UNDERSTAND · EXPLORE', range: 'STEPS 01—02', books: books.slice(0, 2) },
-  { label: 'CHOOSE · BUILD · PRACTICE', range: 'STEPS 03—05', books: books.slice(2) },
+  { label: 'CHOOSE · BUILD · APPLY', range: 'STEPS 03—05', books: books.slice(2) },
 ]
 
 type ViewTransitionDocument = Document & {
