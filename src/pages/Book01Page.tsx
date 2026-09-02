@@ -58,14 +58,14 @@ export function Book01Page() {
             <div className="book-opening__statement">
               <p>AI BUILD · THE MASTER MAP</p>
               <h1>
-                AI로 만드는 일의
+                바이브코딩과
                 <br />
-                전체 지도.
+                Product 구조
               </h1>
               <p className="book-opening__sub">
-                이 책에서는 세부 사용법보다
+                제품을 만들기 위한
                 <br />
-                <em>무엇이 어디에 연결되는지</em> 봅니다.
+                <em>기초 IT · AI 개념을 이해합니다.</em>
               </p>
             </div>
             <button
@@ -97,21 +97,20 @@ export function Book01Page() {
             <div className="chapter__inner">
               <SectionIntro number="01" title="AI가 바꾼 것은 구현의 장벽" english="THE IMPLEMENTATION LEVERAGE">
                 <p>
-                  AI는 산업 경험을 대신하지 않습니다. 대신 경험에서 발견한 문제를 <strong>직접 확인할 수 있는 형태로
-                  빠르게 옮겨보는 힘</strong>을 줍니다.
+                  개발자를 통해서 제품을 만들어야 하는 환경에서 AI 바이브코딩을 통해 빠르게 제작할 수 있게 되었습니다.
                 </p>
               </SectionIntro>
               <Reveal className="founder-thesis">
                 <span>THE CENTRAL THESIS</span>
-                <blockquote>
-                  AI가 줄인 것은 구현의 장벽입니다.
+                <blockquote style={{ fontSize: 'clamp(1.8rem, 3vw, 3rem)' }}>
+                  But, AI가 줄인 것은 구현의 장벽 뿐입니다.
                   <br />
                   <em>문제를 보는 눈까지 만들어준 것은 아닙니다.</em>
                 </blockquote>
               </Reveal>
               <Reveal><ImplementationShiftDiagram compact /></Reveal>
               <ExecutiveTakeaway>
-                이 교육은 개발자 양성이 아니라, <strong>실장이 문제를 고르고 작은 버전을 직접 써보며 판단하는 능력</strong>을 다룹니다.
+                이 교육은 개발자 양성이 아니라, <strong>임원진이 해결할 문제를 고르고 MVP제품을 AI로 직접 제작하는 기초 능력</strong>을 배양합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
