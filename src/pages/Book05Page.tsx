@@ -29,16 +29,16 @@ export function Book05Page() {
               <span>PRACTICE</span>
             </div>
             <div className="book-opening__statement">
-              <p>AI BUILD · HANDS-ON MISSIONS</p>
+              <p>AI BUILD · MINI BUILD</p>
               <h1>
-                직접
+                한 번
                 <br />
-                만들어보기.
+                끝까지 만들어보기.
               </h1>
               <p className="book-opening__sub">
-                짧게 해보고
+                앞에서 본 방법을 다시 설명하지 않고
                 <br />
-                <em>결과를 보고 다시 고쳐봅니다.</em>
+                <em>하나의 작은 도구를 끝까지 만들어봅니다.</em>
               </p>
             </div>
             <button
@@ -48,7 +48,7 @@ export function Book05Page() {
               aria-controls="chapter-list"
               onClick={() => setChaptersOpen((current) => !current)}
             >
-              <span>6 MISSIONS</span>
+              <span>6 STEPS</span>
               <i aria-hidden="true">{chaptersOpen ? '−' : '+'}</i>
             </button>
             <ol id="chapter-list" className={`chapter-list${chaptersOpen ? ' is-open' : ''}`}>
@@ -62,22 +62,21 @@ export function Book05Page() {
               ))}
             </ol>
             <a className="book-opening__begin" href="#intro">
-              START MISSIONS <span aria-hidden="true">↓</span>
+              START MINI BUILD <span aria-hidden="true">↓</span>
             </a>
           </header>
 
           <section className="chapter chapter--light" id="intro">
             <div className="chapter__inner">
-              <SectionIntro number="00" title="짧게 직접 해봅니다" english="LEARN BY DOING">
+              <SectionIntro number="00" title="여섯 단계가 하나로 이어집니다" english="ONE MINI BUILD">
                 <p>
-                  각 미션은 10–25분 정도입니다. 결과물을 잘 만드는 것보다 <strong>내가 직접 요청하고,
-                  확인하고, 수정해보는 것</strong>에 초점을 둡니다. 화면 제작 미션 04–05는 태블릿이나
-                  PC에서 더 수월합니다.
+                  여기서는 새로운 개념을 배우지 않습니다. <strong>Problem Brief부터 Targeted Fix까지</strong>
+                  앞에서 본 흐름을 작은 문제 하나에 그대로 적용합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                순서대로 해도 되고 필요한 미션부터 골라도 됩니다. 각 미션을 끝낸 뒤 실제로 해봤는지만
-                짧게 확인합니다.
+                미션은 서로 독립된 팁이 아닙니다. 01에서 만든 산출물이 02의 입력이 되고, 그 결과가 다시
+                다음 단계로 넘어갑니다. 가능하면 PC에서 01부터 06까지 순서대로 진행하세요.
               </p>
             </div>
           </section>
@@ -121,20 +120,20 @@ export function Book05Page() {
 
           <footer className="book-ending" id="book-05-ending">
             <div className="book-ending__opening">
-              <p>여섯 개의 미션을 마치면</p>
-              <h2>AI에게 요청하고 결과를 고쳐보는 흐름을 한 번 경험했습니다.</h2>
+              <p>여섯 단계를 마치면</p>
+              <h2>Problem Brief에서 Working Prototype까지 한 번 직접 연결했습니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
-              <p>이제 실제 업무에서</p>
+              <p>다음부터는</p>
               <h2>
-                바꿔보고 싶은 문제를
+                같은 흐름을
                 <br />
-                하나 골라보세요.
+                실제 업무 문제에 적용합니다.
               </h2>
               <span>
-                작은 문제부터 같은 방식으로 시작하면 됩니다.
+                문제의 크기와 연결 범위만 달라질 뿐,
                 <br />
-                설명하고, 만들어보고, 직접 써보고, 필요한 부분을 고칩니다.
+                PRD → SPEC → BUILD → REVIEW → USE → FIX의 흐름은 같습니다.
               </span>
             </Reveal>
           </footer>

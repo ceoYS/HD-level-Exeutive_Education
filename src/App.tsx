@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { NavigateLink } from './components/NavigateLink'
 import { usePathname } from './hooks/usePathname'
-import { BookPage } from './pages/BookPage'
+import { Book01Page } from './pages/Book01Page'
 import { Book02Page } from './pages/Book02Page'
 import { Book03Page } from './pages/Book03Page'
 import { Book04Page } from './pages/Book04Page'
@@ -9,7 +9,7 @@ import { Book05Page } from './pages/Book05Page'
 import { HomePage } from './pages/HomePage'
 
 const bookPages = {
-  '/book/understand': BookPage,
+  '/book/understand': Book01Page,
   '/book/instruct': Book02Page,
   '/book/choose': Book03Page,
   '/book/build': Book04Page,
