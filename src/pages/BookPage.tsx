@@ -1,36 +1,56 @@
 import { useState } from 'react'
+import { AiLayersDiagram } from '../components/AiLayersDiagram'
 import { BuildMap } from '../components/BuildMap'
 import { ExecutiveTakeaway, SecurityGate, WatchOut } from '../components/Callout'
 import { CapabilityCheck } from '../components/CapabilityCheck'
+import { DevelopmentLoop } from '../components/DevelopmentLoop'
 import { HarnessDiagram } from '../components/HarnessDiagram'
+import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
 import { NavigateLink } from '../components/NavigateLink'
 import { PromptBlock } from '../components/PromptBlock'
 import { Reveal } from '../components/Reveal'
-import { ScreenshotPlaceholder } from '../components/ScreenshotPlaceholder'
 import { SectionIntro } from '../components/SectionIntro'
 import { SiteHeader } from '../components/SiteHeader'
 import { SourceNote } from '../components/SourceNote'
 import { SystemDiagram } from '../components/SystemDiagram'
 import { ToolMap } from '../components/ToolMap'
-import { TryThisPrompt } from '../components/TryThisPrompt'
 import { bookChapters } from '../content/books'
 import { useCurrentChapter } from '../hooks/useCurrentChapter'
 import { useReadingProgress } from '../hooks/useReadingProgress'
 
 const referenceSteps = [
-  ['01', 'FIND', '좋은 화면을 찾는다'],
-  ['02', 'CAPTURE', '필요한 장면을 캡처한다'],
-  ['03', 'ANALYZE', '정보구조와 흐름을 분석한다'],
-  ['04', 'REINTERPRET', '우리 업무에 맞게 재구성한다'],
-  ['05', 'BUILD', '첫 번째 버전을 만든다'],
+  ['01', 'FIND', '유사한 문제를 푸는 서비스를 찾는다'],
+  ['02', 'USE', '직접 써보며 가치와 흐름을 경험한다'],
+  ['03', 'ANALYZE', '정보구조와 사용 순서를 분석한다'],
+  ['04', 'EXTRACT PRINCIPLES', '재사용할 해결 원리를 뽑는다'],
+  ['05', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
+  ['06', 'BUILD', '새로운 업무 도구로 구현한다'],
 ]
 
 const endingAbilities = [
-  '문제를 발견하는 능력',
-  '맥락을 설명하는 능력',
-  '결과를 판단하는 능력',
-  'AI에게 다시 지시하는 능력',
-  '업무에 적용하는 능력',
+  '좋은 Pain Point를 고르는 판단',
+  '해결할 문제를 구체화하는 언어',
+  'AI와 제품 구조를 보는 지도',
+  'MVP를 직접 써보는 태도',
+  '틀린 지점을 정밀하게 고치는 피드백',
+]
+
+const agentElements = [
+  ['CONTEXT', '현재 목표와 상황을 이해하는 배경'],
+  ['TOOLS', '검색·파일·브라우저·업무 시스템에 접근하는 수단'],
+  ['MEMORY / KNOWLEDGE', '참고할 자료와 이전 작업에서 이어갈 정보'],
+  ['LOOP', '행동하고 결과를 본 뒤 다음 행동을 정하는 반복'],
+  ['GUARDRAILS', '허용 범위·승인·중단 조건을 정한 안전장치'],
+]
+
+const systemTerms = [
+  ['FRONTEND', '사용자가 보는 화면'],
+  ['BACKEND', '화면 뒤에서 규칙을 처리'],
+  ['DATABASE', '정보를 기억'],
+  ['API', '시스템 사이를 연결'],
+  ['SERVER', 'Backend · data · service가 실제로 실행되는 컴퓨팅 환경'],
+  ['AUTHENTICATION', '누가 들어왔고 무엇을 할 수 있는지 확인'],
+  ['DEPLOY', '다른 사람이 실제로 접속해서 쓸 수 있게 내보내는 과정'],
 ]
 
 export function BookPage() {
@@ -52,14 +72,14 @@ export function BookPage() {
             <div className="book-opening__statement">
               <p>AI BUILD · THE FIRST MAP</p>
               <h1>
-                AI로 만드는 일의
+                문제에서 도구까지의
                 <br />
-                전체 지도.
+                새로운 거리.
               </h1>
               <p className="book-opening__sub">
-                AI에게 제대로 일을 시키기 위해
+                AI와 IT의 단어를 외우는 대신
                 <br />
-                <em>“무엇이 어떻게 연결되는지”</em>를 이해하는 과정입니다.
+                <em>어디에서 판단하고 어떻게 만드는지</em> 봅니다.
               </p>
             </div>
             <button
@@ -88,135 +108,167 @@ export function BookPage() {
 
           <section className="chapter chapter--intent" id="chapter-1">
             <div className="chapter__inner">
-              <SectionIntro number="01" title="AI는 어디까지 할 수 있는가">
+              <SectionIntro number="01" title="AI가 바꾼 것은 구현의 장벽" english="THE IMPLEMENTATION LEVERAGE">
                 <p>
-                  AI는 <strong>사람의 의도를 결과로 바꾸는 엔진</strong>입니다.
-                  무엇을 넣고 어떤 맥락을 주는지에 따라 결과가 달라집니다.
+                  AI는 실장에게 20–30년의 산업 경험을 새로 주지 않습니다. 대신 그 경험에서 발견한
+                  문제를 <strong>직접 확인할 수 있는 형태로 옮기는 힘</strong>을 줍니다.
                 </p>
               </SectionIntro>
 
-              <Reveal className="intent-machine">
-                <div className="intent-machine__input">
-                  <span>HUMAN INTENT</span>
-                  <strong>문제 · 지시 · 자료 · 기준</strong>
-                </div>
-                <span className="intent-machine__arrow" aria-hidden="true">→</span>
-                <div className="intent-machine__core">
-                  <span>LARGE LANGUAGE MODEL</span>
-                  <strong>LLM</strong>
-                  <small>맥락을 읽고 다음 결과를 생성</small>
-                </div>
-                <span className="intent-machine__arrow" aria-hidden="true">→</span>
-                <div className="intent-machine__outputs">
-                  {['TEXT', 'ANALYSIS', 'IMAGE', 'CODE', 'ACTION'].map((output) => (
-                    <span key={output}>{output}</span>
-                  ))}
-                </div>
+              <Reveal className="founder-thesis">
+                <span>THE CENTRAL THESIS</span>
+                <blockquote>
+                  AI가 줄인 것은 구현의 장벽입니다.
+                  <br />
+                  <em>문제를 보는 눈까지 만들어준 것은 아닙니다.</em>
+                </blockquote>
+              </Reveal>
+
+              <Reveal><ImplementationShiftDiagram compact /></Reveal>
+
+              <div className="sub-statement">
+                <span className="eyebrow">WHERE EXECUTIVES STAND</span>
+                <h3>
+                  현장이 실제로 움직이는 방식과
+                  <br />
+                  <em>경영이 기대하는 방식 사이.</em>
+                </h3>
+                <p>
+                  실장은 여러 프로젝트의 반복을 봐왔고, 왜 지금의 절차가 생겼는지도 압니다. 현장의
+                  제약과 회사의 전략을 함께 보기 때문에 그 둘이 어긋나는 지점을 발견할 수 있습니다.
+                  쓸모 있는 Pain Point가 자주 나오는 자리입니다.
+                </p>
+              </div>
+
+              <Reveal className="executive-bridge" aria-label="현장 현실과 경영 전략 사이의 실장">
+                <div><span>PRACTICE / OPERATIONS</span><strong>현장 현실</strong></div>
+                <i aria-hidden="true">↕</i>
+                <div className="executive-bridge__center"><span>SENIOR EXECUTIVE</span><strong>해석하고 연결하는 사람</strong></div>
+                <i aria-hidden="true">↕</i>
+                <div><span>MANAGEMENT / STRATEGY</span><strong>경영 전략</strong></div>
               </Reveal>
 
               <div className="concept-notes">
-                <Reveal as="article">
-                  <span>01</span>
-                  <h3>Prompt</h3>
-                  <p>지금 AI에게 보내는 하나의 요청</p>
-                </Reveal>
-                <Reveal as="article" delay={80}>
-                  <span>02</span>
-                  <h3>Context</h3>
-                  <p>그 요청을 제대로 이해하는 데 필요한 배경과 자료</p>
-                </Reveal>
-                <Reveal as="article" delay={160}>
-                  <span>03</span>
-                  <h3>AI Product</h3>
-                  <p>AI 능력이 화면·데이터·업무 흐름과 연결된 실제 서비스</p>
-                </Reveal>
+                <Reveal as="article"><span>01</span><h3>INDUSTRY DEPTH</h3><p>업의 구조와 이해관계를 겪으며 쌓은 감각</p></Reveal>
+                <Reveal as="article" delay={80}><span>02</span><h3>OPERATIONAL INSIGHT</h3><p>일이 왜 지금 순서로 돌아가는지 아는 이해</p></Reveal>
+                <Reveal as="article" delay={160}><span>03</span><h3>RECURRING FRICTION</h3><p>프로젝트마다 되풀이되는 손실과 불편을 알아보는 눈</p></Reveal>
               </div>
-              <p className="chapter-pullquote">
-                같은 AI라도 <em>무엇을 알고 시작하는가</em>에 따라
-                <br /> 전혀 다른 결과를 만듭니다.
-              </p>
 
-              <div className="sub-statement">
-                <span className="eyebrow">GENERATION ≠ TRUTH</span>
-                <h3>
-                  AI가 잘한다고 해서
-                  <br />
-                  <em>맞다는 뜻은 아닙니다.</em>
-                </h3>
-                <p>
-                  LLM은 다음에 올 가장 <strong>그럴듯한</strong> 내용을 생성합니다. 그래서 사실이
-                  아닐 때도 확신에 찬 문장으로 답할 수 있습니다. 이를 환각(hallucination)이라
-                  부릅니다.
-                </p>
-              </div>
-              <WatchOut>
-                계약 금액, 법규 조항, 프로젝트 사실처럼 <strong>틀리면 대가가 큰 정보</strong>는
-                출처와 원문으로 반드시 확인하세요.
-              </WatchOut>
+              <Reveal className="insight-equation">
+                <div><span>DEEP</span><strong>INSIGHT</strong></div>
+                <i>×</i>
+                <div><span>AI</span><strong>BUILD</strong></div>
+                <i>=</i>
+                <div className="insight-equation__result"><span>SHORTER</span><strong>PROBLEM → TOOL</strong></div>
+              </Reveal>
+
               <ExecutiveTakeaway>
-                AI는 <strong>변환·분석·초안·구현</strong>에 강력합니다. 그러나 최종 판단은 여전히
-                사람의 몫입니다. AI를 잘 쓰는 실장은 "빠른 초안 + 엄격한 검증"을 함께 씁니다.
+                이 과정은 실장이 문제를 고르고, 빠른 MVP를 직접 사용하고, 무엇이 틀렸는지 판단할 만큼의
+                AI Build 능력을 다룹니다. 전문 개발자 양성을 목표로 두지 않습니다.
+                운영 시스템으로 확장할 때는 전문 엔지니어와 보안·아키텍처·운영 조직이 이어받습니다.
               </ExecutiveTakeaway>
             </div>
           </section>
 
           <section className="chapter chapter--tools" id="chapter-2">
             <div className="chapter__inner">
-              <SectionIntro number="02" title="AI마다 역할이 다르다">
+              <SectionIntro number="02" title="AI · Assistant · Agent는 무엇이 다른가" inverse>
                 <p>
-                  도구 이름부터 외울 필요는 없습니다. 먼저 <strong>지금 해야 할 일</strong>을 정하면,
-                  적절한 AI의 역할이 보입니다.
+                  같은 AI라는 이름 아래에 기반 모델, 대화 제품, 여러 행동을 수행하는 Agent가 섞여
+                  있습니다. <strong>세 층만 구분하면</strong> 제품 이름이 바뀌어도 구조가 보입니다.
+                </p>
+              </SectionIntro>
+
+              <Reveal><AiLayersDiagram /></Reveal>
+
+              <Reveal className="custom-ai-note">
+                <span>CUSTOM DOES NOT AUTOMATICALLY MEAN AUTONOMOUS</span>
+                <strong>Custom GPT · Project · Gem ≠ 자동으로 Agent</strong>
+                <p>
+                  맞춤 작업공간에 지시와 파일을 저장하면 같은 배경을 매번 설명하는 수고가 줄어듭니다.
+                  다만 사람이 질문하고 AI가 답하는 방식이라면 Assistant에 가깝습니다. 목표를 받은 뒤 도구를 고르고, 여러 행동의
+                  결과를 관찰하며 계속 진행해야 Agent라고 설명할 수 있습니다.
+                </p>
+              </Reveal>
+
+              <div className="project-language">
+                {agentElements.map(([term, explanation], index) => (
+                  <Reveal as="article" className="project-term" delay={(index % 3) * 60} key={term}>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{term}</h3>
+                    <p>{explanation}</p>
+                  </Reveal>
+                ))}
+              </div>
+
+              <div className="sub-statement">
+                <span className="eyebrow">GENERATION ≠ TRUTH</span>
+                <h3>잘 생성한 답도<br /><em>검증이 필요합니다.</em></h3>
+                <p>
+                  모델은 맥락을 바탕으로 그럴듯한 결과를 만듭니다. 사실과 다른 내용을 확신 있게 말할
+                  수 있고, Agent는 그 오류를 다음 행동으로 이어갈 수도 있습니다. 출처 확인과 승인
+                  지점은 자율성이 커질수록 더 중요해집니다.
+                </p>
+              </div>
+              <WatchOut>
+                계약 금액, 법규 조항, 프로젝트 사실처럼 틀리면 대가가 큰 정보는 원문을 확인하세요.
+                외부 시스템을 바꾸거나 메시지를 보내는 행동에는 권한과 사람의 승인을 둡니다.
+              </WatchOut>
+              <SourceNote>
+                <ul>
+                  <li>OpenAI는 Agent를 LLM이 Workflow 실행을 관리하고 도구를 동적으로 선택하는 시스템으로 설명합니다.</li>
+                  <li>ChatGPT Projects와 Claude Projects는 파일·지시·대화를 유지하는 작업공간입니다. 제품별 Agent 기능은 별도 기능과 설정에 따라 달라집니다.</li>
+                  <li>출처: OpenAI, A practical guide to building agents · ChatGPT Projects · Anthropic, Claude Projects. 2026.09 확인.</li>
+                </ul>
+              </SourceNote>
+            </div>
+          </section>
+
+          <section className="chapter chapter--screen" id="chapter-3">
+            <div className="chapter__inner">
+              <SectionIntro number="03" title="AI로 할 수 있는 일의 전체 지도" english="AI CAPABILITY MAP">
+                <p>
+                  유행하는 브랜드 순위 대신 <strong>지금 해야 할 일</strong>로 고릅니다. 한 제품이 여러
+                  역할을 할 수 있고, 역할마다 다른 제품을 조합해도 됩니다.
                 </p>
               </SectionIntro>
               <Reveal><ToolMap /></Reveal>
 
               <div className="sub-statement">
-                <span className="eyebrow">JOB → TOOL</span>
-                <h3>
-                  단계마다
-                  <br />
-                  <em>도구를 바꿔도 됩니다.</em>
-                </h3>
+                <span className="eyebrow">JOB → ROLE → TOOL</span>
+                <h3>도구보다 먼저<br /><em>일의 종류를 정합니다.</em></h3>
                 <p>
-                  생각은 A로, 내 자료 정리는 B로, 화면은 C로. 어떤 제품이 1등인지 외우는 대신,
-                  "지금 나는 THINK 단계인가, BUILD 단계인가"를 먼저 묻는 습관이 더 오래갑니다.
+                  근거를 찾는 일인지, 내 자료를 읽는 일인지, 화면을 만드는 일인지, 반복 업무를
+                  자동화하는 일인지 먼저 말해보세요. 그다음 보안·비용·기존 업무 환경을 보고 도구를
+                  고르면 됩니다.
                 </p>
               </div>
 
-              <SourceNote>
+              <SourceNote updated="2026.09" summary="OFFICIAL CAPABILITY SOURCES">
                 <ul>
-                  <li>Custom AI(ChatGPT GPT/Project · Claude Project · Gemini Gem)는 지시 + 맥락 + 지식파일을 저장한 "설정"입니다. 자동으로 자율 에이전트가 되지는 않습니다.</li>
-                  <li>도구별 차이: 커스텀 GPT는 지식 + 제3자 액션 모두 지원, Gemini Gem은 지식은 지원하나 제3자 액션은 미지원, Claude Project는 지식은 프로젝트 안, 도구 연결은 계정 수준.</li>
-                  <li>NotebookLM은 내가 올린 자료에서만 인용과 함께 답합니다(일반 웹 검색 에이전트가 아님).</li>
-                  <li>출처: openai.com · support.claude.com · gemini.google · blog.google. 역할·예시는 바뀔 수 있어 카테고리 수준으로 서술했습니다.</li>
+                  <li>General assistants: OpenAI ChatGPT capabilities · Anthropic Claude · Google Gemini.</li>
+                  <li>Knowledge: Google NotebookLM Help — 답변은 notebook sources에 근거하고 인용을 제공합니다.</li>
+                  <li>Video / audio / design: Higgsfield · Google Veo/Flow · Adobe Firefly · Suno · Figma Make 공식 제품 페이지.</li>
+                  <li>Build: Anthropic Claude Code docs · OpenAI Codex CLI · Cursor docs · Google Antigravity 공식 소개.</li>
+                  <li>Automation / Agent: n8n · Zapier Agents · Make AI Agents · Microsoft agentic automation 공식 자료.</li>
+                  <li>대표 사례를 직무별로 배치했으며 순위를 매기지 않았습니다. 가격·한도·세부 기능은 도입 시점에 다시 확인합니다.</li>
                 </ul>
               </SourceNote>
-              <ExecutiveTakeaway>
-                실장이 기억할 것은 <strong>역할의 지도</strong>입니다. "이 일은 어떤 역할이
-                필요한가?"를 먼저 정하면, 그 자리에 맞는 도구는 ACE가 최신으로 채워줄 수 있습니다.
-              </ExecutiveTakeaway>
             </div>
           </section>
 
-          <section className="chapter chapter--system" id="chapter-3">
+          <section className="chapter chapter--system" id="chapter-4">
             <div className="chapter__inner">
-              <SectionIntro number="03" title="프로그램은 무엇으로 이루어지는가" inverse>
+              <SectionIntro number="04" title="프로그램과 AI 시스템은 무엇으로 이루어지는가" inverse>
                 <p>
-                  화면·기능·저장·연결. 이 네 가지가 어떻게 이어지는지 알면
-                  <strong> 일의 순서를 지시</strong>할 수 있습니다.
+                  구현 문법을 배울 필요는 없습니다. 화면, 규칙, 기억, 연결, 실행 환경이 어떻게 이어지는지
+                  알면 <strong>무엇을 먼저 확인하고 언제 전문가가 필요한지</strong> 판단할 수 있습니다.
                 </p>
               </SectionIntro>
               <Reveal><SystemDiagram /></Reveal>
 
               <div className="system-terms">
-                {[
-                  ['FRONTEND', '사용자가 보고 누르는 화면'],
-                  ['BACKEND', '화면 뒤에서 규칙을 처리하는 기능'],
-                  ['DATABASE', '정보를 기억하고 다시 꺼내는 저장소'],
-                  ['API', '내부·외부 시스템과 데이터를 주고받는 연결'],
-                  ['AUTHENTICATION', '누가 들어왔는지 확인하고 권한을 나누는 과정'],
-                  ['DEPLOY', '만든 제품을 실제로 접속할 수 있게 내보내는 일'],
-                ].map(([term, meaning]) => (
+                {systemTerms.map(([term, meaning]) => (
                   <Reveal as="div" className="system-term" key={term}>
                     <strong>{term}</strong><p>{meaning}</p>
                   </Reveal>
@@ -225,164 +277,148 @@ export function BookPage() {
 
               <Reveal className="why-terms">
                 <p className="eyebrow">WHY THESE WORDS MATTER</p>
-                <h3>
-                  직접 코딩하기 위해서가 아니라,
-                  <br />
-                  <em>일의 순서를 정확히 지시하기 위해서.</em>
-                </h3>
+                <h3>코딩 시험과 무관합니다.<br /><em>제품의 상태를 판단하기 위한 언어입니다.</em></h3>
               </Reveal>
 
               <div className="sub-statement">
-                <span className="eyebrow">PROTOTYPE ≠ PRODUCTION</span>
-                <h3>
-                  Prototype과 Production은
-                  <br />
-                  <em>다른 단계입니다.</em>
-                </h3>
+                <span className="eyebrow">MOCK / PROTOTYPE → WORKING PRODUCT</span>
+                <h3>보이는 화면과<br /><em>데이터가 움직이는 제품.</em></h3>
                 <p>
-                  먼저 <strong>작동하는 그림</strong>을 확인하고(Prototype), 그것이 옳다고 판단된
-                  뒤에 <strong>실제 사용자·데이터·권한·운영</strong>을 견디게 만듭니다(Production).
-                  이 순서를 합의하지 않으면 이후 모든 지시가 꼬입니다.
+                  첫 화면에는 <strong>샘플 데이터(Dummy Data)</strong>를 넣어 업무 흐름을 확인할 수
+                  있습니다. 화면이 실제처럼 보여도 Database와 연결되지 않았다면 아직 목업 / Frontend
+                  Prototype입니다.
                 </p>
               </div>
               <div className="contrast-pair">
                 <div className="contrast-pair__side">
-                  <span>PROTOTYPE</span>
-                  <strong>작동하는 그림을 먼저 확인</strong>
-                  <p>샘플 데이터(Dummy Data) · 화면과 사용자 흐름 검증 · 빠르고 저렴하게 바꿔봄 · 아직 실제 데이터 없음</p>
+                  <span>MOCK / FRONTEND PROTOTYPE</span>
+                  <strong>샘플 값으로 화면과 흐름을 확인</strong>
+                  <p>Database 연결 없음 · 빠르게 바꿔볼 수 있음 · 사용자 경험 검토에 적합</p>
                 </div>
                 <span className="contrast-pair__op" aria-hidden="true">→</span>
                 <div className="contrast-pair__side contrast-pair__side--accent">
-                  <span>PRODUCTION</span>
-                  <strong>실제 운영을 견디는 단계</strong>
-                  <p>실제 데이터 · 로그인/권한 · 오류·보안·성능 · 여러 사람이 매일 사용</p>
+                  <span>WORKING PRODUCT</span>
+                  <strong>Backend + Database가 실제 데이터를 처리</strong>
+                  <p>저장 · 조회 · 수정 · 권한 · 오류 대응 · 운영과 유지보수</p>
                 </div>
               </div>
               <WatchOut>
-                디자인 Prototype이 그럴듯하다고 곧바로 실무에 쓸 수 있는 것은 아닙니다. 예쁜 화면과
-                <strong> 실제로 데이터를 저장·조회하고 권한을 지키는 시스템</strong>은 전혀 다른
-                작업량입니다. "언제까지가 Prototype이고 언제부터 Production인지"를 ACE와 명확히
-                합의하세요.
+                매끄러운 Frontend Prototype은 화면과 흐름을 검증한 상태입니다. 실제 사용자를 받는 순간
+                보안, Server 구조, 데이터 품질, 장애 대응, 운영과 유지보수 문제가 함께
+                시작됩니다. 이 단계에는 전문 소프트웨어 엔지니어링이 필요합니다.
               </WatchOut>
-              <TryThisPrompt heading="순서를 지시하는 두 단계">
-                <PromptBlock label="STAGE 1 · PROTOTYPE" tone="dark">
-                  현재 단계에서는 디자인과 사용자 흐름을 검증하는 Prototype만 만든다. 실제 사내 데이터, 로그인, Database는 아직 연결하지 마라. 샘플 데이터로 화면과 흐름만 보여줘.
-                </PromptBlock>
-                <PromptBlock label="STAGE 2 · PRODUCTION" tone="signal">
-                  승인된 화면과 사용자 흐름은 변경하지 말고, 실제 Backend, Database, Authentication을 연결해. 바꾸기 전에 무엇을 바꿀지 먼저 설명해줘.
-                </PromptBlock>
-              </TryThisPrompt>
+              <SecurityGate>
+                사내 데이터 연결 전에는 샘플·공개·익명화된 데이터로 흐름을 검증합니다. 실제 시스템과
+                API를 연결할 때는 회사가 승인한 환경, 계정, 권한, 기록 정책 안에서 진행합니다.
+              </SecurityGate>
             </div>
           </section>
 
-          <section className="chapter chapter--screen" id="chapter-4">
+          <section className="chapter chapter--connect" id="chapter-5">
             <div className="chapter__inner">
-              <SectionIntro number="04" title="AI로 화면부터 만든다">
+              <SectionIntro number="05" title="Workflow · Agent · MCP · Skill">
                 <p>
-                  실제 기능에 시간과 비용을 쓰기 전, <strong>사용자가 보게 될 경험</strong>부터 빠르게 만들어 확인할 수 있습니다.
+                  자동화 방식은 다음 단계가 대부분 정해져 있는지, 상황을 읽고 AI가
+                  <strong> 다음 행동을 골라야 하는지</strong>에 따라 달라집니다.
                 </p>
               </SectionIntro>
-              <ol className="screen-workflow" aria-label="화면부터 만드는 순서">
-                {[
-                  ['PROBLEM', '문제와 아이디어'],
-                  ['CONVERSATION', '요구사항 대화'],
-                  ['REFERENCE', '좋은 사례 탐색'],
-                  ['DESIGN', '설계와 Prototype'],
-                  ['FRONTEND', '첫 화면 구현'],
-                ].map(([title, korean], index) => (
-                  <Reveal as="li" delay={index * 70} key={title}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <strong>{title}</strong>
-                    <p>{korean}</p>
-                  </Reveal>
-                ))}
-              </ol>
-              <Reveal>
-                <ScreenshotPlaceholder
-                  tool="Claude Design"
-                  purpose="초기 인터페이스 생성 장면"
-                  description="생성된 UI와 prompt 입력 영역이 함께 보이는 화면"
-                  ratio="16:10"
-                  annotation="generated UI / prompt area / preview"
-                />
-              </Reveal>
-              <p className="tool-example-note">
-                <span>CURRENT EXAMPLE</span>
-                Claude Design은 현재 예시입니다. 도구가 바뀌어도 제작 원리는 같습니다.
-              </p>
+
+              <div className="workflow-agent-contrast">
+                <Reveal className="workflow-agent-contrast__side">
+                  <span>IF THE PATH IS MOSTLY FIXED</span>
+                  <strong>WORKFLOW AUTOMATION</strong>
+                  <p>트리거와 순서, 조건이 비교적 명확합니다.</p>
+                  <div>접수 → 분류 규칙 → 담당자 배정 → 알림</div>
+                </Reveal>
+                <Reveal className="workflow-agent-contrast__side workflow-agent-contrast__side--agent" delay={100}>
+                  <span>IF AI MUST DECIDE THE NEXT ACTION</span>
+                  <strong>AGENT / AGENTIC AUTOMATION</strong>
+                  <p>문맥과 결과를 보고 다음 도구와 행동을 선택합니다.</p>
+                  <div>목표 → 판단 → 도구 → 관찰 → 다음 행동 ↺</div>
+                </Reveal>
+              </div>
 
               <div className="sub-statement">
-                <span className="eyebrow">PROTOTYPE REVIEW</span>
-                <h3>
-                  Prototype을 볼 때
-                  <br />
-                  <em>실장은 이것을 봅니다.</em>
-                </h3>
+                <span className="eyebrow">THE AUTOMATION FAMILY</span>
+                <h3>정해진 흐름과 AI의 판단을<br /><em>한 시스템 안에서 섞을 수 있습니다.</em></h3>
                 <p>
-                  실제 업무가 이 화면에서 돌아가는지를 봅니다. 이 판단은 현장을 아는 실장이
-                  ACE보다 훨씬 잘합니다.
+                  n8n, Zapier, Make, Power Automate는 넓은 Workflow Automation 제품군입니다. 현재는
+                  정형 흐름에 AI 단계, Agent, 사람의 승인, 기존 시스템 연결을
+                  함께 구성하는 방향으로 발전했습니다.
                 </p>
               </div>
-              <ul className="review-checklist">
-                <li>필요한 정보가 한눈에 보이는가?</li>
-                <li>어떤 버튼을 눌러야 하는지 명확한가?</li>
-                <li>실제 업무 순서와 맞는가?</li>
-                <li>불필요한 정보가 과도하지 않은가?</li>
-                <li>의사결정에 필요한 정보가 빠지지 않았는가?</li>
-              </ul>
+              <div className="automation-family" aria-label="Workflow automation examples">
+                {['n8n', 'ZAPIER', 'MAKE', 'POWER AUTOMATE'].map((tool) => <span key={tool}>{tool}</span>)}
+              </div>
+
+              <div className="project-language project-language--three">
+                <Reveal as="article" className="project-term">
+                  <span>01</span><h3>MCP</h3>
+                  <p>AI가 외부 도구·데이터와 연결되는 방식을 표준화한 연결 규격</p>
+                </Reveal>
+                <Reveal as="article" className="project-term" delay={60}>
+                  <span>02</span><h3>SKILL</h3>
+                  <p>특정 일을 반복해서 잘하도록 만든 재사용 가능한 작업법과 절차</p>
+                </Reveal>
+                <Reveal as="article" className="project-term" delay={120}>
+                  <span>03</span><h3>HARNESS</h3>
+                  <p>AI 작업이 여러 번 반복되어도 같은 규칙과 검증 흐름으로 돌아가게 하는 체계</p>
+                </Reveal>
+              </div>
+
+              <Reveal className="mcp-explainer">
+                <div><span>AI</span><strong>AGENT / ASSISTANT</strong></div>
+                <i aria-hidden="true">↔</i>
+                <div className="mcp-explainer__standard"><span>STANDARD</span><strong>MCP</strong></div>
+                <i aria-hidden="true">↔</i>
+                <div><span>TOOLS + DATA</span><strong>FILES · SEARCH · SYSTEMS</strong></div>
+              </Reveal>
+
+              <SourceNote>
+                <ul>
+                  <li>Anthropic은 predefined code path를 Workflow, LLM이 process와 tool usage를 동적으로 지휘하는 시스템을 Agent로 구분합니다.</li>
+                  <li>n8n, Zapier, Make, Microsoft 공식 자료 모두 기존 자동화에 AI 또는 Agent 기능을 결합하는 현재 제품 방향을 설명합니다.</li>
+                  <li>MCP 공식 사양은 LLM application과 external data sources/tools를 연결하는 open protocol로 정의합니다. 2026.09 확인.</li>
+                </ul>
+              </SourceNote>
               <ExecutiveTakeaway>
-                Prototype 리뷰는 실장이 가장 큰 가치를 더하는 지점입니다. "여기서 결재하려면 이
-                숫자가 같이 보여야 한다", "이 순서가 실제 현장과 다르다" 같은 지적은 <strong>암묵지가
-                제품 요구사항으로 바뀌는 순간</strong>입니다.
+                예측 가능한 단계에는 Workflow가 관리하기 쉽습니다. 해석과 예외 판단이 필요한 구간만
+                Agent에게 맡기고, 중요한 행동 앞에는 승인과 기록을 둡니다. 자율성은 필요한 만큼만
+                부여할 때 관리하기 쉽습니다.
               </ExecutiveTakeaway>
             </div>
           </section>
 
-          <section className="chapter chapter--reference" id="chapter-5">
+          <section className="chapter chapter--reference" id="chapter-6">
             <div className="chapter__inner">
-              <SectionIntro number="05" title="처음부터 생각할 필요는 없습니다." english="REFERENCE-DRIVEN BUILD">
+              <SectionIntro number="06" title="이미 검증된 서비스에서 시작할 수 있다" english="REFERENCE-DRIVEN BUILD">
                 <p>
-                  이미 검증된 화면에서 <strong>정보의 구조와 사용자 흐름</strong>을 읽어내고,
-                  HDEC 업무 맥락에 맞는 새로운 제품으로 재구성합니다.
+                  이미 사람들이 돈을 내고 사용하는 유사 서비스가 있다면, 검증된 구조에서 시작할 수
+                  있습니다. <strong>시장에 존재하는 해결 방식을 읽고</strong> 우리 업무에 맞게 다시
+                  설계하는 접근입니다.
                 </p>
               </SectionIntro>
 
+              <Reveal className="market-signal">
+                <span>PAID PRODUCT = A MARKET SIGNAL</span>
+                <strong>누군가 그 문제의 해결에 돈을 낼 만큼 가치를 느꼈다는 증거</strong>
+                <p>우리 업무에 맞는지는 별도로 검토합니다. 시장에서 무엇이 검증되었는지 분석할 출발점이 생긴 것입니다.</p>
+              </Reveal>
+
               <div className="sub-statement">
-                <span className="eyebrow">THREE LAYERS OF REFERENCE</span>
-                <h3>
-                  무엇을 참고하는지
-                  <br />
-                  <em>구분해서 봅니다.</em>
-                </h3>
-                <p>
-                  좋은 레퍼런스는 "이 화면처럼 보이고 싶다"에서 끝나지 않습니다. 세 개의 층을
-                  나눠 보면, 무엇을 가져오고 무엇을 두고 올지가 분명해집니다.
-                </p>
+                <span className="eyebrow">WHAT WE BENCHMARK</span>
+                <h3>화면의 모양보다<br /><em>해결 구조를 읽습니다.</em></h3>
               </div>
-              <div className="concept-notes">
-                <Reveal as="article">
-                  <span>01</span>
-                  <h3>Visual</h3>
-                  <p>이 화면처럼 보이고 싶다 — 시각적 완성도와 톤</p>
-                </Reveal>
-                <Reveal as="article" delay={80}>
-                  <span>02</span>
-                  <h3>Interaction</h3>
-                  <p>이 기능의 사용 흐름이 좋다 — 행동과 순서</p>
-                </Reveal>
-                <Reveal as="article" delay={160}>
-                  <span>03</span>
-                  <h3>Information</h3>
-                  <p>정보를 정리하는 방식이 좋다 — 정보구조(IA)</p>
-                </Reveal>
+              <div className="benchmark-grid">
+                {['INFORMATION ARCHITECTURE', 'USER FLOW', 'INTERACTION PATTERN', 'PRIORITIZATION', 'WORKFLOW STRUCTURE', 'VALUE PROPOSITION'].map((item, index) => (
+                  <Reveal as="div" delay={(index % 3) * 60} key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></Reveal>
+                ))}
               </div>
 
               <div className="reference-sequence">
                 {referenceSteps.map(([number, english, korean], index) => (
-                  <Reveal className="reference-step" delay={index * 60} key={number}>
-                    <span>{number}</span>
-                    <strong>{english}</strong>
-                    <p>{korean}</p>
+                  <Reveal className="reference-step" delay={index * 50} key={number}>
+                    <span>{number}</span><strong>{english}</strong><p>{korean}</p>
                     {index < referenceSteps.length - 1 && <i aria-hidden="true">→</i>}
                   </Reveal>
                 ))}
@@ -390,15 +426,15 @@ export function BookPage() {
 
               <div className="reference-boundary">
                 <div>
-                  <span>REFERENCE</span>
-                  <strong>구조와 원리를 분석합니다.</strong>
-                  <p>정보 위계 · 사용자 흐름 · 상호작용 패턴</p>
+                  <span>ANALYZE & REINTERPRET</span>
+                  <strong>검증된 해결 원리를 배웁니다.</strong>
+                  <p>정보구조 · 사용자 흐름 · 상호작용 · 우선순위 · 가치 제안</p>
                 </div>
                 <i aria-hidden="true">≠</i>
                 <div>
-                  <span>COPY</span>
-                  <strong>소유물을 복제하지 않습니다.</strong>
-                  <p>독점 코드 · 브랜드 · 이미지 · 고유 자산</p>
+                  <span>DO NOT COPY</span>
+                  <strong>타인의 소유물을 복제하지 않습니다.</strong>
+                  <p>독점 소스 코드 · 브랜드 · 문구 · 이미지 · 저작권이 있는 고유 자산</p>
                 </div>
               </div>
 
@@ -408,242 +444,180 @@ export function BookPage() {
                   <strong>프로젝트 포트폴리오 관리 화면</strong>
                 </div>
                 <div className="hdec-scenario__prompts">
-                  <PromptBlock label="01 · ANALYZE" tone="light">
-                    이 화면을 디자인 관점이 아니라 정보구조와 사용자 행동 관점에서 분석해줘.
-                  </PromptBlock>
-                  <PromptBlock label="02 · EXTRACT" tone="light">
-                    여기서 재사용 가능한 UX 원칙만 추출해줘. 브랜드·문구·고유 자산은 제외해.
-                  </PromptBlock>
-                  <PromptBlock label="03 · REINTERPRET" tone="light">
-                    이 구조를 여러 건설 프로젝트를 동시에 관리하는 실장급 임원용 Dashboard로 재구성해줘.
-                  </PromptBlock>
-                  <PromptBlock label="04 · BUILD" tone="light">
-                    실제 기능은 아직 연결하지 말고 샘플 데이터로 Frontend Prototype을 만들어줘.
-                  </PromptBlock>
+                  <PromptBlock label="01 · USE & ANALYZE" tone="light">유사한 유료 서비스를 직접 사용한 메모와 화면이다. 어떤 사용자 문제를 어떤 순서로 해결하는지 분석해줘.</PromptBlock>
+                  <PromptBlock label="02 · EXTRACT PRINCIPLES" tone="light">정보 위계, 사용자 행동, 우선순위, 반복 Workflow에서 재사용할 원칙만 추출해줘. 브랜드·문구·고유 자산은 제외해.</PromptBlock>
+                  <PromptBlock label="03 · REINTERPRET" tone="light">이 원칙을 여러 건설 프로젝트를 동시에 보는 실장의 업무로 다시 설계해줘. 현장 리스크가 공정률보다 먼저 보이게 해.</PromptBlock>
+                  <PromptBlock label="04 · BUILD" tone="light">실제 사내 데이터는 연결하지 말고, 샘플 데이터로 목업 / Frontend Prototype을 만들어줘.</PromptBlock>
                 </div>
               </Reveal>
 
               <ExecutiveTakeaway>
-                같은 방법을 다른 화면에도 그대로 적용할 수 있습니다 —
-                <strong> 현장 리스크 요약, 경영회의 Action Tracker, 신규 사업 기초검토</strong>.
-                레퍼런스에서 배우는 것은 <strong>정보를 정리하는 원리</strong>입니다. 원리는
-                가져오되, 브랜드·문구·독점 코드는 두고 옵니다.
+                이미 시장에서 검증된 해결 구조를 분석한 뒤, 우리 업무 맥락으로 다시 설계합니다.
+                Reference-driven Build는 문제 해결 원리를 읽고 독자적으로 재설계하는 일입니다.
               </ExecutiveTakeaway>
-            </div>
-          </section>
-
-          <section className="chapter chapter--connect" id="chapter-6">
-            <div className="chapter__inner">
-              <SectionIntro number="06" title="화면 뒤에 실제 기능을 연결한다">
-                <p>
-                  화면과 흐름이 승인되면, 그때 실제 데이터를 저장하고 사내외 시스템과 연결하고
-                  사용자별 권한을 설정합니다.
-                </p>
-              </SectionIntro>
-
-              <Reveal className="stack-equation" aria-label="Frontend 더하기 Backend 더하기 Database 더하기 API 더하기 Authentication">
-                {['FRONTEND', 'BACKEND', 'DATABASE', 'API', 'AUTH'].map((item, index) => (
-                  <div key={item}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <strong>{item}</strong>
-                    {index < 4 && <i aria-hidden="true">+</i>}
-                  </div>
-                ))}
-                <p>= WORKING PRODUCT</p>
-              </Reveal>
-
-              <div className="connect-copy">
-                <p>
-                  <span>먼저</span>
-                  화면에서 업무 흐름을 확인합니다.
-                </p>
-                <p>
-                  <span>그다음</span>
-                  승인된 흐름을 유지하며 실제 기능을 연결합니다.
-                </p>
-              </div>
-
-              <div className="sub-statement">
-                <span className="eyebrow">DISPLAY ≠ STORE</span>
-                <h3>
-                  보여주는 것과
-                  <br />
-                  <em>저장하는 것은 다릅니다.</em>
-                </h3>
-                <p>
-                  Prototype의 "Project A"는 화면에 <strong>박아 넣은 예시</strong>입니다. Production은
-                  실제 프로젝트 기록을 <strong>저장하고, 다시 꺼내고, 수정</strong>합니다. 겉모습은
-                  비슷해도 뒤에서 하는 일이 전혀 다릅니다.
-                </p>
-              </div>
-              <div className="contrast-pair">
-                <div className="contrast-pair__side">
-                  <span>BEFORE · 화면에 표시만</span>
-                  <strong>하드코딩된 예시</strong>
-                  <p>"Project A · 공정률 62%"가 코드에 고정되어 있음. 새로고침해도 항상 같은 값.</p>
-                </div>
-                <span className="contrast-pair__op" aria-hidden="true">→</span>
-                <div className="contrast-pair__side contrast-pair__side--accent">
-                  <span>AFTER · 실제로 저장·조회</span>
-                  <strong>Database의 실제 기록</strong>
-                  <p>프로젝트를 추가·수정하면 Database에 저장되고, 다음에 열 때 그대로 다시 나타남.</p>
-                </div>
-              </div>
-              <Reveal>
-                <PromptBlock>
-                  지금 확정된 화면 구조와 상호작용은 유지해. 프로젝트 데이터를 저장하는 Database와 조회·수정 기능을 담당할 Backend를 연결하고, 사용자 역할별 접근 권한을 추가해.
-                </PromptBlock>
-              </Reveal>
-
-              <div className="sub-statement">
-                <span className="eyebrow">INTERNAL INTEGRATION</span>
-                <h3>
-                  언젠가는 사내 시스템과
-                  <br />
-                  <em>연결될 수 있습니다.</em>
-                </h3>
-                <p>
-                  HDEC 규모의 업무에서는 결국 <strong>Microsoft 365 · SharePoint · Teams · 사내
-                  프로젝트 시스템 · 승인된 내부 API</strong> 같은 곳과 연결이 필요할 수 있습니다. 다만
-                  이런 연결은 모두 <strong>회사의 승인·권한·거버넌스</strong>가 먼저입니다. 예시일 뿐,
-                  특정 사내 시스템이 이미 연결되어 있다는 뜻은 아닙니다.
-                </p>
-              </div>
-              <SecurityGate>
-                기밀 사내 정보를 <strong>승인되지 않은 외부 AI 서비스</strong>에 넣지 마세요. 외부에서
-                실험할 때는 합성·공개·익명화된 데이터를 쓰고, 실제 사내 데이터 연결은 승인된
-                서비스·정책 안에서만 진행합니다. API·커넥터는 접근 권한과 거버넌스가 따라옵니다.
-              </SecurityGate>
             </div>
           </section>
 
           <section className="chapter chapter--harness" id="chapter-7">
             <div className="chapter__inner">
-              <SectionIntro number="07" title="한 번의 프롬프트에서 프로젝트 시스템으로" inverse>
+              <SectionIntro number="07" title="실제로 AI와 개발하는 방법" english="PLAN → BUILD → REVIEW → USE" inverse>
                 <p>
-                  좋은 프롬프트는 한 번의 일을 잘 시작합니다. 좋은 환경은 AI가 <strong>며칠, 몇 주 동안 같은 방향으로</strong>
-                  계속 일하게 합니다.
+                  AI 개발은 문제를 계획하고, 실제 파일을 만들고, 여러 방식으로 검토한 뒤,
+                  <strong> 실장이 직접 써보는 반복</strong>으로 진행됩니다.
                 </p>
               </SectionIntro>
 
-              <div className="sub-statement">
-                <span className="eyebrow">CHAT → PROJECT → REPOSITORY</span>
-                <h3>
-                  대화에서 프로젝트로,
-                  <br />
-                  <em>프로젝트에서 저장소로.</em>
-                </h3>
-                <p>
-                  같은 AI라도 담는 그릇이 커질수록 더 오래, 더 일관되게 일합니다. 한 번의
-                  <strong> 대화(Chat)</strong>는 지금의 지시, <strong>프로젝트(Project)</strong>는
-                  맥락과 파일과 지시가 계속 남는 공간, <strong>저장소(Repository)</strong>는 제품의
-                  실제 파일과 변경 이력이 쌓이는 작업장입니다.
-                </p>
-              </div>
+              <Reveal><DevelopmentLoop /></Reveal>
 
-              <div className="prompt-versus">
-                <Reveal className="prompt-versus__side">
-                  <span>ONE GOOD PROMPT</span>
-                  <strong>한 번의 지시</strong>
-                  <p>지금 필요한 결과를 선명하게 요청합니다.</p>
-                  <div className="prompt-versus__line">INSTRUCTION → RESULT</div>
+              <div className="role-sections">
+                <Reveal as="article" className="role-section">
+                  <span>ROLE 1 · PLANNER</span>
+                  <h3>나와 같은 선상에서 계속 의논할 수 있는 AI 기획자</h3>
+                  <p>
+                    ChatGPT Project나 Claude Project 같은 Planning / Conversation Surface에서 Pain Point,
+                    사용자, 기대 결과, 업무 흐름, 기능, 제약, 성공 기준을 함께 정리합니다.
+                  </p>
+                  <div className="role-section__chips">{['PAIN POINT', 'USER', 'OUTCOME', 'WORKFLOW', 'FEATURES', 'CONSTRAINTS', 'SUCCESS CRITERIA'].map((item) => <span key={item}>{item}</span>)}</div>
+                  <small>OUTPUT · PRD · SPEC · Markdown planning docs · Rules / project instructions</small>
                 </Reveal>
-                <Reveal className="prompt-versus__side prompt-versus__side--project" delay={100}>
-                  <span>PROJECT SYSTEM</span>
-                  <strong>계속 이어지는 작업</strong>
-                  <p>맥락, 규칙, 검증 방법을 환경 안에 남깁니다.</p>
-                  <div className="prompt-versus__line">CONTEXT ↔ WORK ↔ VERIFY ↺</div>
+
+                <Reveal as="article" className="role-section role-section--builder">
+                  <span>ROLE 2 · BUILDER</span>
+                  <h3>AI가 실제 파일을 읽고 수정하고 실행하는 곳</h3>
+                  <p>
+                    Claude Code와 Codex CLI는 Terminal-based 환경의 대표 예입니다. Cursor와 Google
+                    Antigravity는 IDE / agent-first 환경에서 에디터, 터미널, 브라우저를 함께 사용합니다.
+                    실장은 명령어보다 이곳이 실제 구현이 일어나는 작업면이라는 점을 이해하면 됩니다.
+                  </p>
+                  <div className="builder-surfaces">
+                    <div><span>TERMINAL-BASED</span><strong>Claude Code · Codex CLI</strong></div>
+                    <div><span>IDE / AGENT-FIRST</span><strong>Cursor · Google Antigravity</strong></div>
+                  </div>
+                </Reveal>
+
+                <Reveal as="article" className="role-section">
+                  <span>ROLE 3 · REVIEWER</span>
+                  <h3>AI 교차 검토에 여러 검증 수단을 더합니다.</h3>
+                  <p>다른 Coding Agent나 모델의 검토에 자동 검사와 실제 화면 확인을 더합니다.</p>
+                  <div className="role-section__chips">{['ANOTHER AGENT', 'TESTS', 'BUILD', 'LINT', 'BROWSER', 'VISUAL INSPECTION'].map((item) => <span key={item}>{item}</span>)}</div>
+                  <small>FOUNDER EXAMPLE · Claude Code builds → Codex reviews → planner Claude / GPT re-evaluates direction. 하나의 예시이며 필수 조합은 아닙니다.</small>
+                </Reveal>
+
+                <Reveal as="article" className="role-section role-section--human">
+                  <span>ROLE 4 · ACTUAL USER</span>
+                  <h3>실장이 직접 써보고 최종 오차를 찾습니다.</h3>
+                  <div className="precision-feedback">
+                    <blockquote>“이 버튼은 실제 업무에서 쓰지 않는다.”</blockquote>
+                    <blockquote>“현장에서는 이 순서가 아니다.”</blockquote>
+                    <blockquote>“이 숫자보다 리스크가 먼저 보여야 한다.”</blockquote>
+                    <blockquote>“이 단계가 하나 빠졌다.”</blockquote>
+                  </div>
+                  <p>
+                    경험을 근거로 정확한 오차를 찾아 그 부분만 고치는 <strong>정밀 타격</strong>입니다.
+                    이때 Domain Knowledge가 제품 품질로 바뀝니다.
+                  </p>
                 </Reveal>
               </div>
 
-              <Reveal><HarnessDiagram /></Reveal>
-
-              <div className="project-language">
-                {[
-                  ['Git / GitHub', '무엇이 언제 바뀌었는지 기록하고 협업하는 방식'],
-                  ['CLAUDE.md / AGENTS.md', 'AI가 프로젝트 목적과 규칙을 계속 기억하도록 주는 지침'],
-                  ['MCP / Connectors', 'AI가 허용된 도구와 외부 자료에 연결되는 통로'],
-                  ['Skills', '반복 업무를 일관되게 수행하는 전문 작업법'],
-                  ['Tests', '결과가 실제로 작동하는지 확인하는 기준'],
-                  ['Permissions', 'AI가 어디까지 읽고 바꿀 수 있는지 정한 경계'],
-                ].map(([term, explanation], index) => (
-                  <Reveal as="article" className="project-term" delay={(index % 3) * 60} key={term}>
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <h3>{term}</h3>
-                    <p>{explanation}</p>
-                  </Reveal>
-                ))}
-              </div>
-              <Reveal className="harness-definition">
-                <span>PROMPT</span><p>AI에게 주는 하나의 지시</p>
-                <i aria-hidden="true">≠</i>
-                <span>HARNESS</span><p>AI가 신뢰할 수 있게 계속 일하도록 돕는 전체 환경</p>
+              <Reveal className="spec-kit-note">
+                <span>REAL EXAMPLE · GITHUB SPEC KIT</span>
+                <strong>SPEC → PLAN → TASKS → IMPLEMENT</strong>
+                <p>의도를 문서로 남기고 단계별 산출물이 다음 구현의 맥락이 되게 하는 공개 도구의 한 예입니다.</p>
               </Reveal>
 
               <div className="sub-statement">
-                <span className="eyebrow">GIT · GITHUB, IN PLAIN WORDS</span>
-                <h3>
-                  실장이 알아야 할
-                  <br />
-                  <em>네 단어.</em>
-                </h3>
+                <span className="eyebrow">HARNESS · A RELIABLE LOOP</span>
+                <h3>같은 기준으로<br /><em>개발 반복을 이어가는 체계.</em></h3>
                 <p>
-                  실제 명령은 ACE가 다룹니다. 아래 네 단어의 뜻만 알면 "안전하게 나눠서 해",
-                  "여기서 한 번 저장해 두자" 같은 방향을 지시할 수 있습니다.
+                  PRD와 SPEC, 프로젝트 규칙, Skills, MCP, 권한, Tests, Git history, Review criteria가
+                  반복을 받쳐줄 수 있습니다. 매번 계획·구현·검토·사용의 순서를 같은 기준으로 이어가는
+                  운영 방식이 Harness를 완성합니다.
                 </p>
               </div>
-              <div className="project-language">
-                <Reveal as="article" className="project-term">
-                  <span>A</span>
-                  <h3>Repository</h3>
-                  <p>프로젝트의 작업장과 전체 변경 이력</p>
+              <Reveal><HarnessDiagram /></Reveal>
+
+              <div className="prompt-versus">
+                <Reveal className="prompt-versus__side">
+                  <span>GOOD PROMPT</span><strong>한 번의 일을 잘 시킨다.</strong>
+                  <p>지금 필요한 결과와 기준을 선명하게 전달합니다.</p>
+                  <div className="prompt-versus__line">INSTRUCTION → RESULT</div>
                 </Reveal>
-                <Reveal as="article" className="project-term" delay={60}>
-                  <span>B</span>
-                  <h3>Commit</h3>
-                  <p>의미 있는 지점을 저장하는 체크포인트</p>
-                </Reveal>
-                <Reveal as="article" className="project-term" delay={120}>
-                  <span>C</span>
-                  <h3>Branch</h3>
-                  <p>본류를 건드리지 않고 안전하게 병행 작업</p>
-                </Reveal>
-                <Reveal as="article" className="project-term" delay={180}>
-                  <span>D</span>
-                  <h3>Push</h3>
-                  <p>내 이력을 원격 저장소로 보내 공유</p>
+                <Reveal className="prompt-versus__side prompt-versus__side--project" delay={100}>
+                  <span>GOOD HARNESS</span><strong>여러 번의 개발 반복이 같은 기준으로 돌아가게 한다.</strong>
+                  <p>맥락, 규칙, 검증, 실제 사용을 다음 반복에도 이어갑니다.</p>
+                  <div className="prompt-versus__line">PLAN ↔ BUILD ↔ USE ↺</div>
                 </Reveal>
               </div>
-              <ExecutiveTakeaway>
-                좋은 Prompt는 일을 한 번 잘 시킵니다. 그 일을 계속 잘하게 하는 것은
-                지침·도구·권한·테스트·피드백·버전관리까지 갖춘 Harness, 곧 <strong>작업 환경
-                전체</strong>입니다.
-              </ExecutiveTakeaway>
+
+              <WatchOut title="Harness에도 무게가 있습니다.">
+                긴 프로젝트에서는 연속성과 유지보수성을 높이지만, 초기 실험부터 절차를 크게 만들면
+                확인이 늦어질 수 있습니다. 초기 MVP는 충분히 계획하고, 작게 만든 뒤, 빨리 보고 써보는
+                편이 낫습니다.
+              </WatchOut>
+
+              <Reveal className="mvp-rhythm">
+                {['PLAN WELL', 'BUILD MVP QUICKLY', 'LOOK AT IT', 'USE IT', 'FIX PRECISELY'].map((item, index) => (
+                  <div key={item}><strong>{item}</strong>{index < 4 && <i aria-hidden="true">→</i>}</div>
+                ))}
+              </Reveal>
+              <p className="chapter-pullquote">
+                오래 개발했다고 좋은 제품이 되는 것은 아닙니다.<br />
+                <em>실제로 써보지 않은 코드는 결국 내 컴퓨터 안에 있는 코드 조각일 수 있습니다.</em>
+              </p>
+
+              <div className="sub-statement">
+                <span className="eyebrow">LOCAL → GITHUB → DEPLOY</span>
+                <h3>실장이 기억할<br /><em>세 개의 장소.</em></h3>
+              </div>
+              <Reveal className="delivery-path">
+                <div><span>LOCAL / 내 PC</span><strong>Claude Code · Codex가 실제 코드를 만드는 곳</strong></div>
+                <i aria-hidden="true">↓</i>
+                <div><span>GITHUB</span><strong>코드와 변경 이력을 원격에 보관하고 공유하는 저장소</strong></div>
+                <i aria-hidden="true">↓</i>
+                <div><span>DEPLOY</span><strong>실제 사용자가 접속 가능한 서비스로 내보내는 과정</strong></div>
+              </Reveal>
+              <p className="delivery-note">
+                GitHub는 코드를 저장하고 변경 이력을 관리합니다. GitHub Pages는 일부 정적 사이트를
+                호스팅합니다. 서비스 성격에 따라 Vercel, Azure, AWS 또는 회사가 승인한 다른 인프라를
+                배포 환경으로 선택할 수 있습니다.
+              </p>
+
+              <SourceNote>
+                <ul>
+                  <li>ChatGPT Projects와 Claude Projects는 파일·지시·대화를 유지하는 Planning / Conversation Surface의 실제 예입니다.</li>
+                  <li>Claude Code와 Codex CLI는 terminal coding agent, Cursor와 Antigravity는 editor/agent-first development environment로 공식 문서에서 설명됩니다.</li>
+                  <li>GitHub Spec Kit 공식 흐름: Spec → Plan → Tasks → Implement. 2026.09 확인.</li>
+                </ul>
+              </SourceNote>
             </div>
           </section>
 
           <section className="chapter chapter--map" id="chapter-8">
             <div className="chapter__inner chapter__inner--wide">
-              <SectionIntro number="08" title="전체 지도를 한 장에 놓습니다." english="THE AI BUILD MAP">
+              <SectionIntro number="08" title="The AI Build Map" english="DEEP INSIGHT → WORKING TOOL">
                 <p>
-                  모든 프로젝트가 완전히 같지는 않습니다. 그러나 문제에서 업무 적용까지,
-                  <strong>판단해야 할 순서</strong>는 하나의 지도로 볼 수 있습니다.
+                  AI가 구현의 희소성을 빠르게 낮추고 있습니다. 어떤 문제를 고를지, 결과가 실제로
+                  쓸모 있는지 판단하는 능력은 여전히 귀합니다. <strong>그 판단이 지도의 시작과 반복을 이끕니다.</strong>
                 </p>
               </SectionIntro>
               <Reveal><BuildMap /></Reveal>
+              <Reveal className="scarcity-statement">
+                <div><span>MORE ACCESSIBLE</span><strong>BUILD</strong><p>AI가 빠르게 낮추고 있는 구현의 문턱</p></div>
+                <i aria-hidden="true">×</i>
+                <div><span>STILL SCARCE</span><strong>PROBLEM SELECTION + JUDGMENT</strong><p>경험과 실제 사용에서 나오는 판단</p></div>
+              </Reveal>
             </div>
           </section>
 
           <footer className="book-ending">
             <div className="book-ending__opening">
-              <p>AI 시대에 실장에게 가장 중요한 것은</p>
-              <h2>더 많은 코딩 지식이 아닙니다.</h2>
+              <p>Book 01을 마치며</p>
+              <h2>문제를 보는 눈과 구현 레버리지가 만나는 지점을 이해했습니다.</h2>
             </div>
             <ol className="book-ending__abilities">
               {endingAbilities.map((ability, index) => (
                 <Reveal as="li" delay={index * 60} key={ability}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <strong>{ability}</strong>
+                  <span>{String(index + 1).padStart(2, '0')}</span><strong>{ability}</strong>
                   {index < endingAbilities.length - 1 && <i aria-hidden="true">↓</i>}
                 </Reveal>
               ))}
@@ -651,42 +625,23 @@ export function BookPage() {
             <Reveal className="cert-group">
               <p className="cert-group__intro">이제, 스스로 확인합니다.</p>
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
-              <CapabilityCheck
-                id="b01-structure"
-                evidence={false}
-                statement="디지털 제품이 무엇으로(Frontend·Backend·Database·API) 이루어지는지 내 말로 설명할 수 있다."
-              />
-              <CapabilityCheck
-                id="b01-proto-prod"
-                evidence={false}
-                statement="Prototype과 Production의 차이를 설명하고, 무엇을 먼저 만들지 지시할 수 있다."
-              />
-              <CapabilityCheck
-                id="b01-roles"
-                evidence={false}
-                statement="어떤 일에 어떤 AI 역할(THINK·BUILD·AGENT 등)이 필요한지 구분할 수 있다."
-              />
-              <CapabilityCheck
-                id="b01-prompt-harness"
-                evidence={false}
-                statement="Prompt와 Harness의 차이를, 그리고 왜 Harness가 오래 가는지 설명할 수 있다."
-              />
+              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Model · Assistant · Agent의 차이를 내 말로 설명할 수 있다." />
+              <CapabilityCheck id="b01-structure" evidence={false} statement="Frontend부터 Server와 Deploy까지 제품의 구성 요소를 설명할 수 있다." />
+              <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="고정된 Workflow와 AI가 다음 행동을 판단하는 Agent를 구분할 수 있다." />
+              <CapabilityCheck id="b01-use-loop" evidence={false} statement="MVP를 직접 써보고, 현장과 다른 지점을 정밀하게 수정 요청할 수 있다." />
             </Reveal>
 
             <Reveal className="book-ending__finale">
-              <p>문제를 발견하는 능력은</p>
-              <h2>이미 여러분이<br />가장 잘하는 일입니다.</h2>
+              <p>AI가 가까이 가져온 것은 구현입니다.</p>
+              <h2>무엇을 만들지는<br />여전히 사람이 정합니다.</h2>
               <span>
-                20–30년 동안 축적한 현장의 판단과 조직의 암묵지.<br />
-                AI BUILD는 그 지식을 작동하는 도구로 이어갑니다.
+                HDEC 실장이 가진 깊은 업무 판단에 AI Build와 ACE의 지원을 연결합니다.<br />
+                그 조합이 문제에서 작동하는 도구까지의 거리를 줄입니다.
               </span>
             </Reveal>
             <NavigateLink href="/book/instruct" className="next-book">
               <span>NEXT BOOK · 02</span>
-              <div>
-                <strong>INSTRUCT</strong>
-                <p>AI에게 일을 시키는 방법</p>
-              </div>
+              <div><strong>INSTRUCT</strong><p>AI에게 일을 시키는 방법</p></div>
               <i aria-hidden="true">→</i>
             </NavigateLink>
           </footer>

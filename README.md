@@ -81,7 +81,7 @@ src/
 - `src/pages/HomePage.tsx` — hero, thesis, three-party model, and editorial Book Library
 - `src/pages/BookPage.tsx` … `Book05Page.tsx` — 다섯 권의 편집 페이지(BookPage = Book 01)
 - `src/components/ScreenshotPlaceholder.tsx` — future image replacement contract
-- `docs/CONTENT_ARCHITECTURE_V1.md` — 권별 목표·챕터·핵심 개념·예시·산출물
+- `docs/CONTENT_ARCHITECTURE_V2.md` — 권별 목표·챕터·핵심 개념·예시·산출물
 - `docs/CONTENT_FACT_CHECK.md` — 시간 민감 도구 주장의 근거와 검증일
 - `AGENTS.md` — repository purpose, architecture, design principles, scope, and working rules
 

@@ -1,14 +1,14 @@
-# HDEC AI BUILD — Content Architecture V1
+# HDEC AI BUILD — Content Architecture V2
 
-이 문서는 Executive Content V1의 편집 구조를 정의합니다. 다섯 권(Book 01–05)이 하나의
+이 문서는 Founder Context V2의 편집 구조를 정의합니다. 다섯 권(Book 01–05)이 하나의
 학습 여정으로 이어지도록, 각 Book의 목표 · 습득 역량 · 챕터 · 핵심 개념 · HDEC 예시 ·
 실습 · 기대 결과를 명시합니다.
 
 핵심 논지(전체 관통):
 
-> 실장은 이미 가장 어려운 자산(현장의 판단과 조직의 암묵지)을 갖고 있다.
-> AI는 그 암묵지와 "작동하는 도구" 사이의 거리를 줄인다.
-> 실장은 프로그래머가 될 필요가 없다. AI에게 정확히 지시하고 결과를 판단할 언어만 있으면 된다.
+> AI가 줄인 것은 구현의 장벽입니다. 문제를 보는 눈까지 만들어준 것은 아닙니다.
+> Deep Domain Insight × AI Implementation Capability가 문제에서 작동하는 도구까지의 거리를 줄인다.
+> 실장은 현장 현실과 경영 전략 사이에서 Pain Point를 고르고, MVP를 직접 사용해 결과를 판단한다.
 
 편집 리듬(모든 Book 공통):
 
@@ -56,7 +56,8 @@ Book 01은 기존 승인된 편집 구성을 보존하기 위해 본문을 페�
 | `Mission` | 실습 미션 카드 | 05 |
 
 기존 자산 유지·재사용: `SectionIntro`, `PromptBlock`, `ScreenshotPlaceholder`, `Reveal`,
-`ToolMap`, `SystemDiagram`, `HarnessDiagram`, `BuildMap`.
+`ToolMap`, `SystemDiagram`, `HarnessDiagram`, `BuildMap`. V2 추가: `ImplementationShiftDiagram`,
+`AiLayersDiagram`, `DevelopmentLoop`, `HdecLeverageEpilogue`.
 
 ---
 
@@ -64,21 +65,21 @@ Book 01은 기존 승인된 편집 구성을 보존하기 위해 본문을 페�
 
 - **목표**: AI와 IT의 최소 개념을 하나의 연결된 제작 흐름으로 이해한다.
 - **습득 역량**: 디지털 제품이 무엇으로·어떤 순서로 만들어지는지 설명하고, 제작 순서를 지시할 수 있다.
-- **하드 자산 논지**: 코딩 지식이 아니라 "무엇이 어떻게 연결되는가"의 언어.
+- **중앙 논지**: 구현은 가까워졌지만, 좋은 문제 선택과 결과 판단은 여전히 Domain Insight에서 나온다.
 
-### 챕터 (기존 8장 심화, 서사 유지)
-1. **AI는 어디까지 할 수 있는가** — LLM, model vs AI product, prompt, context, multimodal, tool use, 생성 vs 사실확실성. "AI가 잘한다고 맞다는 뜻은 아니다"(hallucination) 섹션.
-2. **AI마다 역할이 다르다** — JOB 기준 툴맵: THINK · RESEARCH · KNOWLEDGE · CREATE · BUILD · AUTOMATE · AGENT. "도구 선택은 임시, 워크플로 사고는 지속."
-3. **프로그램은 무엇으로 이루어지는가** — FE/BE/DB/API/Auth/Deploy + **Prototype vs Production** + 순서 지시 프롬프트.
-4. **AI로 화면부터 만든다** — 문제→요구사항 대화→레퍼런스→UI/UX 프로토타입→프론트엔드. 프로토타입 리뷰 체크리스트(실장 전문성이 빛나는 지점).
-5. **Reference-driven Build** — 3계층(Visual/Interaction/Information-architecture), CAPTURE→ANALYZE→EXTRACT→REINTERPRET→BUILD, 4단계 프롬프트 체인, reference ≠ copy.
-6. **화면 뒤에 실제 기능을 연결한다** — DISPLAY vs STORE/RETRIEVE, BE/DB/API/Auth 하나의 예시, 내부 통합(M365/SharePoint/Teams는 승인 필요 예시), **SECURITY 콜아웃**.
-7. **한 번의 프롬프트에서 프로젝트 시스템으로** — Chat/Project/Repository/CLAUDE.md·AGENTS.md/MCP/Skills/Tests/Permissions/Harness. "좋은 Prompt vs 좋은 Harness." Git/GitHub 임원 수준 설명.
-8. **The AI Build Map** — **결정 게이트** 포함 마스터 지도: `[USEFUL?]`, `[APPROVED DATA / SECURITY?]`. 반복은 정상.
+### 챕터 (Founder Context V2)
+1. **AI가 바꾼 것은 구현의 장벽** — Before/Now 구현 거리, 실장의 Field Reality ↔ Strategy 위치, Deep Insight × AI Build.
+2. **AI · Assistant · Agent는 무엇이 다른가** — Model/LLM, Assistant/Product, Agent의 3층 구조 + Context/Tools/Memory/Loop/Guardrails. Custom GPT/Project/Gem은 자동으로 Autonomous Agent가 아님.
+3. **AI로 할 수 있는 일의 전체 지도** — JOB 기준 10개 Category: THINK/WRITE · RESEARCH · KNOWLEDGE · IMAGE · VIDEO · MUSIC/AUDIO · UI/DESIGN · BUILD/CODE · AUTOMATE · AGENT.
+4. **프로그램과 AI 시스템은 무엇으로 이루어지는가** — Frontend/Backend/Database/API/**Server**/Authentication/Deploy + 목업/Frontend Prototype vs Working Product.
+5. **Workflow · Agent · MCP · Skill** — Fixed path와 model-decided next action 구분. n8n/Zapier/Make/Power Automate의 AI·Agentic capability 포함. MCP/Skill/Harness 입문.
+6. **이미 검증된 서비스에서 시작할 수 있다** — FIND→USE→ANALYZE→EXTRACT PRINCIPLES→REINTERPRET→BUILD. 유료 제품은 Market Signal이며 해결 구조를 Benchmark한다.
+7. **실제로 AI와 개발하는 방법** — Planner→Builder→Reviewer→Actual User. Harness = PLAN→SPEC→BUILD→REVIEW→TEST→USE→TARGETED FIX. Local→GitHub→Deploy 3단계.
+8. **The AI Build Map** — Deep Domain Insight에서 Working Tool까지. `[USEFUL?]`, `[SECURITY / DATA APPROVAL?]`, Pilot과 Targeted Fix loop.
 
 - **핵심 HDEC 예시**: 프로젝트 포트폴리오 대시보드, 현장 리스크 요약, 경영회의 Action Tracker, 신규 사업 기초검토.
 - **실습(경량)**: 각 장 끝 성찰 프롬프트 + 마무리 CapabilityCheck. 본격 실습은 Book 05.
-- **기대 결과**: 실장이 "Frontend부터 만들어 / 현재 UI 유지하고 Backend 연결 / Database 구조부터 정의 / 먼저 구현계획 작성 후 진행" 같은 지시를 스스로 말할 수 있다.
+- **기대 결과**: 실장이 좋은 Pain Point를 고르고, Solution type과 제작 단계를 구분하고, MVP를 직접 사용해 현장과 다른 지점을 정밀하게 수정 요청할 수 있다.
 
 ---
 
@@ -135,7 +136,7 @@ Book 01은 기존 승인된 편집 구성을 보존하기 위해 본문을 페�
 1. **PROBLEM** — 문제 정의 → Problem Brief.
 2. **OUTCOME** — user/결과/입력/출력/성공기준/non-goal → One-page Product Intent.
 3. **CHOOSE** — 타입 + 시작 방식 + 레퍼런스 → Solution Direction.
-4. **PROTOTYPE** — 첫 가시 버전(Dummy Data). 실장이 직접 사용·문제 지적·수정 1건 요청 → V0.1.
+4. **PROTOTYPE** — 샘플 데이터로 첫 가시 버전 제작. 실장이 직접 사용·문제 지적·수정 1건 요청 → V0.1.
 5. **BUILD** — 핵심 워크플로 구현, 실장이 우선순위 결정 → V0.2.
 6. **CONNECT** — 실제 데이터/통합 필요 판단 + 보안/승인 체크 → 연결 프로토타입 또는 통합 계획서.
 7. **PILOT** — 실제 업무에서 사용, 작동/실패/혼란/제거 대상 기록 → Pilot Notes + V0.9.
@@ -158,6 +159,16 @@ Book 01은 기존 승인된 편집 구성을 보존하기 위해 본문을 페�
   6. **AI에게 수정시키기** — 최소 3회 수정. 교훈: 첫 출력은 최종 출력이 아니다.
 
 - **기대 결과**: 실장이 직접 지시·캡처·생성·재구성·수정을 경험했다.
+
+### Final course epilogue — HDEC AI LEVERAGE
+
+Book 05 종료 뒤 전체 Course의 이유를 확장한다. Tacit + Explicit Knowledge → 사내 통제형 AI
+인프라 → RAG/Search/MCP/Agents → Custom Software → Workflow Automation → Decision Support →
+New Operational Data → Organizational Knowledge의 Flywheel을 보여준다. Construction knowledge
+capture/transfer/reuse 연구, McKinsey·Harvard/BCG·MIT·RICS 외부 Benchmark를 Caveat와 함께
+제시한다. 민감한 사내 지식·데이터를 권한·감사·거버넌스까지 포함해 AI와 연결하려면 일반 소비자용 AI만으로는
+운영 요구사항을 충족하기 어렵고 사내 통제형 AI 인프라가 필요하다는 일반 원칙으로 서술하며, HDEC의 현재 인프라 상태나 내부 개선률·Data
+volume은 공개적으로 단정하지 않는다.
 
 ---
 

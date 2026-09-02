@@ -951,8 +951,7 @@
 .chapter__inner > .labeled-grid,
 .chapter__inner > .mini-flow { margin-top: var(--space-6); }
 
-/* Inline escalation flow (Chat → Project → Repository). Uses currentColor, so it
-   reads on both light and dark chapters. */
+/* Inline process flows use currentColor so they read on light and dark chapters. */
 .mini-flow {
   display: flex;
   flex-wrap: wrap;

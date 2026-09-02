@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { NavigateLink } from '../components/NavigateLink'
+import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
 import { Reveal } from '../components/Reveal'
 import { SiteHeader } from '../components/SiteHeader'
 import { books, type Book } from '../content/books'
 import { toAppHref } from '../routing'
 
 const experienceFlow = [
-  ['20–30 YEARS', '업무 경험'],
-  ['FIELD', '현장에서 발견한 문제'],
-  ['TACIT', '조직에 축적된 암묵지'],
-  ['AI', 'AI의 구현 능력'],
-  ['BUILD', '작동하는 업무 도구'],
+  ['20–30 YEARS', '산업과 업무를 겪으며 쌓은 판단'],
+  ['FIELD REALITY', '프로젝트마다 반복되는 마찰을 보는 눈'],
+  ['EXECUTIVE', '현장 현실과 경영 전략을 함께 이해하는 위치'],
+  ['AI BUILD', '문제를 빠르게 Prototype으로 옮기는 구현 레버리지'],
+  ['WORKING TOOL', '직접 써보고 정밀하게 고쳐 만든 업무 도구'],
 ]
 
 const partners = [
@@ -19,13 +20,13 @@ const partners = [
     number: '01',
     name: 'EXECUTIVE',
     korean: '문제와 업무를 가장 잘 아는 사람',
-    detail: '무엇이 중요한지 알고, 결과를 판단합니다.',
+    detail: '현장 현실과 경영 전략 사이의 차이를 보고, 무엇이 중요한지 판단합니다.',
   },
   {
     number: '02',
     name: 'AI',
     korean: '구현 속도를 높이는 도구',
-    detail: '아이디어를 화면과 기능으로 빠르게 전환합니다.',
+    detail: '대화와 실험을 통해 Pain Point를 MVP로 옮기는 거리를 줄입니다.',
   },
   {
     number: '03',
@@ -180,11 +181,23 @@ export function HomePage() {
           <Reveal className="thesis__opening">
             <span className="folio">01 · THE PREMISE</span>
             <h2 id="thesis-title">
-              여러분에게 없는 것은
+              AI가 줄인 것은
               <br />
-              <em>아이디어가 아닙니다.</em>
+              <em>구현의 장벽입니다.</em>
             </h2>
-            <p>이미 갖고 있는 경험을 구현 가능한 언어로 옮깁니다.</p>
+            <p>문제를 보는 눈까지 만들어준 것은 아닙니다.</p>
+          </Reveal>
+
+          <Reveal>
+            <ImplementationShiftDiagram />
+          </Reveal>
+
+          <Reveal className="home-domain-thesis">
+            <p>
+              진짜 Pain Point는 산업 경험, 운영에 대한 이해, 프로젝트를 가로질러 반복되는 마찰을
+              알아보는 눈에서 나옵니다. HDEC 실장은 현장 현실과 경영 전략을 함께 보는 자리에 있습니다.
+            </p>
+            <strong>DEEP DOMAIN INSIGHT × AI IMPLEMENTATION CAPABILITY</strong>
           </Reveal>
 
           <div className="experience-ledger">
@@ -203,13 +216,13 @@ export function HomePage() {
           <div className="partnership__intro">
             <span className="folio">02 · HOW WE BUILD</span>
             <h2 id="partnership-title">
-              세 개의 전문성이
+              문제에서 작동하는 도구까지
               <br />
-              <span>하나의 도구가 됩니다.</span>
+              <span>조직의 거리를 줄입니다.</span>
             </h2>
           </div>
           <div className="partnership__formula" aria-label="Executive 곱하기 AI 곱하기 ACE">
-            <span>EXECUTIVE</span><i>×</i><span>AI</span><i>×</i><span>ACE</span>
+            <span>DEEP INSIGHT</span><i>×</i><span>AI BUILD</span><i>×</i><span>ACE</span>
           </div>
           <div className="partnership__people">
             {partners.map((partner, index) => (
@@ -303,8 +316,8 @@ export function HomePage() {
 
         <footer className="home-footer">
           <span>HDEC AI BUILD</span>
-          <p>EXECUTIVE TACIT KNOWLEDGE × AI IMPLEMENTATION × ACE SUPPORT</p>
-          <span>BASELINE V1 · 2026</span>
+          <p>DEEP DOMAIN INSIGHT × AI IMPLEMENTATION CAPABILITY × ACE SUPPORT</p>
+          <span>FOUNDER CONTEXT V2 · 2026</span>
         </footer>
       </main>
     </>

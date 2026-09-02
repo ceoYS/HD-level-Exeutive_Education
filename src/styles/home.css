@@ -179,6 +179,35 @@
   color: var(--color-ink-soft);
 }
 
+.thesis > .reveal > .implementation-shift {
+  margin-bottom: var(--space-7);
+}
+
+.home-domain-thesis {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-7);
+  align-items: end;
+  margin-bottom: var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 2px solid var(--color-ink);
+  border-bottom: var(--border-hairline);
+}
+
+.home-domain-thesis p {
+  max-width: 48rem;
+  font-size: var(--text-lead);
+  line-height: 1.55;
+}
+
+.home-domain-thesis strong {
+  color: var(--color-orange);
+  font-family: var(--font-editorial);
+  font-size: clamp(1.4rem, 2.6vw, 2.7rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
 .experience-ledger {
   border-top: 2px solid var(--color-ink);
 }
@@ -1469,6 +1498,12 @@
   .thesis__opening,
   .partnership__intro {
     grid-template-columns: 1fr;
+    margin-bottom: var(--space-7);
+  }
+
+  .home-domain-thesis {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
     margin-bottom: var(--space-7);
   }
 

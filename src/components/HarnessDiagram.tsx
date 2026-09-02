@@ -1,25 +1,28 @@
-const satellites = ['REPOSITORY', 'INSTRUCTIONS', 'TESTS', 'SKILLS', 'PERMISSIONS', 'MCP']
+const loop = ['PLAN', 'SPEC', 'BUILD', 'REVIEW', 'TEST', 'USE', 'TARGETED FIX']
 
 export function HarnessDiagram() {
   return (
     <figure className="harness-diagram">
-      <figcaption>HARNESS</figcaption>
-      <div className="harness-diagram__field">
-        <div className="harness-diagram__core">
-          <span>CODING</span>
-          <strong>AGENT</strong>
-          <small>계속 작업하는 AI</small>
-        </div>
-        {satellites.map((item, index) => (
-          <span
-            className={`harness-diagram__satellite harness-diagram__satellite--${index + 1}`}
-            key={item}
-          >
-            {item}
-          </span>
+      <figcaption>
+        <span>RELIABLE DEVELOPMENT LOOP</span>
+        <strong>HARNESS</strong>
+      </figcaption>
+      <div className="harness-diagram__loop">
+        {loop.map((item, index) => (
+          <div className={item === 'USE' ? 'is-human' : ''} key={item}>
+            <span>{String(index + 1).padStart(2, '0')}</span>
+            <strong>{item}</strong>
+            {index < loop.length - 1 && <i aria-hidden="true">→</i>}
+          </div>
+        ))}
+        <b aria-hidden="true">↺</b>
+      </div>
+      <div className="harness-diagram__supports">
+        {['PRD / SPEC', 'PROJECT RULES', 'SKILLS / MCP', 'PERMISSIONS', 'TESTS', 'GIT HISTORY', 'REVIEW CRITERIA'].map((item) => (
+          <span key={item}>{item}</span>
         ))}
       </div>
-      <p>AI가 오래, 안전하게, 같은 방향으로 일하도록 만드는 작업 환경</p>
+      <p>AI 개발이 여러 번 반복되어도 같은 기준과 검증 순서로 돌아가게 하는 작업 체계</p>
     </figure>
   )
 }
