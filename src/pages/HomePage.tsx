@@ -1,47 +1,38 @@
 import { useEffect, useRef, useState, type CSSProperties, type MouseEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { NavigateLink } from '../components/NavigateLink'
-import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
 import { Reveal } from '../components/Reveal'
 import { SiteHeader } from '../components/SiteHeader'
 import { books, type Book } from '../content/books'
 import { toAppHref } from '../routing'
 
-const experienceFlow = [
-  ['20–30 YEARS', '산업과 업무를 겪으며 쌓은 판단'],
-  ['FIELD REALITY', '프로젝트마다 반복되는 마찰을 보는 눈'],
-  ['EXECUTIVE', '현장 현실과 경영 전략을 함께 이해하는 위치'],
-  ['AI BUILD', '문제를 빠르게 화면과 도구로 옮겨보는 힘'],
-  ['WORKING TOOL', '직접 써보고 고쳐서 업무에 맞춘 도구'],
-]
-
 const partners = [
   {
     number: '01',
     name: 'EXECUTIVE',
-    korean: '문제와 업무를 가장 잘 아는 사람',
-    detail: '현장 현실과 경영 전략 사이의 차이를 보고, 무엇부터 풀어야 할지 판단합니다.',
+    korean: '문제와 우선순위를 정합니다',
+    detail: '실제 업무에서 무엇이 불편한지 고르고, 결과가 쓸모 있는지 판단합니다.',
   },
   {
     number: '02',
     name: 'AI',
-    korean: '아이디어를 빠르게 시험하게 해주는 도구',
+    korean: '빠르게 만들고 시험합니다',
     detail: '대화에서 시작해 문서, 화면, 코드까지 빠르게 만들어볼 수 있게 합니다.',
   },
   {
     number: '03',
     name: 'ACE',
-    korean: '실장과 AI 사이의 제작 파트너',
-    detail: '실장과 1:1로 함께하며 문제 정리, AI 활용, 구현 과정을 지원합니다.',
+    korean: '과정을 함께 연결합니다',
+    detail: '문제 정리부터 구현·검토까지 실장과 1:1로 함께합니다.',
   },
 ]
 
 const libraryJourney = [
-  ['01', '이해하고'],
-  ['02', '일을 시키고'],
-  ['03', '선택하고'],
-  ['04', '함께 만들고'],
-  ['05', '직접 해봅니다'],
+  ['01', '전체 지도를 이해하고'],
+  ['02', '의도를 문서로 넘기고'],
+  ['03', '무엇을 만들지 정하고'],
+  ['04', '8주 동안 실제로 만들고'],
+  ['05', '작게 한 번 끝까지 해봅니다'],
 ]
 
 const libraryShelves = [
@@ -161,68 +152,50 @@ export function HomePage() {
             <p className="home-hero__kicker">
               실장의 경험을 AI와 연결해
               <br />
-              실제로 작동하는 업무 도구로 만듭니다.
+              실제 업무 문제를 직접 도구로 만들어봅니다.
             </p>
           </div>
           <div className="home-hero__foot">
             <p>
               8주 동안 ACE와 함께
               <br />
-              실제 업무 문제 하나를 도구로 만들어봅니다.
+              하나의 문제를 끝까지 가져갑니다.
             </p>
-            <a href="#thesis" className="scroll-cue">
+            <a href="#course" className="scroll-cue">
               <span>BEGIN THE FIELD GUIDE</span>
               <i aria-hidden="true">↓</i>
             </a>
           </div>
         </section>
 
-        <section className="thesis" id="thesis" aria-labelledby="thesis-title">
+        <section className="thesis" id="course" aria-labelledby="course-title">
           <Reveal className="thesis__opening">
-            <span className="folio">01 · THE PREMISE</span>
-            <h2 id="thesis-title">
-              AI가 줄인 것은
+            <span className="folio">01 · THE COURSE</span>
+            <h2 id="course-title">
+              이 과정에서
               <br />
-              <em>구현의 장벽입니다.</em>
+              <em>하나를 직접 만듭니다.</em>
             </h2>
-            <p>문제를 보는 눈까지 만들어준 것은 아닙니다.</p>
-          </Reveal>
-
-          <Reveal>
-            <ImplementationShiftDiagram />
+            <p>AI 기능을 많이 아는 것보다, 실제 업무 문제를 끝까지 다뤄보는 데 초점을 둡니다.</p>
           </Reveal>
 
           <Reveal className="home-domain-thesis">
             <p>
-              반복되는 비효율은 업무를 오래 겪어본 사람이 먼저 알아봅니다. 실장은 현장과 경영을 함께
-              보면서 어디가 어긋나는지, 무엇부터 바꿔야 하는지 판단할 수 있습니다.
+              문제를 고르고, 의도를 문서로 남기고, 작은 버전을 만들고, 직접 써보고, 필요한 부분을 고칩니다.
+              왜 이 방식이 가능한지와 AI·IT의 전체 구조는 Book 01에서 설명합니다.
             </p>
-            <strong>DEEP DOMAIN INSIGHT × AI IMPLEMENTATION CAPABILITY</strong>
+            <strong>PROBLEM → DOCUMENT → BUILD → USE → FIX</strong>
           </Reveal>
-
-          <div className="experience-ledger">
-            {experienceFlow.map(([english, korean], index) => (
-              <Reveal className="experience-ledger__row" delay={index * 70} key={english}>
-                <span className="experience-ledger__index">{String(index + 1).padStart(2, '0')}</span>
-                <strong>{english}</strong>
-                <p>{korean}</p>
-                <i aria-hidden="true">{index < experienceFlow.length - 1 ? '↓' : '●'}</i>
-              </Reveal>
-            ))}
-          </div>
         </section>
 
         <section className="partnership" aria-labelledby="partnership-title">
           <div className="partnership__intro">
-            <span className="folio">02 · HOW WE BUILD</span>
+            <span className="folio">02 · HOW WE WORK</span>
             <h2 id="partnership-title">
-              문제를 발견한 사람이
+              세 역할이
               <br />
-              <span>바로 시험해볼 수 있게 합니다.</span>
+              <span>분명하게 나뉩니다.</span>
             </h2>
-          </div>
-          <div className="partnership__formula" aria-label="Executive 곱하기 AI 곱하기 ACE">
-            <span>EXECUTIVE JUDGMENT</span><i>×</i><span>AI BUILD</span><i>×</i><span>ACE SUPPORT</span>
           </div>
           <div className="partnership__people">
             {partners.map((partner, index) => (
@@ -241,15 +214,11 @@ export function HomePage() {
             <span className="folio">03 · THE HDEC AI BUILD LIBRARY</span>
             <Reveal className="library-transition__statement">
               <h2 id="library-transition-title">
-                이제 다섯 권의
+                다섯 권은
                 <br />
-                <em>가이드를 따라갑니다.</em>
+                <em>서로 다른 역할을 맡습니다.</em>
               </h2>
-              <p>
-                이해 → 지시 → 선택 → Build → 실습 순서로
-                <br />
-                필요한 판단과 방법을 하나씩 익힙니다.
-              </p>
+              <p>앞에서 설명한 내용을 뒤에서 다시 가르치지 않고, 다음 단계로 이어갑니다.</p>
             </Reveal>
             <ol className="library-journey" aria-label="다섯 권의 학습 흐름">
               {libraryJourney.map(([number, label], index) => (
@@ -276,7 +245,7 @@ export function HomePage() {
             <p>
               처음부터 읽어도 되고, 지금 필요한 권부터 꺼내도 됩니다.
               <br />
-              각 권의 역할은 겹치지 않게 이어집니다.
+              각 권은 맡은 역할만 설명합니다.
             </p>
           </header>
 
@@ -316,8 +285,8 @@ export function HomePage() {
 
         <footer className="home-footer">
           <span>HDEC AI BUILD</span>
-          <p>DEEP DOMAIN INSIGHT × AI IMPLEMENTATION CAPABILITY × ACE SUPPORT</p>
-          <span>FOUNDER CONTEXT V2 · 2026</span>
+          <p>EXECUTIVE × AI × ACE</p>
+          <span>EXECUTIVE FIELD GUIDE · 2026</span>
         </footer>
       </main>
     </>
