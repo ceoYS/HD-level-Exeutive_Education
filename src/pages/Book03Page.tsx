@@ -44,9 +44,9 @@ export function Book03Page() {
                 만들 것인가.
               </h1>
               <p className="book-opening__sub">
-                가장 큰 낭비는 느린 제작이 아니라
+                만들기 전에 먼저
                 <br />
-                <em>잘못된 것을 만드는 것</em>입니다.
+                <em>문제에 맞는 형태와 시작점</em>을 고릅니다.
               </p>
             </div>
             <button
@@ -77,15 +77,15 @@ export function Book03Page() {
           {/* 01 */}
           <section className="chapter chapter--spruce" id="chapter-1">
             <div className="chapter__inner">
-              <SectionIntro number="01" title="잘못된 것을 만들지 않는다" english="CHOOSE WISELY" inverse>
+              <SectionIntro number="01" title="무엇을 만들지 먼저 정한다" english="CHOOSE WISELY" inverse>
                 <p>
-                  AI 덕분에 무엇이든 빠르게 만들 수 있게 되면서, 오히려 <strong>엉뚱한 것을 빠르게
-                  만드는</strong> 위험이 커졌습니다. 만들기 전에 두 가지를 정합니다.
+                  AI로 제작 속도가 빨라진 만큼, 시작 전에 <strong>무엇을 만들지</strong> 정하는 일이 더
+                  중요해졌습니다. 먼저 두 가지를 고릅니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                하나, <strong>무엇을</strong> 만들 것인가(제품의 형태). 둘, <strong>어떻게</strong>
-                시작할 것인가(시작 방식). 이 장은 그 두 결정을 돕습니다.
+                하나는 <strong>제품의 형태(WHAT)</strong>, 다른 하나는 <strong>시작 방식(HOW)</strong>입니다.
+                이 두 결정이 첫 실험의 범위를 정합니다.
               </p>
               <div className="mini-flow" aria-label="무엇을 그리고 어떻게">
                 <span className="is-strong">WHAT<small>제품의 형태</small></span>
@@ -95,8 +95,8 @@ export function Book03Page() {
                 <span>FIRST EXPERIMENT<small>첫 실험</small></span>
               </div>
               <ExecutiveTakeaway>
-                실장이 방향을 정하면 ACE가 구현합니다. 이 장의 목표는
-                <strong> "우리 문제는 어떤 유형인가"</strong>를 스스로 판단하는 것입니다.
+                실장이 문제와 방향을 정하고, ACE와 AI가 구현을 돕습니다. 여기서는
+                <strong> "우리 문제에 어떤 형태가 맞는가"</strong>를 판단합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -106,8 +106,8 @@ export function Book03Page() {
             <div className="chapter__inner">
               <SectionIntro number="02" title="무엇을 만들 것인가" english="PART A · WHAT TO BUILD">
                 <p>
-                  대부분의 업무 문제는 네 가지 형태 중 하나로 시작됩니다. 각각 <strong>언제 가장
-                  잘 맞는지</strong>가 다릅니다.
+                  업무 문제를 풀 때 자주 쓰는 네 가지 형태입니다. 각각 잘 맞는 상황과 운영 난이도가
+                  다릅니다.
                 </p>
               </SectionIntro>
               <div className="solution-cards">
@@ -133,10 +133,10 @@ export function Book03Page() {
                   </Reveal>
                 ))}
               </div>
-              <WatchOut title="Agent는 별개의 난이도입니다">
-                GPT · Gem · Project를 만드는 것과 <strong>진짜 자율 Agent</strong>를 만드는 것은
-                난이도가 다릅니다. Agent는 권한·관측·오류·비용·루프 제어·사람 승인을 함께
-                설계해야 합니다. "대화형 도우미"와 "스스로 판단하는 일꾼"을 혼동하지 마세요.
+              <WatchOut title="Agent는 운영 설계까지 함께 봅니다">
+                GPT · Gem · Project처럼 지시와 지식을 저장한 작업공간과, 여러 도구를 쓰며 다음 행동을
+                판단하는 Agent는 운영 범위가 다릅니다. Agent는 <strong>권한·관측·오류·비용·중단 조건·
+                사람 승인</strong>까지 함께 설계해야 합니다.
               </WatchOut>
             </div>
           </section>
@@ -146,8 +146,8 @@ export function Book03Page() {
             <div className="chapter__inner">
               <SectionIntro number="03" title="어떻게 시작할 것인가" english="PART B · HOW TO START">
                 <p>
-                  형태를 정했다면, 시작 방식은 세 가지입니다. 대개 <strong>기존 업무에서 시작</strong>
-                  하는 것이 실장에게 가장 빠릅니다.
+                  형태를 정했다면 시작점을 고릅니다. 이미 반복하는 업무가 있다면
+                  <strong> 그 업무를 그대로 보여주는 것</strong>이 가장 구체적인 출발점이 될 수 있습니다.
                 </p>
               </SectionIntro>
               <LabeledGrid
@@ -170,8 +170,8 @@ export function Book03Page() {
                 </TryThisPrompt>
               </RealWorldExample>
               <ExecutiveTakeaway>
-                레퍼런스나 기존 업무에서 시작하면 빈 화면 앞에서 막히지 않습니다. 매주 반복하는
-                <strong> 실제 업무 흐름</strong>이 가장 구체적인 출발점입니다.
+                레퍼런스나 기존 업무가 있으면 처음부터 설명해야 할 것이 줄어듭니다. 특히
+                <strong> 실제로 반복하는 업무 흐름</strong>은 좋은 입력 자료가 됩니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -181,8 +181,8 @@ export function Book03Page() {
             <div className="chapter__inner">
               <SectionIntro number="04" title="무엇을 만들지 진단한다" english="DECISION TOOL">
                 <p>
-                  아래 질문에 답하면 <strong>예상 솔루션 타입 · 난이도 · 첫 실험</strong>이 나옵니다.
-                  그 결과를 들고 ACE와 첫 대화를 시작하면 됩니다.
+                  아래 질문에 답하면 <strong>예상 솔루션 타입 · 난이도 · 첫 실험</strong>을 볼 수 있습니다.
+                  결과는 정답표가 아니라 ACE와 첫 대화를 시작하기 위한 초안입니다.
                 </p>
               </SectionIntro>
               <DecisionDiagnostic />
@@ -194,8 +194,8 @@ export function Book03Page() {
             <div className="chapter__inner">
               <SectionIntro number="05" title="난이도와 리스크" english="DIFFICULTY & RISK">
                 <p>
-                  같은 문제라도 어떤 형태로 푸느냐에 따라 난이도가 달라집니다. 처음에는
-                  <strong> 낮은 난이도에서 확실한 성공</strong>을 만드는 것이 좋습니다.
+                  같은 문제라도 선택한 형태에 따라 필요한 데이터, 권한, 운영 설계가 달라집니다. 처음에는
+                  <strong> 작은 범위에서 먼저 검증</strong>하는 편이 좋습니다.
                 </p>
               </SectionIntro>
               <div className="difficulty-matrix">
@@ -210,17 +210,16 @@ export function Book03Page() {
                 ))}
               </div>
               <WatchOut>
-                난이도 표는 대략의 지도입니다. "우리 것은 정확히 MEDIUM"처럼 <strong>과도한 정밀도</strong>는
-                피하세요. 등급 맞추기보다, 처음에 무엇으로 <strong>작은 성공</strong>을 만들지
-                정하는 것이 먼저입니다.
+                이 표는 대략적인 지도입니다. 등급 자체보다 <strong>첫 실험의 범위를 어디까지 줄일지</strong>
+                정하는 데 쓰면 됩니다.
               </WatchOut>
             </div>
           </section>
 
           <footer className="book-ending">
             <div className="book-ending__opening">
-              <p>이제 실장은</p>
-              <h2>무엇을, 어떻게 만들지 결정할 수 있습니다.</h2>
+              <p>Book 03을 마치며</p>
+              <h2>무엇을, 어떤 방식으로 시작할지 정할 수 있습니다.</h2>
             </div>
 
             <Reveal className="cert-group">
@@ -228,7 +227,7 @@ export function Book03Page() {
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
               <CapabilityCheck id="b03-classify" evidence={false} statement="내 업무 문제를 네 가지 솔루션 타입 중 하나로 분류할 수 있다." />
               <CapabilityCheck id="b03-start" evidence={false} statement="무엇을, 어떻게 시작할지 정하고 첫 실험을 한 문장으로 말할 수 있다." />
-              <CapabilityCheck id="b03-agent" evidence={false} statement="Custom AI와 자율 Agent의 차이, 그리고 Agent가 왜 더 어려운지 설명할 수 있다." />
+              <CapabilityCheck id="b03-agent" evidence={false} statement="Custom AI와 Agent의 차이, 그리고 Agent에 추가 운영 설계가 필요한 이유를 설명할 수 있다." />
             </Reveal>
 
             <NavigateLink href="/book/build" className="next-book">

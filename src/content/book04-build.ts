@@ -20,7 +20,7 @@ export const weeks: WeekData[] = [
     week: '01',
     phase: 'PROBLEM',
     title: '문제를 내 말로 정의한다',
-    intent: '해결하고 싶은 업무 문제를 실장 자신의 언어로 분명히 한다. 도구가 아니라 문제에서 시작한다.',
+    intent: '해결하고 싶은 업무 문제를 실장 자신의 언어로 정리한다. 도구를 고르기 전에 현재 업무부터 본다.',
     tasks: [
       '현재 어떤 일이 불편한가?',
       '누가 그 불편을 겪는가?',
@@ -42,8 +42,8 @@ export const weeks: WeekData[] = [
   {
     week: '02',
     phase: 'OUTCOME',
-    title: '성공의 모습을 한 장으로',
-    intent: '무엇이 완성이면 성공인지 정의한다. 사용자·결과·성공 기준·하지 않을 것(non-goal)까지.',
+    title: '완성 기준을 한 장으로 정리한다',
+    intent: '사용자·원하는 결과·성공 기준·이번에 하지 않을 것(non-goal)을 한 장에 정리한다.',
     tasks: [
       '사용자는 누구인가?',
       '원하는 결과(Outcome)는 무엇인가?',
@@ -66,7 +66,7 @@ export const weeks: WeekData[] = [
     week: '03',
     phase: 'CHOOSE',
     title: '형태와 시작 방식을 정한다',
-    intent: 'Book 03의 진단을 활용해 솔루션 타입과 시작 방식을 정하고 레퍼런스를 모은다.',
+    intent: 'Book 03의 진단을 활용해 솔루션 타입과 시작 방식을 정하고 참고할 사례를 모은다.',
     tasks: [
       'Book 03 Decision Diagnostic으로 타입 후보 확인',
       '타입 결정: Custom AI / Web·App / Automation / Agent',
@@ -82,8 +82,8 @@ export const weeks: WeekData[] = [
   {
     week: '04',
     phase: 'PROTOTYPE',
-    title: '처음으로 눈에 보이게',
-    intent: '첫 번째 가시 버전을 만든다. 샘플 데이터로 충분하다. 실장이 직접 써보는 것이 핵심.',
+    title: '첫 화면을 만든다',
+    intent: '샘플 데이터로 첫 번째 가시 버전을 만들고 직접 눌러보며 흐름을 확인한다.',
     tasks: [
       '핵심 화면 1개를 Prototype으로 생성',
       '샘플 데이터로 사용자 흐름 확인',
@@ -106,7 +106,7 @@ export const weeks: WeekData[] = [
     week: '05',
     phase: 'BUILD',
     title: '핵심 흐름을 구현한다',
-    intent: '가장 중요한 업무 흐름 하나를 실제로 작동하게 만든다. 기능 우선순위는 실장이 정한다.',
+    intent: '가장 중요한 업무 흐름 하나가 실제로 작동하도록 만든다. 무엇부터 구현할지는 실장이 정한다.',
     tasks: [
       '가장 중요한 기능 1–2개를 실장이 선택',
       '승인된 화면·흐름은 유지',
@@ -126,8 +126,8 @@ export const weeks: WeekData[] = [
   {
     week: '06',
     phase: 'CONNECT',
-    title: '실제 데이터가 필요한가?',
-    intent: '실제 데이터·통합이 필요한지 판단한다. 필요하면 보안·승인이 먼저다. 승인 전에는 합성 데이터를 쓴다.',
+    title: '실제 데이터 연결을 판단한다',
+    intent: '실제 데이터·시스템 연결이 필요한지 판단한다. 필요하면 보안과 승인 조건부터 확인하고, 그전에는 합성 데이터를 쓴다.',
     tasks: [
       '실제 데이터·시스템 연결이 정말 필요한지 판단',
       '필요한 연결 목록화 (예: M365 · SharePoint · Teams — 모두 승인 대상)',
@@ -145,7 +145,7 @@ export const weeks: WeekData[] = [
     week: '07',
     phase: 'PILOT',
     title: '실제 업무에서 써본다',
-    intent: '완벽하지 않아도 실제 업무에서 파일럿한다. 무엇이 작동하고 무엇이 안 되는지 기록한다.',
+    intent: '실제 업무에서 파일럿하고, 작동한 부분과 불편한 부분을 기록한다.',
     tasks: [
       '실제 업무에서 한 주 사용',
       '작동한 것을 기록',
@@ -163,7 +163,7 @@ export const weeks: WeekData[] = [
     week: '08',
     phase: 'DEMO',
     title: '3분으로 설명한다',
-    intent: '문제부터 다음 행동까지 3분 스토리로 설명한다. 이것이 진짜 습득의 증거다.',
+    intent: '문제부터 결과와 다음 행동까지 3분 안에 설명할 수 있도록 정리한다.',
     tasks: [
       '원래 문제는 무엇이었나',
       '왜 이 솔루션 타입을 골랐나',

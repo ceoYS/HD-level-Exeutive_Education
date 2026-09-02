@@ -22,7 +22,7 @@ export function HarnessDiagram() {
           <span key={item}>{item}</span>
         ))}
       </div>
-      <p>AI 개발이 여러 번 반복되어도 같은 기준과 검증 순서로 돌아가게 하는 작업 체계</p>
+      <p>여러 번 개발해도 같은 기준과 검증 순서를 이어가기 위한 작업 체계</p>
     </figure>
   )
 }
