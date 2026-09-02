@@ -1,7 +1,7 @@
 import { useState, type CSSProperties } from 'react'
 import { CapabilityCheck } from '../components/CapabilityCheck'
+import { HdecLeverageEpilogue } from '../components/HdecLeverageEpilogue'
 import { Mission } from '../components/Mission'
-import { NavigateLink } from '../components/NavigateLink'
 import { PromptBlock } from '../components/PromptBlock'
 import { Reveal } from '../components/Reveal'
 import { ScreenshotPlaceholder } from '../components/ScreenshotPlaceholder'
@@ -119,7 +119,7 @@ export function Book05Page() {
             ))}
           </section>
 
-          <footer className="book-ending">
+          <footer className="book-ending" id="book-05-ending">
             <div className="book-ending__opening">
               <p>여섯 개의 미션을 마치면</p>
               <h2>실장은 AI에게 직접 일을 시켜본 사람입니다.</h2>
@@ -137,15 +137,8 @@ export function Book05Page() {
                 가장 잘 아는 현장의 문제가, 가장 좋은 출발점입니다.
               </span>
             </Reveal>
-            <NavigateLink href="/#library" className="next-book">
-              <span>BACK TO</span>
-              <div>
-                <strong>THE LIBRARY</strong>
-                <p>다섯 권의 지도로 돌아가기</p>
-              </div>
-              <i aria-hidden="true">↗</i>
-            </NavigateLink>
           </footer>
+          <HdecLeverageEpilogue />
         </article>
       </main>
     </div>

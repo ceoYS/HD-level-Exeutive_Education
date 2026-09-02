@@ -1,19 +1,39 @@
-import { useState, type CSSProperties } from 'react'
+import { useState, type CSSProperties, type KeyboardEvent } from 'react'
 import { toolGroups } from '../content/books'
 
 export function ToolMap() {
   const [activeId, setActiveId] = useState(toolGroups[0].id)
   const activeGroup = toolGroups.find((group) => group.id === activeId) ?? toolGroups[0]
 
+  const moveToTab = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    const keyMoves = {
+      ArrowDown: index + 1,
+      ArrowRight: index + 1,
+      ArrowUp: index - 1,
+      ArrowLeft: index - 1,
+      Home: 0,
+      End: toolGroups.length - 1,
+    } as const
+
+    if (!(event.key in keyMoves)) return
+
+    event.preventDefault()
+    const nextIndex = keyMoves[event.key as keyof typeof keyMoves]
+    const wrappedIndex = (nextIndex + toolGroups.length) % toolGroups.length
+    const nextId = toolGroups[wrappedIndex].id
+    setActiveId(nextId)
+    document.getElementById(`tool-tab-${nextId}`)?.focus()
+  }
+
   return (
     <div className="tool-map">
       <div className="tool-map__header">
         <div>
-          <span>AI TOOL MAP</span>
-          <strong>역할로 고릅니다.</strong>
+          <span>AI CAPABILITY MAP</span>
+          <strong>해야 할 일로 고릅니다.</strong>
         </div>
         <p>
-          <b>2026.09 기준</b>
+          <b>UPDATED · 2026.09</b>
           도구와 추천 역할은 계속 바뀔 수 있습니다.
         </p>
       </div>
@@ -29,8 +49,9 @@ export function ToolMap() {
               aria-controls={`tool-panel-${group.id}`}
               tabIndex={activeId === group.id ? 0 : -1}
               onClick={() => setActiveId(group.id)}
+              onKeyDown={(event) => moveToTab(event, index)}
             >
-              <span>0{index + 1}</span>
+              <span>{String(index + 1).padStart(2, '0')}</span>
               {group.label}
             </button>
           ))}
