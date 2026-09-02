@@ -19,26 +19,26 @@ export function Book05Page() {
 
   return (
     <div className="book-page" style={{ '--book-accent': 'var(--color-yellow)' } as CSSProperties}>
-      <SiteHeader bookMode progress={progress} currentChapter={currentChapter} bookNumber="05" bookKeyword="PRACTICE" />
+      <SiteHeader bookMode progress={progress} currentChapter={currentChapter} bookNumber="05" bookKeyword="APPLY" />
       <main id="main-content">
         <article>
           <header className="book-opening book-entry-surface">
             <div className="book-opening__index">
               <span>BOOK</span>
               <strong>05</strong>
-              <span>PRACTICE</span>
+              <span>APPLY</span>
             </div>
             <div className="book-opening__statement">
-              <p>AI BUILD · MINI BUILD</p>
+              <p>AI BUILD · FIELD PLAYBOOK</p>
               <h1>
-                한 번
+                실제 업무에서
                 <br />
-                끝까지 만들어보기.
+                계속 쓰고 고치기.
               </h1>
               <p className="book-opening__sub">
-                앞에서 본 방법을 다시 설명하지 않고
+                다시 처음부터 만드는 법이 아니라
                 <br />
-                <em>하나의 작은 도구를 끝까지 만들어봅니다.</em>
+                <em>현업에서 자주 생기는 상황에 대응하는 법</em>을 다룹니다.
               </p>
             </div>
             <button
@@ -48,7 +48,7 @@ export function Book05Page() {
               aria-controls="chapter-list"
               onClick={() => setChaptersOpen((current) => !current)}
             >
-              <span>6 STEPS</span>
+              <span>6 PLAYBOOKS</span>
               <i aria-hidden="true">{chaptersOpen ? '−' : '+'}</i>
             </button>
             <ol id="chapter-list" className={`chapter-list${chaptersOpen ? ' is-open' : ''}`}>
@@ -62,21 +62,21 @@ export function Book05Page() {
               ))}
             </ol>
             <a className="book-opening__begin" href="#intro">
-              START MINI BUILD <span aria-hidden="true">↓</span>
+              OPEN THE PLAYBOOK <span aria-hidden="true">↓</span>
             </a>
           </header>
 
           <section className="chapter chapter--light" id="intro">
             <div className="chapter__inner">
-              <SectionIntro number="00" title="여섯 단계가 하나로 이어집니다" english="ONE MINI BUILD">
+              <SectionIntro number="00" title="만든 뒤부터가 실제 사용입니다" english="BUILD → REAL WORK">
                 <p>
-                  여기서는 새로운 개념을 배우지 않습니다. <strong>Problem Brief부터 Targeted Fix까지</strong>
-                  앞에서 본 흐름을 작은 문제 하나에 그대로 적용합니다.
+                  Book 04에서 만드는 과정은 끝났습니다. 실제 업무에 넣으면 화면이 다르거나, 오류가 생기거나,
+                  새 기능이 필요하거나, 작업을 다음 세션으로 넘겨야 하는 순간이 생깁니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
-                미션은 서로 독립된 팁이 아닙니다. 01에서 만든 산출물이 02의 입력이 되고, 그 결과가 다시
-                다음 단계로 넘어갑니다. 가능하면 PC에서 01부터 06까지 순서대로 진행하세요.
+                이 책은 제작 과정을 다시 반복하지 않습니다. <strong>캡처 · 오류 원문 · Targeted Fix · Reviewer ·
+                Checkpoint · 작은 SPEC</strong>처럼 실제로 계속 써먹는 방법만 모았습니다.
               </p>
             </div>
           </section>
@@ -111,7 +111,7 @@ export function Book05Page() {
                 )}
                 {mission.note && <p className="mission__note">{mission.note}</p>}
                 <div className="cert-group">
-                  <p className="cert-group__label">DID IT · 직접 해봤다면</p>
+                  <p className="cert-group__label">CAN DO · 나는 지금 이것을 할 수 있다</p>
                   <CapabilityCheck id={mission.cert.id} statement={mission.cert.statement} evidence={false} />
                 </div>
               </Mission>
@@ -120,20 +120,18 @@ export function Book05Page() {
 
           <footer className="book-ending" id="book-05-ending">
             <div className="book-ending__opening">
-              <p>여섯 단계를 마치면</p>
-              <h2>Problem Brief에서 Working Prototype까지 한 번 직접 연결했습니다.</h2>
+              <p>현업에서 계속 쓸 때</p>
+              <h2>다시 처음부터 만들지 않고, 필요한 부분만 정확하게 이어갑니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
-              <p>다음부터는</p>
+              <p>AI Builder에게 중요한 것은</p>
               <h2>
-                같은 흐름을
+                첫 버전을 만드는 것보다
                 <br />
-                실제 업무 문제에 적용합니다.
+                계속 다듬을 수 있는 능력입니다.
               </h2>
               <span>
-                문제의 크기와 연결 범위만 달라질 뿐,
-                <br />
-                PRD → SPEC → BUILD → REVIEW → USE → FIX의 흐름은 같습니다.
+                상태를 보여주고 · 범위를 통제하고 · 검토하고 · 기록하고 · 필요한 기능만 확장합니다.
               </span>
             </Reveal>
           </footer>
