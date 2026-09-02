@@ -52,9 +52,9 @@ export function BookPage() {
             <div className="book-opening__statement">
               <p>AI BUILD · THE FIRST MAP</p>
               <h1>
-                코딩을 배우는
+                AI로 만드는 일의
                 <br />
-                과정이 아닙니다.
+                전체 지도.
               </h1>
               <p className="book-opening__sub">
                 AI에게 제대로 일을 시키기 위해
@@ -90,8 +90,8 @@ export function BookPage() {
             <div className="chapter__inner">
               <SectionIntro number="01" title="AI는 어디까지 할 수 있는가">
                 <p>
-                  AI는 막연한 마법이 아니라, <strong>사람의 의도를 다양한 결과로 바꾸는 엔진</strong>입니다.
-                  무엇을 넣고 어떤 맥락을 주는지가 결과를 바꿉니다.
+                  AI는 <strong>사람의 의도를 결과로 바꾸는 엔진</strong>입니다.
+                  무엇을 넣고 어떤 맥락을 주는지에 따라 결과가 달라집니다.
                 </p>
               </SectionIntro>
 
@@ -146,14 +146,12 @@ export function BookPage() {
                 <p>
                   LLM은 다음에 올 가장 <strong>그럴듯한</strong> 내용을 생성합니다. 그래서 사실이
                   아닐 때도 확신에 찬 문장으로 답할 수 있습니다. 이를 환각(hallucination)이라
-                  부릅니다. 숫자·인용·규정·고유명사처럼 확인 가능한 정보일수록 사람의 검증이
-                  필요합니다.
+                  부릅니다.
                 </p>
               </div>
               <WatchOut>
-                AI가 유창하고 단호하게 답한다고 정확한 것은 아닙니다. 계약 금액, 법규 조항,
-                프로젝트 사실처럼 <strong>틀리면 대가가 큰 정보</strong>는 출처와 원문으로 반드시
-                확인하세요.
+                계약 금액, 법규 조항, 프로젝트 사실처럼 <strong>틀리면 대가가 큰 정보</strong>는
+                출처와 원문으로 반드시 확인하세요.
               </WatchOut>
               <ExecutiveTakeaway>
                 AI는 <strong>변환·분석·초안·구현</strong>에 강력합니다. 그러나 최종 판단은 여전히
@@ -173,17 +171,15 @@ export function BookPage() {
               <Reveal><ToolMap /></Reveal>
 
               <div className="sub-statement">
-                <span className="eyebrow">DURABLE THINKING</span>
+                <span className="eyebrow">JOB → TOOL</span>
                 <h3>
-                  도구 선택은 임시,
+                  단계마다
                   <br />
-                  <em>워크플로 사고는 지속됩니다.</em>
+                  <em>도구를 바꿔도 됩니다.</em>
                 </h3>
                 <p>
-                  무조건 하나의 AI만 쓰는 것이 아닙니다. <strong>작업 단계마다 도구를 바꿀 수
-                  있습니다.</strong> 생각은 A로, 내 자료 정리는 B로, 화면은 C로. 어떤 제품이
-                  1등인지 외우는 대신, "지금 나는 THINK 단계인가, BUILD 단계인가"를 먼저 묻는 습관이
-                  더 오래갑니다.
+                  생각은 A로, 내 자료 정리는 B로, 화면은 C로. 어떤 제품이 1등인지 외우는 대신,
+                  "지금 나는 THINK 단계인가, BUILD 단계인가"를 먼저 묻는 습관이 더 오래갑니다.
                 </p>
               </div>
 
@@ -196,9 +192,8 @@ export function BookPage() {
                 </ul>
               </SourceNote>
               <ExecutiveTakeaway>
-                실장이 기억할 것은 제품 순위가 아니라 <strong>역할의 지도</strong>입니다. "이 일은
-                어떤 역할이 필요한가?"를 먼저 정하면, 그 자리에 맞는 도구는 ACE가 최신으로 채워줄 수
-                있습니다.
+                실장이 기억할 것은 <strong>역할의 지도</strong>입니다. "이 일은 어떤 역할이
+                필요한가?"를 먼저 정하면, 그 자리에 맞는 도구는 ACE가 최신으로 채워줄 수 있습니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -207,8 +202,8 @@ export function BookPage() {
             <div className="chapter__inner">
               <SectionIntro number="03" title="프로그램은 무엇으로 이루어지는가" inverse>
                 <p>
-                  모든 구조를 직접 만들기 위해서가 아니라, <strong>무엇을 먼저 결정하고 무엇을 나중에 연결할지</strong>
-                  지시하기 위해 알아야 합니다.
+                  화면·기능·저장·연결. 이 네 가지가 어떻게 이어지는지 알면
+                  <strong> 일의 순서를 지시</strong>할 수 있습니다.
                 </p>
               </SectionIntro>
               <Reveal><SystemDiagram /></Reveal>
@@ -238,23 +233,23 @@ export function BookPage() {
               </Reveal>
 
               <div className="sub-statement">
-                <span className="eyebrow">TWO DIFFERENT THINGS</span>
+                <span className="eyebrow">PROTOTYPE ≠ PRODUCTION</span>
                 <h3>
                   Prototype과 Production은
                   <br />
                   <em>다른 단계입니다.</em>
                 </h3>
                 <p>
-                  이 구분은 이 책 전체에서 가장 중요한 개념 중 하나입니다. 먼저 <strong>작동하는
-                  그림</strong>을 확인하고(Prototype), 그것이 옳다고 판단된 뒤에 <strong>실제 사용자·
-                  데이터·권한·운영</strong>을 견디게 만듭니다(Production).
+                  먼저 <strong>작동하는 그림</strong>을 확인하고(Prototype), 그것이 옳다고 판단된
+                  뒤에 <strong>실제 사용자·데이터·권한·운영</strong>을 견디게 만듭니다(Production).
+                  이 순서를 합의하지 않으면 이후 모든 지시가 꼬입니다.
                 </p>
               </div>
               <div className="contrast-pair">
                 <div className="contrast-pair__side">
                   <span>PROTOTYPE</span>
                   <strong>작동하는 그림을 먼저 확인</strong>
-                  <p>Dummy Data · 화면과 사용자 흐름 검증 · 빠르고 저렴하게 바꿔봄 · 아직 실제 데이터 없음</p>
+                  <p>샘플 데이터(Dummy Data) · 화면과 사용자 흐름 검증 · 빠르고 저렴하게 바꿔봄 · 아직 실제 데이터 없음</p>
                 </div>
                 <span className="contrast-pair__op" aria-hidden="true">→</span>
                 <div className="contrast-pair__side contrast-pair__side--accent">
@@ -271,7 +266,7 @@ export function BookPage() {
               </WatchOut>
               <TryThisPrompt heading="순서를 지시하는 두 단계">
                 <PromptBlock label="STAGE 1 · PROTOTYPE" tone="dark">
-                  현재 단계에서는 디자인과 사용자 흐름을 검증하는 Prototype만 만든다. 실제 사내 데이터, 로그인, Database는 아직 연결하지 마라. Dummy Data로 화면과 흐름만 보여줘.
+                  현재 단계에서는 디자인과 사용자 흐름을 검증하는 Prototype만 만든다. 실제 사내 데이터, 로그인, Database는 아직 연결하지 마라. 샘플 데이터로 화면과 흐름만 보여줘.
                 </PromptBlock>
                 <PromptBlock label="STAGE 2 · PRODUCTION" tone="signal">
                   승인된 화면과 사용자 흐름은 변경하지 말고, 실제 Backend, Database, Authentication을 연결해. 바꾸기 전에 무엇을 바꿀지 먼저 설명해줘.
@@ -313,19 +308,19 @@ export function BookPage() {
               </Reveal>
               <p className="tool-example-note">
                 <span>CURRENT EXAMPLE</span>
-                Claude Design은 현재 예시입니다. 이 섹션은 도구가 바뀌어도 같은 제작 원리를 설명하도록 구성되어 있습니다.
+                Claude Design은 현재 예시입니다. 도구가 바뀌어도 제작 원리는 같습니다.
               </p>
 
               <div className="sub-statement">
-                <span className="eyebrow">YOUR EXPERTISE, RIGHT HERE</span>
+                <span className="eyebrow">PROTOTYPE REVIEW</span>
                 <h3>
                   Prototype을 볼 때
                   <br />
                   <em>실장은 이것을 봅니다.</em>
                 </h3>
                 <p>
-                  화면이 예쁜지가 아니라, <strong>실제 업무가 이 화면에서 돌아가는지</strong>를 봅니다.
-                  이 판단은 20–30년 현장 경험이 있는 실장이 ACE보다 훨씬 잘합니다.
+                  실제 업무가 이 화면에서 돌아가는지를 봅니다. 이 판단은 현장을 아는 실장이
+                  ACE보다 훨씬 잘합니다.
                 </p>
               </div>
               <ul className="review-checklist">
@@ -423,7 +418,7 @@ export function BookPage() {
                     이 구조를 여러 건설 프로젝트를 동시에 관리하는 실장급 임원용 Dashboard로 재구성해줘.
                   </PromptBlock>
                   <PromptBlock label="04 · BUILD" tone="light">
-                    실제 기능은 아직 연결하지 말고 Dummy Data로 Frontend Prototype을 만들어줘.
+                    실제 기능은 아직 연결하지 말고 샘플 데이터로 Frontend Prototype을 만들어줘.
                   </PromptBlock>
                 </div>
               </Reveal>
@@ -431,8 +426,8 @@ export function BookPage() {
               <ExecutiveTakeaway>
                 같은 방법을 다른 화면에도 그대로 적용할 수 있습니다 —
                 <strong> 현장 리스크 요약, 경영회의 Action Tracker, 신규 사업 기초검토</strong>.
-                레퍼런스에서 배우는 것은 남의 자산이 아니라 <strong>정보를 정리하는 원리</strong>
-                입니다. 원리는 가져오되, 브랜드·문구·독점 코드는 두고 옵니다.
+                레퍼런스에서 배우는 것은 <strong>정보를 정리하는 원리</strong>입니다. 원리는
+                가져오되, 브랜드·문구·독점 코드는 두고 옵니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -441,7 +436,7 @@ export function BookPage() {
             <div className="chapter__inner">
               <SectionIntro number="06" title="화면 뒤에 실제 기능을 연결한다">
                 <p>
-                  경험이 승인되면 그때 실제 데이터를 저장하고, 사내외 시스템과 연결하고,
+                  화면과 흐름이 승인되면, 그때 실제 데이터를 저장하고 사내외 시스템과 연결하고
                   사용자별 권한을 설정합니다.
                 </p>
               </SectionIntro>
@@ -532,7 +527,7 @@ export function BookPage() {
               </SectionIntro>
 
               <div className="sub-statement">
-                <span className="eyebrow">SCALING UP</span>
+                <span className="eyebrow">CHAT → PROJECT → REPOSITORY</span>
                 <h3>
                   대화에서 프로젝트로,
                   <br />
@@ -544,13 +539,6 @@ export function BookPage() {
                   맥락과 파일과 지시가 계속 남는 공간, <strong>저장소(Repository)</strong>는 제품의
                   실제 파일과 변경 이력이 쌓이는 작업장입니다.
                 </p>
-              </div>
-              <div className="mini-flow" aria-label="Chat에서 Project를 거쳐 Repository로">
-                <span>CHAT<small>한 번의 지시</small></span>
-                <i aria-hidden="true">→</i>
-                <span>PROJECT<small>맥락 · 파일 · 지시가 지속</small></span>
-                <i aria-hidden="true">→</i>
-                <span className="is-strong">REPOSITORY<small>제품 파일 + 이력</small></span>
               </div>
 
               <div className="prompt-versus">
@@ -572,7 +560,6 @@ export function BookPage() {
 
               <div className="project-language">
                 {[
-                  ['Repository', '프로젝트의 파일과 변경 이력이 모이는 작업장'],
                   ['Git / GitHub', '무엇이 언제 바뀌었는지 기록하고 협업하는 방식'],
                   ['CLAUDE.md / AGENTS.md', 'AI가 프로젝트 목적과 규칙을 계속 기억하도록 주는 지침'],
                   ['MCP / Connectors', 'AI가 허용된 도구와 외부 자료에 연결되는 통로'],
@@ -596,13 +583,13 @@ export function BookPage() {
               <div className="sub-statement">
                 <span className="eyebrow">GIT · GITHUB, IN PLAIN WORDS</span>
                 <h3>
-                  명령어는 몰라도 됩니다.
+                  실장이 알아야 할
                   <br />
-                  <em>개념만 압니다.</em>
+                  <em>네 단어.</em>
                 </h3>
                 <p>
-                  실제 명령은 ACE가 다룹니다. 실장은 네 단어의 뜻만 알면 "안전하게 나눠서 해",
-                  "여기서 한 번 저장해 두자" 같은 <strong>방향</strong>을 지시할 수 있습니다.
+                  실제 명령은 ACE가 다룹니다. 아래 네 단어의 뜻만 알면 "안전하게 나눠서 해",
+                  "여기서 한 번 저장해 두자" 같은 방향을 지시할 수 있습니다.
                 </p>
               </div>
               <div className="project-language">
@@ -628,9 +615,9 @@ export function BookPage() {
                 </Reveal>
               </div>
               <ExecutiveTakeaway>
-                좋은 Prompt는 한 번 일을 잘 시킵니다. 좋은 Harness는 <strong>며칠·몇 주 동안 계속</strong>
-                잘하게 만듭니다. Harness는 CLAUDE.md 하나가 아니라 지침·도구·권한·환경·테스트·
-                피드백·버전관리를 모두 포함하는 <strong>작업 환경 전체</strong>입니다.
+                좋은 Prompt는 일을 한 번 잘 시킵니다. 그 일을 계속 잘하게 하는 것은
+                지침·도구·권한·테스트·피드백·버전관리까지 갖춘 Harness, 곧 <strong>작업 환경
+                전체</strong>입니다.
               </ExecutiveTakeaway>
             </div>
           </section>

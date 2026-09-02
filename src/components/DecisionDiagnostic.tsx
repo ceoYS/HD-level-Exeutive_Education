@@ -33,7 +33,7 @@ const results: Record<SolutionKey, { name: string; korean: string; tools: string
     name: 'Web / App',
     korean: '전용 화면이 있는 웹·앱',
     tools: 'Claude Design · Google AI Studio',
-    first: '핵심 화면 1개를 Dummy Data로 만들어 업무 흐름부터 확인한다. 실제 기능은 나중에 연결한다.',
+    first: '핵심 화면 1개를 샘플 데이터로 만들어 업무 흐름부터 확인한다. 실제 기능은 나중에 연결한다.',
   },
   automation: {
     name: 'Workflow Automation',

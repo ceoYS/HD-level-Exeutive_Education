@@ -24,14 +24,14 @@ const partners = [
   {
     number: '02',
     name: 'AI',
-    korean: '구현 속도를 극적으로 높이는 도구',
+    korean: '구현 속도를 높이는 도구',
     detail: '아이디어를 화면과 기능으로 빠르게 전환합니다.',
   },
   {
     number: '03',
     name: 'ACE',
     korean: '둘 사이를 연결하는 제작 파트너',
-    detail: '맥락을 구조화하고 완성까지 함께 만듭니다.',
+    detail: 'ACE는 실장과 1:1로 함께하며 AI 활용과 구현을 돕는 내부 코치입니다.',
   },
 ]
 
@@ -184,7 +184,7 @@ export function HomePage() {
               <br />
               <em>아이디어가 아닙니다.</em>
             </h2>
-            <p>이미 여러분 안에 있는 경험을, 구현 가능한 언어로 연결합니다.</p>
+            <p>이미 갖고 있는 경험을 구현 가능한 언어로 옮깁니다.</p>
           </Reveal>
 
           <div className="experience-ledger">
@@ -228,7 +228,7 @@ export function HomePage() {
             <span className="folio">03 · THE HDEC AI BUILD LIBRARY</span>
             <Reveal className="library-transition__statement">
               <h2 id="library-transition-title">
-                이제, 다섯 권의
+                이제 다섯 권의
                 <br />
                 <em>가이드를 따라갑니다.</em>
               </h2>

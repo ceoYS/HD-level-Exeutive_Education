@@ -70,8 +70,9 @@ export function Book05Page() {
             <div className="chapter__inner">
               <SectionIntro number="00" title="작게, 그러나 직접" english="LEARN BY DOING">
                 <p>
-                  이 미션들은 <strong>휴대폰이나 태블릿에서도</strong> 따라 할 수 있습니다. 각 미션은
-                  짧습니다. 중요한 것은 완성도가 아니라 <strong>직접 해보는 경험</strong>입니다.
+                  각 미션은 짧습니다. 완성도보다 <strong>직접 해보는 경험</strong>이 목적입니다.
+                  읽기와 캡처 질문은 휴대폰으로도 충분하지만, 화면을 만드는 <strong>미션
+                  04–05</strong>는 태블릿이나 PC에서 더 수월합니다.
                 </p>
               </SectionIntro>
               <p className="editorial-lead">
@@ -121,7 +122,7 @@ export function Book05Page() {
           <footer className="book-ending">
             <div className="book-ending__opening">
               <p>여섯 개의 미션을 마치면</p>
-              <h2>실장은 직접 지시하고, 판단하고, 고쳐본 사람입니다.</h2>
+              <h2>실장은 AI에게 직접 일을 시켜본 사람입니다.</h2>
             </div>
             <Reveal className="book-ending__finale">
               <p>이제 다시 처음으로 돌아가</p>

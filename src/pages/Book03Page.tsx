@@ -95,7 +95,7 @@ export function Book03Page() {
                 <span>FIRST EXPERIMENT<small>첫 실험</small></span>
               </div>
               <ExecutiveTakeaway>
-                실장이 방향을 정하면 ACE가 구현합니다. 이 장의 목표는 코드가 아니라
+                실장이 방향을 정하면 ACE가 구현합니다. 이 장의 목표는
                 <strong> "우리 문제는 어떤 유형인가"</strong>를 스스로 판단하는 것입니다.
               </ExecutiveTakeaway>
             </div>
@@ -170,8 +170,8 @@ export function Book03Page() {
                 </TryThisPrompt>
               </RealWorldExample>
               <ExecutiveTakeaway>
-                레퍼런스나 기존 업무에서 시작하면, 빈 화면 앞에서 막히지 않습니다. 실장이 이미 아는
-                <strong> 실제 업무 흐름</strong>이 가장 좋은 출발점입니다.
+                레퍼런스나 기존 업무에서 시작하면 빈 화면 앞에서 막히지 않습니다. 매주 반복하는
+                <strong> 실제 업무 흐름</strong>이 가장 구체적인 출발점입니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -181,8 +181,8 @@ export function Book03Page() {
             <div className="chapter__inner">
               <SectionIntro number="04" title="무엇을 만들지 진단한다" english="DECISION TOOL">
                 <p>
-                  아래 질문에 답하면 <strong>예상 솔루션 타입 · 난이도 · 첫 실험</strong>을 제안합니다.
-                  정답이 아니라 대화를 시작하는 출발점입니다.
+                  아래 질문에 답하면 <strong>예상 솔루션 타입 · 난이도 · 첫 실험</strong>이 나옵니다.
+                  그 결과를 들고 ACE와 첫 대화를 시작하면 됩니다.
                 </p>
               </SectionIntro>
               <DecisionDiagnostic />
@@ -211,8 +211,8 @@ export function Book03Page() {
               </div>
               <WatchOut>
                 난이도 표는 대략의 지도입니다. "우리 것은 정확히 MEDIUM"처럼 <strong>과도한 정밀도</strong>는
-                피하세요. 중요한 것은 등급이 아니라, 처음에 무엇으로 <strong>작은 성공</strong>을
-                만들지입니다.
+                피하세요. 등급 맞추기보다, 처음에 무엇으로 <strong>작은 성공</strong>을 만들지
+                정하는 것이 먼저입니다.
               </WatchOut>
             </div>
           </section>

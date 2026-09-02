@@ -47,7 +47,7 @@ export const designBrief = [
   { en: 'HIERARCHY', label: '정보 위계', desc: '가장 먼저 보여야 할 정보' },
   { en: 'ACTIONS', label: '원하는 행동', desc: '어떤 버튼·동작이 필요한가' },
   { en: 'REFERENCE', label: '레퍼런스', desc: '참고할 구조·흐름' },
-  { en: 'CONSTRAINTS', label: '제약', desc: 'Dummy Data · Prototype 등 범위' },
+  { en: 'CONSTRAINTS', label: '제약', desc: '샘플 데이터 · Prototype 등 범위' },
 ]
 
 // 개발을 시킬 때의 5단계(바로 코드 수정 금지).
