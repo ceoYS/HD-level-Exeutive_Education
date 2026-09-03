@@ -7,6 +7,7 @@ const toolLinks: Record<string, ToolLink[]> = {
   ChatGPT: [{ label: 'ChatGPT', url: 'https://chatgpt.com/' }],
   Claude: [{ label: 'Claude', url: 'https://claude.ai/' }],
   Gemini: [{ label: 'Gemini', url: 'https://gemini.google.com/' }],
+  Perplexity: [{ label: 'Perplexity', url: 'https://www.perplexity.ai/' }],
   NotebookLM: [{ label: 'NotebookLM', url: 'https://notebooklm.google.com/' }],
   'Claude Project': [{ label: 'Claude Project', url: 'https://claude.ai/' }],
   'ChatGPT Project': [{ label: 'ChatGPT Project', url: 'https://chatgpt.com/' }],
