@@ -307,6 +307,7 @@
 .mini-flywheel {
   margin-top: var(--space-7);
   padding: clamp(1.25rem, 3vw, 2.5rem);
+  color: var(--color-ink);
   border: 1px solid rgba(17, 46, 40, 0.24);
   background: rgba(251, 250, 245, 0.72);
 }
