@@ -1,3 +1,5 @@
+import { WavyCubeBackground } from './WavyCubeBackground'
+
 const systemItems = [
   { name: 'FRONTEND', note: '사용자가 보는 화면', className: 'front' },
   { name: 'BACKEND', note: '화면 뒤에서 규칙을 처리', className: 'back' },
@@ -7,7 +9,8 @@ const systemItems = [
 
 export function SystemDiagram() {
   return (
-    <figure className="system-diagram">
+    <figure className="system-diagram system-diagram--wavy">
+      <WavyCubeBackground />
       <figcaption>HOW A DIGITAL PRODUCT WORKS</figcaption>
       <div className="system-diagram__user">
         <span>USER</span>
