@@ -267,12 +267,18 @@ export function Book01Page() {
 
               <Reveal className="prd-principle">
                 <span>PLANNING PRINCIPLE · PRD</span>
-                <h3>AI가 써준 PRD를 그대로 구현하지 않습니다.</h3>
+                <h3>
+                  AI가 써준 PRD를
+                  <br />
+                  그대로 구현하지 않습니다.
+                </h3>
                 <p>
                   AI는 문서를 구조화할 수 있지만, <strong>무엇을 만들고 싶은지 결정하는 사람은 본인</strong>입니다. 사용자, 실제 Pain Point, 원하는 화면과 흐름, 반드시 필요한 기능, 하지 않을 것, 성공 기준을 최대한 구체적으로 설명하고 AI가 이해하지 못한 부분은 질문하게 합니다.
                 </p>
                 <blockquote>
-                  “지금까지 내가 설명한 내용을 기준으로 PRD를 정리해줘. 내가 말하지 않은 요구사항은 임의로 추가하지 말고 질문으로 남겨줘.”
+                  “지금까지 내가 설명한 내용을 기준으로 PRD를 정리해줘.
+                  <br />
+                  내가 말하지 않은 요구사항은 임의로 추가하지 말고 질문으로 남겨줘.”
                 </blockquote>
               </Reveal>
 
@@ -280,7 +286,7 @@ export function Book01Page() {
                 <div className="founder-build-example__intro">
                   <span>ONE REAL BUILD PATTERN · EXAMPLE</span>
                   <h3>실제로는 AI마다 역할을 나누어<br />하나의 제품을 만들 수 있습니다.</h3>
-                  <p>아래는 이 교육을 만든 사람이 실제 프로젝트에서 사용하는 한 가지 방식입니다. 특정 도구 조합이 정답이라는 뜻은 아닙니다.</p>
+                  <p>아래는 AI디자인랩 선윤성 매니저가 실제 프로젝트에서 활용하는 방식입니다. 단, 특정 도구 조합이 정답이라는 뜻은 아닙니다.</p>
                 </div>
                 <ol>
                   {founderBuildExample.map(([role, tool, description], index) => (
@@ -292,7 +298,12 @@ export function Book01Page() {
                     </li>
                   ))}
                 </ol>
-                <p className="founder-build-example__loop">PLANNER → BUILDER → REVIEWER → ACTUAL USER → TARGETED FIX ↺</p>
+                <div className="founder-build-example__loop" aria-label="Planner, Builder, Reviewer, Actual User, Targeted Fix 반복 루프">
+                  <span>PLANNER →</span>
+                  <span>BUILDER →</span>
+                  <span>REVIEWER →</span>
+                  <span>ACTUAL USER → TARGETED FIX ↺</span>
+                </div>
               </Reveal>
 
               <ExecutiveTakeaway>
