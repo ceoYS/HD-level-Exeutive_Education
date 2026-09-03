@@ -1,3 +1,36 @@
+.cert-group {
+  max-width: var(--reading-max);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) var(--space-10);
+  display: grid;
+  gap: 0.8rem;
+  color: var(--color-paper-bright);
+}
+
+/* SELF CERTIFICATION은 학습 완료 확인 장치이므로 Reveal 상태와 무관하게 항상 표시한다. */
+.cert-group.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+.cert-group__intro {
+  margin-bottom: 0.15rem;
+  color: var(--color-paper-bright);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+
+.cert-group__label {
+  margin-bottom: var(--space-3);
+  color: var(--color-signal);
+  font-family: var(--font-editorial);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
 .capability-check__box {
   flex: none;
   color: var(--color-spruce-deep);
@@ -30,4 +63,10 @@
 .chapter--system .capability-check__box,
 .chapter--harness .capability-check__box {
   border-color: var(--color-spruce-deep);
+}
+
+@media (max-width: 760px) {
+  .cert-group {
+    padding-bottom: var(--space-8);
+  }
 }
