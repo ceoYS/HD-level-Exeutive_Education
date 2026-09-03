@@ -140,7 +140,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--screen" id="chapter-3">
             <div className="chapter__inner">
-              <SectionIntro number="03" title="AI로 할 수 있는 일의 전체 지도" english="AI CAPABILITY MAP">
+              <SectionIntro number="03" title="분야 별 핵심 AI 지도" english="AI CAPABILITY MAP">
                 <p>
                   브랜드를 외우기보다 <strong>지금 해야 할 일</strong>로 도구를 고릅니다. 한 제품이 여러 역할을 할 수도 있습니다.
                 </p>
