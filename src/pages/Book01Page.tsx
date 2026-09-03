@@ -133,7 +133,9 @@ export function Book01Page() {
               </SectionIntro>
               <Reveal><AiLayersDiagram /></Reveal>
               <ExecutiveTakeaway>
-                참고 · 이 모든 AI 제품의 판단과 생성 능력 뒤에는 <strong>Model / LLM</strong>이 있습니다. 지금 단계에서는 모델 종류를 외우기보다 AI가 답변·맥락 유지·실행 중 어디까지 일을 맡는지를 구분하면 됩니다.
+                참고 · 이 모든 AI 제품의 판단과 생성 능력 뒤에는 <strong>Model / LLM</strong>이 있습니다.
+                <br />
+                지금 단계에서는 모델 종류를 외우기보다 AI가 답변·맥락 유지·실행 중 어디까지 일을 맡는지를 구분하면 됩니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -142,7 +144,11 @@ export function Book01Page() {
             <div className="chapter__inner">
               <SectionIntro number="03" title="분야 별 핵심 AI 지도" english="AI CAPABILITY MAP">
                 <p>
-                  브랜드를 외우기보다 <strong>지금 해야 할 일</strong>로 도구를 고릅니다. 한 제품이 여러 역할을 할 수도 있습니다.
+                  툴 이름을 외우기보다
+                  <br />
+                  각 분야에서 제일 유능한 도구부터 사용해봅니다.
+                  <br />
+                  한 제품이 여러 역할을 할 수도 있습니다.
                 </p>
               </SectionIntro>
               <Reveal><ToolMap /></Reveal>
@@ -154,7 +160,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--system" id="chapter-4">
             <div className="chapter__inner">
-              <SectionIntro number="04" title="프로그램과 AI 시스템은 무엇으로 이루어지는가" inverse>
+              <SectionIntro number="04" title={<>프로그램과<br />AI 시스템은 무엇으로 이루어지는가</>} inverse>
                 <p>
                   코딩 문법보다 화면·규칙·데이터·연결·실행 환경이 어떻게 이어지는지 이해하면 됩니다.
                 </p>
