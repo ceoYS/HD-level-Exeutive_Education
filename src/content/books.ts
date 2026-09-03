@@ -175,7 +175,7 @@ export const toolGroups = [
 
 export const bookChapters = [
   'AI가 바꾼 것은 구현의 장벽',
-  'AI · Assistant · Agent는 무엇이 다른가',
+  '대화에서 실행까지, AI는 어떻게 달라지는가',
   '분야 별 핵심 AI 지도',
   '프로그램과 AI 시스템은 무엇으로 이루어지는가',
   'Workflow · Agent · MCP · Skill',
