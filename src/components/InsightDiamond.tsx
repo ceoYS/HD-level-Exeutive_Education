@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { MiniFlywheel } from './MiniFlywheel'
 import { Reveal } from './Reveal'
 
 const steps = [
@@ -397,6 +398,11 @@ export function InsightDiamond() {
           </li>
         ))}
       </ol>
+
+      <MiniFlywheel
+        title="DESIGN THINKING FLYWHEEL"
+        steps={['EMPATHIZE', 'DEFINE', 'IDEATE', 'PROTOTYPE', 'TEST']}
+      />
 
       <p className="design-thinking-particles__loop-note">
         DESIGN THINKING은 일방향 절차가 아닙니다. <strong>Test에서 얻은 인사이트 및 피드백을 필요에 따라 Empathize · Define · Ideate로 돌아가 적용합니다.</strong>
