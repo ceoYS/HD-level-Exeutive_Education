@@ -1,4 +1,5 @@
 import { useState, type CSSProperties } from 'react'
+import { ApiUseCaseDetails } from '../components/ApiUseCaseDetails'
 import { ExecutiveTakeaway, WatchOut } from '../components/Callout'
 import { NavigateLink } from '../components/NavigateLink'
 import { Reveal } from '../components/Reveal'
@@ -254,6 +255,7 @@ export function Book02Page() {
                       <li><strong>개발사업 계약서 법률 리스크 분석 시스템</strong> · 계약서 분석 → 국가법령정보 공동활용 API Key 연결 → 법령명 검색·최신 법령 후보 확인 → 법무 검토용 근거 보강</li>
                       <li><strong>API Key 관리</strong> · 발급받은 Key는 외부에 공유하거나 배포용 화면·파일에 노출하지 않도록 관리</li>
                     </ul>
+                    <ApiUseCaseDetails />
                   </Reveal>
                 )}
 
