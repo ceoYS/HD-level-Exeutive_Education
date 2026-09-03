@@ -147,17 +147,25 @@ export function DevelopmentLoop() {
           프롬프트 문구를 외우는 것보다 <strong>무엇을 왜 원하는지, 무엇을 주고 어떤 결과를 받을지,
           어디까지 허용할지</strong>를 분명히 전달하는 것이 중요합니다.
         </p>
-        <LabeledGrid items={instructionParts} />
+        <div className="instruction-grid-six">
+          <LabeledGrid items={instructionParts} />
+        </div>
       </div>
 
       <div className="prd-principle">
         <span>CONTEXT · WHAT AI DOES NOT KNOW</span>
-        <h3>AI가 모르는 업무 맥락은 사람이 채워야 합니다.</h3>
+        <h3>
+          AI가 모르는 업무 맥락은
+          <br />
+          사람이 채워야 합니다.
+        </h3>
         <p>
           AI는 조직의 업무 배경을 저절로 알지 못합니다. 자료를 많이 넣는 것이 아니라
           <strong> 결과를 판단하는 데 필요한 사용자·상황·현재 방식·근거·경계</strong>를 작업 맥락으로 줍니다.
         </p>
-        <LabeledGrid items={contextParts} />
+        <div className="context-grid-visible">
+          <LabeledGrid items={contextParts} />
+        </div>
       </div>
     </>
   )
