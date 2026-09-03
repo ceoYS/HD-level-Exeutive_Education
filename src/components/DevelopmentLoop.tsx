@@ -32,6 +32,49 @@ export function DevelopmentLoop() {
           <span>HOW AI DEVELOPMENT ACTUALLY WORKS</span>
           <strong>계획하고, 만들고, 검토하고, 직접 씁니다.</strong>
         </figcaption>
+        <div
+          aria-label="01 Planner부터 03 Reviewer까지는 AI Agent가 자동화하고 04 Actual User는 임원진이 직접 판단합니다."
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+            marginBottom: '0.6rem',
+            fontFamily: 'var(--font-editorial)',
+            fontSize: '0.68rem',
+            fontWeight: 800,
+            letterSpacing: '0.08em',
+          }}
+        >
+          <div
+            style={{
+              gridColumn: '1 / 4',
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '1rem',
+              padding: '0.75rem 1rem',
+              color: 'var(--color-spruce-deep)',
+              border: 'var(--border-light)',
+              background: 'var(--color-mint)',
+            }}
+          >
+            <span>01–03 · AI AGENT · AUTOMATED</span>
+            <strong>PLANNER → BUILDER → REVIEWER</strong>
+          </div>
+          <div
+            style={{
+              gridColumn: '4',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '0.75rem 1rem',
+              color: 'var(--color-spruce-deep)',
+              border: 'var(--border-light)',
+              background: 'var(--color-signal)',
+              textAlign: 'center',
+            }}
+          >
+            <span>04 · EXECUTIVE · HUMAN JUDGMENT</span>
+          </div>
+        </div>
         <ol>
           {roles.map((item, index) => (
             <li className={item.role === 'ACTUAL USER' ? 'is-human' : ''} key={item.role}>
