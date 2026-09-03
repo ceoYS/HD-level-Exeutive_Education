@@ -3,7 +3,7 @@ import { Reveal } from './Reveal'
 
 type SectionIntroProps = {
   number: string
-  title: string
+  title: ReactNode
   english?: string
   children?: ReactNode
   inverse?: boolean
