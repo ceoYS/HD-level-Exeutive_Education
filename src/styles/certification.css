@@ -36,6 +36,16 @@
   color: var(--color-ink);
 }
 
+.book-ending .cert-group .capability-check .capability-check__statement {
+  display: block !important;
+  color: #151916 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-text-fill-color: #151916 !important;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem) !important;
+  line-height: 1.4 !important;
+}
+
 .capability-check__box {
   flex: none;
   color: var(--color-spruce-deep);
