@@ -31,6 +31,11 @@
   letter-spacing: 0.12em;
 }
 
+.cert-group .capability-check,
+.cert-group .capability-check__statement {
+  color: var(--color-ink);
+}
+
 .capability-check__box {
   flex: none;
   color: var(--color-spruce-deep);
