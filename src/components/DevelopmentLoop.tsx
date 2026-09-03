@@ -32,49 +32,74 @@ export function DevelopmentLoop() {
           <span>HOW AI DEVELOPMENT ACTUALLY WORKS</span>
           <strong>계획하고, 만들고, 검토하고, 직접 씁니다.</strong>
         </figcaption>
+
         <div
-          aria-label="01 Planner부터 03 Reviewer까지는 AI Agent가 자동화하고 04 Actual User는 임원진이 직접 판단합니다."
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-            marginBottom: '0.6rem',
-            fontFamily: 'var(--font-editorial)',
-            fontSize: '0.68rem',
-            fontWeight: 800,
-            letterSpacing: '0.08em',
+            gridTemplateColumns: '9rem 1fr',
+            gap: '1rem',
+            alignItems: 'center',
+            marginBottom: '0.8rem',
+            padding: '0.85rem 1rem',
+            border: 'var(--border-light)',
           }}
         >
-          <div
+          <strong
             style={{
-              gridColumn: '1 / 4',
-              display: 'flex',
-              justifyContent: 'space-between',
-              gap: '1rem',
-              padding: '0.75rem 1rem',
-              color: 'var(--color-spruce-deep)',
-              border: 'var(--border-light)',
-              background: 'var(--color-mint)',
+              color: 'var(--color-signal)',
+              fontFamily: 'var(--font-editorial)',
+              fontSize: '0.78rem',
+              letterSpacing: '0.1em',
             }}
           >
-            <span>01–03 · AI AGENT · AUTOMATED</span>
-            <strong>PLANNER → BUILDER → REVIEWER</strong>
-          </div>
-          <div
-            style={{
-              gridColumn: '4',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              padding: '0.75rem 1rem',
-              color: 'var(--color-spruce-deep)',
-              border: 'var(--border-light)',
-              background: 'var(--color-signal)',
-              textAlign: 'center',
-            }}
-          >
-            <span>04 · EXECUTIVE · HUMAN JUDGMENT</span>
-          </div>
+            HARNESS
+          </strong>
+          <span style={{ fontSize: '0.86rem', lineHeight: 1.55 }}>
+            Planner · Builder · Reviewer · Actual User와 각 단계의 AI·도구·검증 절차를 하나의 제품 제작 구조로 묶은 방식
+          </span>
         </div>
+
+        <svg
+          viewBox="0 0 1200 170"
+          role="img"
+          aria-label="AI Agent가 Planner, Builder, Reviewer 1~3단계를 실행하고 Actual User가 최종 판단하는 구조"
+          style={{ width: '100%', height: 'auto', display: 'block', marginBottom: '0.8rem' }}
+        >
+          <defs>
+            <marker id="agent-flow-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-signal)" />
+            </marker>
+          </defs>
+
+          <rect x="8" y="10" width="875" height="148" rx="18" fill="rgba(205,255,73,0.08)" stroke="var(--color-mint)" strokeWidth="2" />
+          <text x="32" y="34" fill="var(--color-mint)" fontSize="12" fontWeight="800" letterSpacing="2">01–03 · AI AGENT EXECUTION</text>
+
+          <circle cx="108" cy="91" r="43" fill="var(--color-signal)" />
+          <text x="108" y="86" textAnchor="middle" fill="var(--color-spruce-deep)" fontSize="13" fontWeight="800">AI</text>
+          <text x="108" y="104" textAnchor="middle" fill="var(--color-spruce-deep)" fontSize="13" fontWeight="800">AGENT</text>
+
+          <line x1="154" y1="91" x2="232" y2="91" stroke="var(--color-signal)" strokeWidth="2" markerEnd="url(#agent-flow-arrow)" />
+          <rect x="242" y="53" width="170" height="76" rx="8" fill="transparent" stroke="var(--color-mint)" strokeWidth="2" />
+          <text x="327" y="82" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="12" fontWeight="800">01</text>
+          <text x="327" y="104" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="16" fontWeight="800">PLANNER</text>
+
+          <line x1="414" y1="91" x2="470" y2="91" stroke="var(--color-signal)" strokeWidth="2" markerEnd="url(#agent-flow-arrow)" />
+          <rect x="480" y="53" width="170" height="76" rx="8" fill="transparent" stroke="var(--color-mint)" strokeWidth="2" />
+          <text x="565" y="82" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="12" fontWeight="800">02</text>
+          <text x="565" y="104" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="16" fontWeight="800">BUILDER</text>
+
+          <line x1="652" y1="91" x2="708" y2="91" stroke="var(--color-signal)" strokeWidth="2" markerEnd="url(#agent-flow-arrow)" />
+          <rect x="718" y="53" width="140" height="76" rx="8" fill="transparent" stroke="var(--color-mint)" strokeWidth="2" />
+          <text x="788" y="82" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="12" fontWeight="800">03</text>
+          <text x="788" y="104" textAnchor="middle" fill="var(--color-paper-bright)" fontSize="16" fontWeight="800">REVIEWER</text>
+
+          <line x1="885" y1="91" x2="936" y2="91" stroke="var(--color-signal)" strokeWidth="2" markerEnd="url(#agent-flow-arrow)" />
+          <polygon points="1048,22 1178,91 1048,160 918,91" fill="var(--color-signal)" />
+          <text x="1048" y="75" textAnchor="middle" fill="var(--color-spruce-deep)" fontSize="12" fontWeight="800">04 · HUMAN JUDGMENT</text>
+          <text x="1048" y="101" textAnchor="middle" fill="var(--color-spruce-deep)" fontSize="17" fontWeight="900">ACTUAL USER</text>
+          <text x="1048" y="121" textAnchor="middle" fill="var(--color-spruce-deep)" fontSize="11" fontWeight="700">EXECUTIVE</text>
+        </svg>
+
         <ol>
           {roles.map((item, index) => (
             <li className={item.role === 'ACTUAL USER' ? 'is-human' : ''} key={item.role}>
@@ -87,6 +112,32 @@ export function DevelopmentLoop() {
           ))}
         </ol>
         <b aria-hidden="true">TARGETED FIX ↺</b>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '9rem 1fr',
+            gap: '1rem',
+            alignItems: 'center',
+            marginTop: '1.2rem',
+            paddingTop: '1rem',
+            borderTop: 'var(--border-light)',
+          }}
+        >
+          <strong
+            style={{
+              color: 'var(--color-signal)',
+              fontFamily: 'var(--font-editorial)',
+              fontSize: '0.78rem',
+              letterSpacing: '0.1em',
+            }}
+          >
+            LOOP ↺
+          </strong>
+          <span style={{ fontSize: '0.86rem', lineHeight: 1.55 }}>
+            이 Harness를 PLAN → BUILD → REVIEW → USE → FIX로 반복할수록 작업 맥락과 검증 기준이 축적되어 개발 속도와 정확도를 높일 수 있습니다.
+          </span>
+        </div>
       </figure>
 
       <div className="prd-principle">
