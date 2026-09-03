@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { Reveal } from './Reveal'
 
 const steps = [
-  ['EMPATHIZE', '공감하기', '사용자의 상황과 실제 업무에서 생기는 마찰을 관찰합니다.'],
-  ['DEFINE', '문제 정의', '무엇이 진짜 문제인지 좁히고 해결할 Pain Point를 명확히 합니다.'],
-  ['IDEATE', '아이디어 도출', 'AI와 여러 해결 방법과 제품 형태를 비교하며 가능성을 넓힙니다.'],
-  ['PROTOTYPE', '프로토타입', 'AI 바이브코딩으로 가장 작은 제품 형태를 빠르게 만들어봅니다.'],
-  ['TEST', '테스트', '직접 사용해보고 결과에 따라 앞 단계로 돌아가 다시 정의하고 고칩니다.'],
+  ['EMPATHIZE', '공감하기', '현업에서 발생하는 pain point를 발굴합니다.'],
+  ['DEFINE', '문제 정의', '무엇이 진짜 문제인지 좁히고 해결할 Pain Point를 명확히 정의합니다.'],
+  ['IDEATE', '아이디어 도출', 'AI와 여러 해결 방법과 제품 형태를 조사·비교하며 정확하고 빠른 방법을 확보합니다.'],
+  ['PROTOTYPE', '프로토타입', 'AI 바이브코딩으로 핵심적인 기능만을 담은 제품을 빠르게 제작합니다.'],
+  ['TEST', '테스트', '직접 사용해보며, 고쳐야 할 점들을 피드백 하여 제품을 고도화 합니다.'],
 ]
 
 const stagePositions = [
@@ -358,10 +358,11 @@ export function InsightDiamond() {
     <Reveal className="design-thinking-particles">
       <div className="design-thinking-particles__copy">
         <span>DESIGN THINKING · EXECUTIVE ATTITUDE</span>
-        <h3>좋은 문제를 보는 눈이<br />제품보다 먼저입니다.</h3>
+        <h3>진짜 문제를 보는 눈이<br />제품보다 먼저입니다.</h3>
         <p>
           임원진의 경험과 현업 인사이트가 <strong>Empathize · Define</strong>의 출발점이 됩니다.
-          AI 바이브코딩은 <strong>Ideate → Prototype → Test</strong>를 빠르게 반복하게 해줍니다.
+          <br />
+          AI 바이브코딩은 <strong>Ideate → Prototype → Test</strong>를 빠르게 반복·고도화하게 해줍니다.
         </p>
       </div>
 
@@ -398,7 +399,7 @@ export function InsightDiamond() {
       </ol>
 
       <p className="design-thinking-particles__loop-note">
-        DESIGN THINKING은 일방향 절차가 아닙니다. <strong>Test에서 얻은 학습은 다시 Empathize · Define · Ideate로 돌아갑니다.</strong>
+        DESIGN THINKING은 일방향 절차가 아닙니다. <strong>Test에서 얻은 인사이트 및 피드백을 필요에 따라 Empathize · Define · Ideate로 돌아가 적용합니다.</strong>
       </p>
     </Reveal>
   )
