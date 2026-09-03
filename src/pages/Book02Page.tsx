@@ -245,6 +245,18 @@ export function Book02Page() {
                   </Reveal>
                 </div>
 
+                {type.key === 'web-app' && (
+                  <Reveal as="article" className="explore-panel explore-panel--examples">
+                    <span>API CONNECTION · HDEC USE CASE</span>
+                    <h3>API Key를 연결하면 외부 실제 데이터까지 제품 안으로 가져올 수 있습니다</h3>
+                    <ul>
+                      <li><strong>KISCON 건설업체 조회·협력업체 교차 분석기</strong> · 공공데이터포털에서 KISCON API Key 발급 → Copilot로 HTML 도구 생성 → KISCON 업체 데이터 수집 → 사내 협력업체 CSV와 교차분석</li>
+                      <li><strong>개발사업 계약서 법률 리스크 분석 시스템</strong> · 계약서 분석 → 국가법령정보 공동활용 API Key 연결 → 법령명 검색·최신 법령 후보 확인 → 법무 검토용 근거 보강</li>
+                      <li><strong>API Key 관리</strong> · 발급받은 Key는 외부에 공유하거나 배포용 화면·파일에 노출하지 않도록 관리</li>
+                    </ul>
+                  </Reveal>
+                )}
+
                 <Reveal>
                   <details className="explore-build-detail">
                     <summary>
