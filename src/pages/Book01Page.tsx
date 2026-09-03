@@ -39,8 +39,8 @@ const automationTerms = [
 const referenceSteps = [
   ['01', 'DIG UP', '벤치마크할 유사 서비스를 발굴합니다.'],
   ['02', 'ANALYZE', '정보구조와 사용자 흐름을 본다'],
-  ['03', 'EXTRACT', '재사용할 해결 원리를 뽑는다'],
-  ['04', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
+  ['03', 'EXTRACT', '재사용할 제품의 구조를 추출한다.'],
+  ['04', 'REINTERPRET', '업무 인프라 제약과 우선순위를 고려해 다시 설계한다.'],
   ['05', 'VALIDATE', '재설계한 구조가 실제 우리 업무에 맞는지 작은 Prototype으로 검증합니다.'],
 ]
 
@@ -224,7 +224,7 @@ export function Book01Page() {
                   유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 벤치마킹하여 다시 설계할 수 있습니다.
                 </p>
               </SectionIntro>
-              <div className="reference-sequence">
+              <div className="reference-sequence" style={{ gridTemplateColumns: `repeat(${referenceSteps.length}, minmax(0, 1fr))` }}>
                 {referenceSteps.map(([number, english, korean], index) => (
                   <Reveal className="reference-step" delay={index * 50} key={number}>
                     <span>{number}</span><strong>{english}</strong><p>{korean}</p>
