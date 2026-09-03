@@ -6,7 +6,6 @@ import { CapabilityCheck } from '../components/CapabilityCheck'
 import { DevelopmentLoop } from '../components/DevelopmentLoop'
 import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
 import { InsightDiamond } from '../components/InsightDiamond'
-import { MiniFlywheel } from '../components/MiniFlywheel'
 import { NavigateLink } from '../components/NavigateLink'
 import { Reveal } from '../components/Reveal'
 import { SectionIntro } from '../components/SectionIntro'
@@ -38,7 +37,7 @@ const automationTerms = [
 ]
 
 const referenceSteps = [
-  ['01', 'USE', '유사 서비스를 직접 써본다'],
+  ['01', 'DIG UP', '벤치마크할 유사 서비스를 발굴합니다.'],
   ['02', 'ANALYZE', '정보구조와 사용자 흐름을 본다'],
   ['03', 'EXTRACT', '재사용할 해결 원리를 뽑는다'],
   ['04', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
@@ -186,13 +185,6 @@ export function Book01Page() {
                   </Reveal>
                 ))}
               </div>
-              <Reveal>
-                <MiniFlywheel
-                  title="DIGITAL PRODUCT FLYWHEEL"
-                  steps={['DEFINE', 'BUILD', 'CONNECT', 'DEPLOY', 'USE', 'FIX']}
-                  tone="dark"
-                />
-              </Reveal>
               <SecurityGate>
                 Prototype 단계에서는 샘플·공개·익명화 데이터를 사용합니다. 실제 시스템과 데이터를 연결할 때는 승인된 환경과 권한 안에서 진행합니다.
               </SecurityGate>
@@ -218,12 +210,6 @@ export function Book01Page() {
                   </Reveal>
                 ))}
               </div>
-              <Reveal>
-                <MiniFlywheel
-                  title="AI BUILD OPERATING FLYWHEEL"
-                  steps={['RULES', 'DOCS', 'BUILD', 'HAND-OFF', 'REVIEW', 'UPDATE']}
-                />
-              </Reveal>
               <ExecutiveTakeaway>
                 <strong>Rules는 어떻게 일할 것인가, Docs는 무엇을 만들 것인가</strong>를 알려줍니다. MCP는 외부 도구·데이터를 연결하고, Skill은 반복 작업을 재사용하게 합니다.
               </ExecutiveTakeaway>
@@ -234,7 +220,7 @@ export function Book01Page() {
             <div className="chapter__inner">
               <SectionIntro number="06" title="이미 검증된 서비스에서 시작할 수 있다" english="REFERENCE-DRIVEN BUILD">
                 <p>
-                  유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 다시 설계할 수 있습니다.
+                  유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 벤치마킹하여 다시 설계할 수 있습니다.
                 </p>
               </SectionIntro>
               <div className="reference-sequence">
