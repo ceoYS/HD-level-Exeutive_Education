@@ -93,6 +93,7 @@ export const toolGroups = [
       { name: 'ChatGPT', role: '웹 검색으로 최신 정보 조사' },
       { name: 'Claude', role: '웹과 연결 자료를 읽고 인용 보고서 작성' },
       { name: 'Gemini', role: 'Deep Research로 비교 · 근거 수집' },
+      { name: 'Perplexity', role: '검색 기반 최신 정보 · 출처 확인 · 리서치' },
     ],
   },
   {
