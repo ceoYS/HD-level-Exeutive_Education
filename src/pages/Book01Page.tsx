@@ -6,6 +6,7 @@ import { CapabilityCheck } from '../components/CapabilityCheck'
 import { DevelopmentLoop } from '../components/DevelopmentLoop'
 import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
 import { InsightDiamond } from '../components/InsightDiamond'
+import { MiniFlywheel } from '../components/MiniFlywheel'
 import { NavigateLink } from '../components/NavigateLink'
 import { Reveal } from '../components/Reveal'
 import { SectionIntro } from '../components/SectionIntro'
@@ -24,13 +25,16 @@ const systemTerms = [
   ['SERVER', '서비스가 실제로 실행되는 환경'],
   ['AUTHENTICATION', '누가 무엇을 할 수 있는지 확인'],
   ['DEPLOY', '다른 사람이 접속할 수 있게 내보내는 과정'],
+  ['GITHUB REPOSITORY', '코드와 변경 이력을 저장하고, 이미 다른 개발자가 만들어 둔 기능·구조를 찾아 참고·활용할 수 있는 저장소'],
 ]
 
 const automationTerms = [
   ['PROJECT INSTRUCTIONS / RULES', 'AI가 프로젝트 전체에서 계속 지켜야 할 규칙입니다. · CLAUDE.md · AGENTS.md · .cursor/rules'],
   ['CONTEXT / DOCS', 'AI가 무엇을 만들고 무엇을 기준으로 판단할지 알려주는 문서입니다. · README.md · PRD.md · SPEC.md · PLAN.md · TASKS.md'],
+  ['HAND-OFF / CHECKPOINT', '한 채팅방의 Context가 길어질수록 중요한 맥락을 안정적으로 유지하기 어려워지고 답변이 압축되거나 대화를 빨리 마무리하는 듯한 현상이 생길 수 있습니다. 현재 상태·결정사항·남은 작업·읽어야 할 파일을 Hand-Off 문서로 받아 프로젝트 내 새 채팅방으로 인계합니다.'],
   ['MCP', 'AI가 프로젝트 밖의 도구·데이터와 연결되는 방식을 표준화한 규격입니다.'],
   ['SKILL', '반복해서 시킬 일을 재사용 가능한 작업법으로 만들어 둡니다.'],
+  ['HARNESS / LOOP', '여러 AI·도구·문서를 역할별로 묶어 하나의 제작 흐름으로 운용하는 것이 Harness입니다. PLAN → BUILD → REVIEW → USE → FIX를 반복하는 것이 Loop입니다.'],
 ]
 
 const referenceSteps = [
@@ -135,7 +139,7 @@ export function Book01Page() {
               <ExecutiveTakeaway>
                 참고 · 이 모든 AI 제품의 판단과 생성 능력 뒤에는 <strong>Model / LLM</strong>이 있습니다.
                 <br />
-                지금 단계에서는 모델 종류를 외우기보다 AI가 답변·맥락 유지·실행 중 어디까지 일을 맡는지를 구분하면 됩니다.
+                지금 단계에서는 모델 종류와 ai를 외우기보다 각 업무에 어떤 ai를 사용하는지를 구분하면 됩니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -169,10 +173,26 @@ export function Book01Page() {
               <div className="system-terms">
                 {systemTerms.map(([term, meaning]) => (
                   <Reveal as="div" className="system-term" key={term}>
-                    <strong>{term}</strong><p>{meaning}</p>
+                    <strong>{term}</strong>
+                    <p>
+                      {meaning}
+                      {term === 'GITHUB REPOSITORY' && (
+                        <>
+                          <br />
+                          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+                        </>
+                      )}
+                    </p>
                   </Reveal>
                 ))}
               </div>
+              <Reveal>
+                <MiniFlywheel
+                  title="DIGITAL PRODUCT FLYWHEEL"
+                  steps={['DEFINE', 'BUILD', 'CONNECT', 'DEPLOY', 'USE', 'FIX']}
+                  tone="dark"
+                />
+              </Reveal>
               <SecurityGate>
                 Prototype 단계에서는 샘플·공개·익명화 데이터를 사용합니다. 실제 시스템과 데이터를 연결할 때는 승인된 환경과 권한 안에서 진행합니다.
               </SecurityGate>
@@ -189,10 +209,21 @@ export function Book01Page() {
               <div className="project-language project-language--three">
                 {automationTerms.map(([term, meaning], index) => (
                   <Reveal as="article" className="project-term" delay={(index % 3) * 60} key={term}>
-                    <span>{String(index + 1).padStart(2, '0')}</span><h3>{term}</h3><p>{meaning}</p>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{term}</h3>
+                    <p>{meaning}</p>
+                    {term === 'SKILL' && (
+                      <a className="project-term__link" href="https://skills.sh/" target="_blank" rel="noreferrer">skills.sh ↗</a>
+                    )}
                   </Reveal>
                 ))}
               </div>
+              <Reveal>
+                <MiniFlywheel
+                  title="AI BUILD OPERATING FLYWHEEL"
+                  steps={['RULES', 'DOCS', 'BUILD', 'HAND-OFF', 'REVIEW', 'UPDATE']}
+                />
+              </Reveal>
               <ExecutiveTakeaway>
                 <strong>Rules는 어떻게 일할 것인가, Docs는 무엇을 만들 것인가</strong>를 알려줍니다. MCP는 외부 도구·데이터를 연결하고, Skill은 반복 작업을 재사용하게 합니다.
               </ExecutiveTakeaway>
