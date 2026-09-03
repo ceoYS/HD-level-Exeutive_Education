@@ -1,5 +1,3 @@
-import { MiniFlywheel } from './MiniFlywheel'
-
 export function AiLayersDiagram() {
   return (
     <figure className="ai-layers">
@@ -44,11 +42,6 @@ export function AiLayersDiagram() {
           </p>
         </div>
       </div>
-      <MiniFlywheel
-        title="AI USE FLYWHEEL"
-        steps={['CHAT', 'PROJECT', 'AGENT', 'RESULT', 'FEEDBACK']}
-        tone="dark"
-      />
     </figure>
   )
 }
