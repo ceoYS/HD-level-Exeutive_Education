@@ -1,0 +1,33 @@
+.capability-check__box {
+  flex: none;
+  color: var(--color-spruce-deep);
+  border: 2px solid currentColor;
+  background: var(--color-paper-bright);
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.capability-check__box::after {
+  display: none;
+}
+
+.capability-check.is-done .capability-check__box,
+.capability-check input:checked + .capability-check__box {
+  color: var(--color-spruce-deep);
+  border-color: var(--color-signal);
+  background: var(--color-signal);
+}
+
+.capability-check__box--sm {
+  font-size: 0.78rem;
+}
+
+.chapter--dark .capability-check__box,
+.chapter--spruce .capability-check__box,
+.chapter--tools .capability-check__box,
+.chapter--system .capability-check__box,
+.chapter--harness .capability-check__box {
+  border-color: var(--color-spruce-deep);
+}
