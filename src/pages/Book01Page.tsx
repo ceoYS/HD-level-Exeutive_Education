@@ -27,10 +27,10 @@ const systemTerms = [
 ]
 
 const automationTerms = [
-  ['WORKFLOW', '순서와 조건이 비교적 정해진 반복 업무'],
-  ['AGENT', '상황을 보고 다음 행동이나 도구를 선택해야 하는 업무'],
-  ['MCP', 'AI가 외부 도구·데이터와 연결되는 방식을 표준화한 규격'],
-  ['SKILL', '특정 일을 반복해서 수행하도록 만든 재사용 가능한 작업법'],
+  ['PROJECT INSTRUCTIONS / RULES', 'AI가 프로젝트 전체에서 계속 지켜야 할 규칙입니다. · CLAUDE.md · AGENTS.md · .cursor/rules'],
+  ['CONTEXT / DOCS', 'AI가 무엇을 만들고 무엇을 기준으로 판단할지 알려주는 문서입니다. · README.md · PRD.md · SPEC.md · PLAN.md · TASKS.md'],
+  ['MCP', 'AI가 프로젝트 밖의 도구·데이터와 연결되는 방식을 표준화한 규격입니다.'],
+  ['SKILL', '반복해서 시킬 일을 재사용 가능한 작업법으로 만들어 둡니다.'],
 ]
 
 const referenceSteps = [
@@ -181,9 +181,9 @@ export function Book01Page() {
 
           <section className="chapter chapter--connect" id="chapter-5">
             <div className="chapter__inner">
-              <SectionIntro number="05" title="Workflow · Agent · MCP · Skill">
+              <SectionIntro number="05" title="AI에게 프로젝트의 규칙과 도구를 어떻게 연결하는가">
                 <p>
-                  자동화는 <strong>정해진 흐름을 실행하는 부분</strong>과 <strong>AI가 다음 행동을 판단하는 부분</strong>을 나눠서 보면 됩니다.
+                  Agent가 제대로 일하려면 <strong>계속 지킬 규칙, 기준 문서, 외부 도구 연결, 반복 작업법</strong>이 필요합니다.
                 </p>
               </SectionIntro>
               <div className="project-language project-language--three">
@@ -194,7 +194,7 @@ export function Book01Page() {
                 ))}
               </div>
               <ExecutiveTakeaway>
-                예측 가능한 단계는 Workflow로 두고, 해석과 예외 판단이 필요한 곳만 Agent에 맡기는 편이 운영하기 쉽습니다.
+                <strong>Rules는 어떻게 일할 것인가, Docs는 무엇을 만들 것인가</strong>를 알려줍니다. MCP는 외부 도구·데이터를 연결하고, Skill은 반복 작업을 재사용하게 합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -304,7 +304,7 @@ export function Book01Page() {
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
               <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Chat · Project · Agent가 각각 어디까지 일을 맡는지 설명할 수 있다." />
               <CapabilityCheck id="b01-structure" evidence={false} statement="Frontend부터 Deploy까지 제품의 주요 구성 요소를 설명할 수 있다." />
-              <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Workflow와 Agent를 언제 나눠 써야 하는지 설명할 수 있다." />
+              <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Project Instructions · Docs · MCP · Skill이 각각 무엇을 위한 것인지 설명할 수 있다." />
               <CapabilityCheck id="b01-build-loop" evidence={false} statement="Planner · Builder · Reviewer · Actual User의 역할을 구분할 수 있다." />
             </Reveal>
             <NavigateLink href="/book/instruct" className="next-book">
