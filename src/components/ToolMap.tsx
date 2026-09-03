@@ -86,7 +86,7 @@ export function ToolMap() {
       <div className="tool-map__header">
         <div>
           <span>AI CAPABILITY MAP</span>
-          <strong>해야 할 일로 고릅니다.</strong>
+          <strong>업무에 따라 선택합니다.</strong>
         </div>
         <p>
           <b>UPDATED · 2026.09</b>
