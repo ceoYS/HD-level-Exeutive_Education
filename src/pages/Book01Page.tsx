@@ -126,15 +126,15 @@ export function Book01Page() {
 
           <section className="chapter chapter--tools" id="chapter-2">
             <div className="chapter__inner">
-              <SectionIntro number="02" title="Model · Assistant · Agent는 무엇이 다른가" inverse>
+              <SectionIntro number="02" title="대화에서 실행까지, AI는 어떻게 달라지는가" inverse>
                 <p>
-                  세 개를 고정된 단계로 외우기보다 <strong>각각 어떤 역할을 하는지</strong> 이해하면 AI 제품이 어떻게 작동하는지 판단하기 쉬워집니다.
+                  AI 제품 이름을 외우기보다 <strong>사람이 계속 지시하는 대화, 맥락을 이어가는 프로젝트, 도구를 사용해 실제 행동하는 Agent</strong>의 차이를 이해합니다.
                 </p>
               </SectionIntro>
               <Reveal><AiLayersDiagram /></Reveal>
-              <WatchOut>
-                Custom GPT·Project·Gem처럼 지시와 지식을 저장했다고 자동으로 Agent가 되는 것은 아닙니다. 목표를 받고 상황에 따라 다음 행동과 도구 사용을 판단하며 여러 단계를 수행할 때 Agent에 가깝습니다.
-              </WatchOut>
+              <ExecutiveTakeaway>
+                참고 · 이 모든 AI 제품의 판단과 생성 능력 뒤에는 <strong>Model / LLM</strong>이 있습니다. 지금 단계에서는 모델 종류를 외우기보다 AI가 답변·맥락 유지·실행 중 어디까지 일을 맡는지를 구분하면 됩니다.
+              </ExecutiveTakeaway>
             </div>
           </section>
 
@@ -296,7 +296,7 @@ export function Book01Page() {
             <Reveal className="cert-group">
               <p className="cert-group__intro">스스로 확인합니다.</p>
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
-              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Model · Assistant · Agent의 역할 차이를 설명할 수 있다." />
+              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Chat · Project · Agent가 각각 어디까지 일을 맡는지 설명할 수 있다." />
               <CapabilityCheck id="b01-structure" evidence={false} statement="Frontend부터 Deploy까지 제품의 주요 구성 요소를 설명할 수 있다." />
               <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Workflow와 Agent를 언제 나눠 써야 하는지 설명할 수 있다." />
               <CapabilityCheck id="b01-build-loop" evidence={false} statement="Planner · Builder · Reviewer · Actual User의 역할을 구분할 수 있다." />
