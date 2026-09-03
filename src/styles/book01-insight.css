@@ -265,12 +265,19 @@
 }
 
 .founder-build-example__loop {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: var(--space-4);
   color: var(--color-signal);
   font-family: var(--font-editorial);
   font-size: var(--text-sm);
   font-weight: 800;
   letter-spacing: 0.04em;
+}
+
+.founder-build-example__loop span {
+  min-width: 0;
+  padding-right: 0.5rem;
 }
 
 .ai-layer__links {
@@ -470,6 +477,7 @@
 
   .founder-build-example ol { grid-template-columns: 1fr; }
   .founder-build-example li { min-height: auto; border-right: 0; border-bottom: var(--border-light); }
+  .founder-build-example__loop { grid-template-columns: 1fr; gap: 0.35rem; }
 }
 
 @media (max-width: 560px) {
