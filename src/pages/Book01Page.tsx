@@ -28,12 +28,12 @@ const systemTerms = [
 ]
 
 const automationTerms = [
-  ['PROJECT INSTRUCTIONS / RULES', 'AI가 프로젝트 전체에서 계속 지켜야 할 상시 작업 지시사항입니다. 프로젝트 목적·기술 스택·수정 금지 범위·코딩/작성 규칙·Build/Test 방법 등을 기록해 매번 다시 설명하지 않아도 Agent가 같은 기준으로 일하게 합니다. 예: 관련 없는 파일 수정 금지 · 확정 UI 임의 변경 금지 · 변경 후 Build/Test 실행 · CLAUDE.md · AGENTS.md · .cursor/rules'],
-  ['CONTEXT / DOCS', 'AI가 무엇을 만들고 무엇을 기준으로 판단할지 알려주는 문서입니다. · README.md · PRD.md · SPEC.md · PLAN.md · TASKS.md'],
+  ['PROJECT INSTRUCTIONS / RULES', 'AI가 프로젝트 전체에서 계속 지켜야 할 상시 작업 지시사항\n\n- 프로젝트 목적·기술 스택·수정 금지 범위·코딩/작성 규칙·Build/Test 방법 등을 기록해 매번 다시 설명하지 않아도 Agent가 같은 기준으로 일하도록 함.\n- ex) 관련 없는 파일 수정 금지 · 확정 UI 임의 변경 금지 · 변경 후 Build/Test 실행 · CLAUDE.md · AGENTS.md · .cursor/rules'],
+  ['CONTEXT / DOCS', 'AI가 무엇을 만들고 무엇을 기준으로 판단할지 알려주는 프로젝트 기준 문서\n\n- 문제 정의·요구사항·기능 범위·사용자 흐름·작업 계획·남은 과제 등을 문서로 남겨 Agent가 같은 기준을 참고하도록 함.\n- ex) README.md · PRD.md · SPEC.md · PLAN.md · TASKS.md'],
   ['HAND-OFF / CHECKPOINT', '한 채팅방의 Context가 길어질수록 중요한 맥락을 안정적으로 유지하기 어려워지고 답변이 압축되거나 대화를 빨리 마무리하는 듯한 현상이 생길 수 있습니다. 현재 상태·결정사항·남은 작업·읽어야 할 파일을 Hand-Off 문서로 받아 프로젝트 내 새 채팅방으로 인계합니다.'],
-  ['MCP', 'AI가 프로젝트 밖의 도구·데이터와 연결되는 방식을 표준화한 규격입니다.'],
+  ['MCP', 'AI가 프로젝트 밖의 도구·데이터·서비스를 연결해 사용할 수 있게 하는 표준 연결 방식\n\n- Agent가 GitHub·Figma·Google Drive·Database 등 외부 시스템을 조회·사용할 수 있도록 연결하는 역할\n- ex) GitHub · Figma · Google Drive · Database 등의 외부 시스템 연결'],
   ['SKILL', '반복해서 시킬 일을 재사용 가능한 작업법으로 만들어 둡니다.'],
-  ['HARNESS / LOOP', '여러 AI·도구·문서를 역할별로 묶어 하나의 제작 흐름으로 운용하는 것이 Harness입니다. PLAN → BUILD → REVIEW → USE → FIX를 반복하는 것이 Loop입니다.'],
+  ['HARNESS / LOOP', '여러 AI·도구·문서·검증 절차를 하나의 제품 제작 흐름으로 묶어 운영하는 방식\n\n- Harness: Planner·Builder·Reviewer 등 역할과 도구를 연결해 반복 가능한 작업 구조로 구성\n- Loop: PLAN → BUILD → REVIEW → USE → FIX를 반복하며 결과를 검증·개선하는 순환 구조'],
 ]
 
 const referenceSteps = [
@@ -204,7 +204,7 @@ export function Book01Page() {
                   <Reveal as="article" className="project-term" delay={(index % 3) * 60} key={term}>
                     <span>{String(index + 1).padStart(2, '0')}</span>
                     <h3>{term}</h3>
-                    <p>{meaning}</p>
+                    <p style={{ whiteSpace: 'pre-line' }}>{meaning}</p>
                     {term === 'SKILL' && (
                       <a className="project-term__link" href="https://skills.sh/" target="_blank" rel="noreferrer">skills.sh ↗</a>
                     )}
