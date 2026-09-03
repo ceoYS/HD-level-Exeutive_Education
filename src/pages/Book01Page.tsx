@@ -146,7 +146,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--screen" id="chapter-3">
             <div className="chapter__inner">
-              <SectionIntro number="03" title="분야 별 핵심 AI 지도" english="AI CAPABILITY MAP">
+              <SectionIntro number="03" title="분야 별 핵심 AI 지도" english="AI CAPABILITY MAP">
                 <p>
                   툴 이름을 외우기보다
                   <br />
@@ -240,7 +240,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--harness" id="chapter-7">
             <div className="chapter__inner">
-              <SectionIntro number="07" title="AI를 역할별로 나누어 제품을 만든다" english="PLAN → BUILD → REVIEW → USE" inverse>
+              <SectionIntro number="07" title={<>AI에게 역할을 부여해<br />피드백 반영 과정을 자동 반복 세팅해 제품 개발</>} english="PLAN → BUILD → REVIEW → USE" inverse>
                 <p>
                   바이브코딩은 AI 하나에게 전부 맡기는 일이 아닙니다. <strong>기획·구현·검토·실사용의 역할을 나누고</strong> 각 단계에서 사람이 방향과 기준을 잡습니다.
                 </p>
