@@ -142,11 +142,12 @@ export function DevelopmentLoop() {
 
       <div className="prd-principle">
         <span>BEFORE YOU DELEGATE · GOOD INSTRUCTION</span>
-        <h3>AI에게 일을 맡길 때도 좋은 업무지시가 먼저입니다.</h3>
-        <p>
-          프롬프트 문구를 외우는 것보다 <strong>무엇을 왜 원하는지, 무엇을 주고 어떤 결과를 받을지,
-          어디까지 허용할지</strong>를 분명히 전달하는 것이 중요합니다.
-        </p>
+        <h3>
+          AI도 사람과 같습니다.
+          <br />
+          일을 맡길 때, 정확한 업무지시는 필수입니다.
+        </h3>
+        <p>프롬프트는 어떤 목적을 원하고, 왜 원하는지, 어떤 조건들을 준수하며 작업 할 지를 분명히 전달하는 것이 중요합니다.</p>
         <div className="instruction-grid-six">
           <LabeledGrid items={instructionParts} />
         </div>
