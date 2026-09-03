@@ -41,6 +41,7 @@ const referenceSteps = [
   ['02', 'ANALYZE', '정보구조와 사용자 흐름을 본다'],
   ['03', 'EXTRACT', '재사용할 해결 원리를 뽑는다'],
   ['04', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
+  ['05', 'VALIDATE', '재설계한 구조가 실제 우리 업무에 맞는지 작은 Prototype으로 검증합니다.'],
 ]
 
 const founderBuildExample = [
