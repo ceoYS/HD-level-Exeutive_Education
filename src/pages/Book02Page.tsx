@@ -193,12 +193,21 @@ export function Book02Page() {
                   먼저 본 뒤 내 업무에 맞는 것을 고르는 편이 훨씬 쉽습니다.
                 </p>
               </SectionIntro>
-              <div className="mini-flow" aria-label="Explore then choose">
-                <span className="is-strong">EXPLORE<small>유형과 예시를 본다</small></span>
+              <div
+                className="mini-flow"
+                aria-label="Explore then choose"
+                style={{
+                  width: '100%',
+                  display: 'grid',
+                  gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr)',
+                  gap: 'clamp(0.7rem, 1.5vw, 1.4rem)',
+                }}
+              >
+                <span className="is-strong" style={{ padding: '1.2rem 1.4rem' }}>EXPLORE<small>유형과 예시를 본다</small></span>
                 <i aria-hidden="true">→</i>
-                <span>UNDERSTAND<small>만드는 과정을 본다</small></span>
+                <span style={{ padding: '1.2rem 1.4rem' }}>UNDERSTAND<small>만드는 과정을 본다</small></span>
                 <i aria-hidden="true">→</i>
-                <span>CHOOSE<small>내 제품을 고른다</small></span>
+                <span style={{ padding: '1.2rem 1.4rem' }}>CHOOSE<small>내 제품을 고른다</small></span>
               </div>
             </div>
           </section>
