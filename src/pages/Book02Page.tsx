@@ -249,12 +249,145 @@ export function Book02Page() {
                 {type.key === 'web-app' && (
                   <Reveal as="article" className="explore-panel explore-panel--examples">
                     <span>API CONNECTION · HDEC USE CASE</span>
-                    <h3>API Key를 연결하면 외부 실제 데이터까지 제품 안으로 가져올 수 있습니다</h3>
-                    <ul>
-                      <li><strong>KISCON 건설업체 조회·협력업체 교차 분석기</strong> · 공공데이터포털에서 KISCON API Key 발급 → Copilot로 HTML 도구 생성 → KISCON 업체 데이터 수집 → 사내 협력업체 CSV와 교차분석</li>
-                      <li><strong>개발사업 계약서 법률 리스크 분석 시스템</strong> · 계약서 분석 → 국가법령정보 공동활용 API Key 연결 → 법령명 검색·최신 법령 후보 확인 → 법무 검토용 근거 보강</li>
-                      <li><strong>API Key 관리</strong> · 발급받은 Key는 외부에 공유하거나 배포용 화면·파일에 노출하지 않도록 관리</li>
-                    </ul>
+                    <h3>외부 API와 실제 업무데이터를 연결한 활용 사례</h3>
+                    <p style={{ marginTop: '0.55rem', maxWidth: '54rem', fontSize: '0.96rem', lineHeight: 1.65, opacity: 0.78 }}>
+                      공개 데이터와 사내 데이터를 연결해 조회 · 비교 · 검토형 업무 도구로 확장할 수 있습니다.
+                    </p>
+
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '0.85rem',
+                        marginTop: '1.15rem',
+                      }}
+                    >
+                      <article
+                        style={{
+                          display: 'grid',
+                          gap: '0.85rem',
+                          padding: '1.1rem',
+                          border: '1px solid rgba(17, 46, 40, 0.18)',
+                          borderRadius: '0.95rem',
+                          background: 'rgba(255, 255, 255, 0.78)',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
+                          <small style={{ fontWeight: 900, letterSpacing: '0.08em', color: 'var(--color-orange)' }}>CASE 01</small>
+                          <small style={{ fontWeight: 800, opacity: 0.58 }}>업체 조회 · 비교</small>
+                        </div>
+                        <strong style={{ fontSize: '1.05rem', lineHeight: 1.45 }}>
+                          KISCON 건설업체 조회 · 협력업체 교차 분석기
+                        </strong>
+                        <div style={{ display: 'grid', gap: '0.35rem' }}>
+                          <small style={{ fontWeight: 900, opacity: 0.58 }}>목적</small>
+                          <span style={{ lineHeight: 1.55 }}>공공 건설업체 데이터와 사내 협력업체 목록 비교</span>
+                        </div>
+                        <div style={{ display: 'grid', gap: '0.4rem' }}>
+                          <small style={{ fontWeight: 900, opacity: 0.58 }}>핵심 흐름</small>
+                          <b
+                            style={{
+                              padding: '0.7rem 0.8rem',
+                              borderRadius: '0.7rem',
+                              background: 'rgba(17, 46, 40, 0.07)',
+                              fontSize: '0.86rem',
+                              lineHeight: 1.55,
+                            }}
+                          >
+                            KISCON API 연결 → 업체정보 조회 → 사내 CSV 업로드 → 교차분석
+                          </b>
+                        </div>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                          {['등록업체 확인', '비등록 후보 확인', '검토 필요 업체 정리'].map((item) => (
+                            <small
+                              key={item}
+                              style={{
+                                padding: '0.35rem 0.55rem',
+                                border: '1px solid rgba(17, 46, 40, 0.14)',
+                                borderRadius: '999px',
+                                fontWeight: 800,
+                              }}
+                            >
+                              {item}
+                            </small>
+                          ))}
+                        </div>
+                      </article>
+
+                      <article
+                        style={{
+                          display: 'grid',
+                          gap: '0.85rem',
+                          padding: '1.1rem',
+                          border: '1px solid rgba(17, 46, 40, 0.18)',
+                          borderRadius: '0.95rem',
+                          background: 'rgba(255, 255, 255, 0.78)',
+                        }}
+                      >
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
+                          <small style={{ fontWeight: 900, letterSpacing: '0.08em', color: 'var(--color-orange)' }}>CASE 02</small>
+                          <small style={{ fontWeight: 800, opacity: 0.58 }}>계약 검토 · 법령 확인</small>
+                        </div>
+                        <strong style={{ fontSize: '1.05rem', lineHeight: 1.45 }}>
+                          개발사업 계약서 법률 리스크 분석 시스템
+                        </strong>
+                        <div style={{ display: 'grid', gap: '0.35rem' }}>
+                          <small style={{ fontWeight: 900, opacity: 0.58 }}>목적</small>
+                          <span style={{ lineHeight: 1.55 }}>계약 리스크와 관련 법령 · 최신 법령 후보를 함께 확인</span>
+                        </div>
+                        <div style={{ display: 'grid', gap: '0.4rem' }}>
+                          <small style={{ fontWeight: 900, opacity: 0.58 }}>핵심 흐름</small>
+                          <b
+                            style={{
+                              padding: '0.7rem 0.8rem',
+                              borderRadius: '0.7rem',
+                              background: 'rgba(17, 46, 40, 0.07)',
+                              fontSize: '0.86rem',
+                              lineHeight: 1.55,
+                            }}
+                          >
+                            계약서 분석 → 법령 검색 API 연결 → 최신 법령 확인 → 검토 근거 보강
+                          </b>
+                        </div>
+                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                          {['법률 리스크 정리', '관련 법령 확인', '검토 근거 확보'].map((item) => (
+                            <small
+                              key={item}
+                              style={{
+                                padding: '0.35rem 0.55rem',
+                                border: '1px solid rgba(17, 46, 40, 0.14)',
+                                borderRadius: '999px',
+                                fontWeight: 800,
+                              }}
+                            >
+                              {item}
+                            </small>
+                          ))}
+                        </div>
+                      </article>
+                    </div>
+
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'auto minmax(0, 1fr)',
+                        gap: '0.75rem 1rem',
+                        alignItems: 'center',
+                        marginTop: '0.85rem',
+                        padding: '0.85rem 1rem',
+                        border: '1px solid rgba(17, 46, 40, 0.18)',
+                        borderRadius: '0.85rem',
+                        background: 'rgba(17, 46, 40, 0.06)',
+                      }}
+                    >
+                      <strong style={{ fontSize: '0.83rem', letterSpacing: '0.06em', color: 'var(--color-orange)' }}>API KEY</strong>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem 1rem', fontSize: '0.88rem', fontWeight: 800 }}>
+                        <span>외부 공유 금지</span>
+                        <span>공개 화면 노출 금지</span>
+                        <span>배포 파일 포함 금지</span>
+                      </div>
+                    </div>
+
                     <ApiUseCaseDetails />
                   </Reveal>
                 )}
