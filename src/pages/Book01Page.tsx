@@ -5,6 +5,7 @@ import { ExecutiveTakeaway, SecurityGate, WatchOut } from '../components/Callout
 import { CapabilityCheck } from '../components/CapabilityCheck'
 import { DevelopmentLoop } from '../components/DevelopmentLoop'
 import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
+import { InsightDiamond } from '../components/InsightDiamond'
 import { NavigateLink } from '../components/NavigateLink'
 import { Reveal } from '../components/Reveal'
 import { SectionIntro } from '../components/SectionIntro'
@@ -37,6 +38,13 @@ const referenceSteps = [
   ['02', 'ANALYZE', '정보구조와 사용자 흐름을 본다'],
   ['03', 'EXTRACT', '재사용할 해결 원리를 뽑는다'],
   ['04', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
+]
+
+const founderBuildExample = [
+  ['PLANNER', 'ChatGPT Project', '장기 프로젝트 맥락을 유지하면서 문제 정의·제품 방향·기능 우선순위·PRD/SPEC을 함께 논의합니다.'],
+  ['BUILDER', 'Claude Code', 'CMD/터미널에서 프로젝트 파일과 구현 문서를 읽고 실제 코드를 만들고 실행·수정합니다.'],
+  ['REVIEWER', 'Codex', '별도의 관점에서 요구사항 준수, 코드 변경 범위, 테스트와 빠진 항목을 검토합니다.'],
+  ['ACTUAL USER', 'Executive', '직접 제품을 써보고 현업과 다른 지점을 판단한 뒤 필요한 부분만 다시 수정합니다.'],
 ]
 
 export function Book01Page() {
@@ -112,19 +120,20 @@ export function Book01Page() {
               <ExecutiveTakeaway>
                 이 교육은 개발자 양성이 아니라, <strong>임원진이 해결할 문제를 고르고 MVP제품을 AI로 직접 제작하는 기초 능력</strong>을 배양합니다.
               </ExecutiveTakeaway>
+              <InsightDiamond />
             </div>
           </section>
 
           <section className="chapter chapter--tools" id="chapter-2">
             <div className="chapter__inner">
-              <SectionIntro number="02" title="AI · Assistant · Agent는 무엇이 다른가" inverse>
+              <SectionIntro number="02" title="Model · Assistant · Agent는 무엇이 다른가" inverse>
                 <p>
-                  제품 이름보다 <strong>Model → Assistant → Agent</strong> 세 층을 구분하면 현재 도구가 어디에 속하는지 판단하기 쉽습니다.
+                  세 개를 고정된 단계로 외우기보다 <strong>각각 어떤 역할을 하는지</strong> 이해하면 AI 제품이 어떻게 작동하는지 판단하기 쉬워집니다.
                 </p>
               </SectionIntro>
               <Reveal><AiLayersDiagram /></Reveal>
               <WatchOut>
-                Custom GPT·Project·Gem처럼 지시와 지식을 저장했다고 자동으로 Agent가 되는 것은 아닙니다. 목표를 받고 도구를 선택하며 여러 행동을 이어갈 때 Agent에 가까워집니다.
+                Custom GPT·Project·Gem처럼 지시와 지식을 저장했다고 자동으로 Agent가 되는 것은 아닙니다. 목표를 받고 상황에 따라 다음 행동과 도구 사용을 판단하며 여러 단계를 수행할 때 Agent에 가깝습니다.
               </WatchOut>
             </div>
           </section>
@@ -207,32 +216,63 @@ export function Book01Page() {
 
           <section className="chapter chapter--harness" id="chapter-7">
             <div className="chapter__inner">
-              <SectionIntro number="07" title="실제로 AI와 개발하는 방법" english="PLAN → BUILD → REVIEW → USE" inverse>
+              <SectionIntro number="07" title="AI를 역할별로 나누어 제품을 만든다" english="PLAN → BUILD → REVIEW → USE" inverse>
                 <p>
-                  실제 개발은 네 역할이 이어지는 반복입니다. <strong>여기서는 역할만 보고</strong>, PRD·SPEC·Builder Handoff는 Book 02에서 다룹니다.
+                  바이브코딩은 AI 하나에게 전부 맡기는 일이 아닙니다. <strong>기획·구현·검토·실사용의 역할을 나누고</strong> 각 단계에서 사람이 방향과 기준을 잡습니다.
                 </p>
               </SectionIntro>
               <Reveal><DevelopmentLoop /></Reveal>
               <div className="role-sections">
                 <Reveal as="article" className="role-section">
                   <span>ROLE 1 · PLANNER</span>
-                  <h3>문제와 요구사항을 문서로 정리합니다.</h3>
+                  <h3>문제와 요구사항을 함께 구체화합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section role-section--builder">
                   <span>ROLE 2 · BUILDER</span>
-                  <h3>문서를 기준으로 실제 파일을 만들고 실행합니다.</h3>
+                  <h3>확정된 문서를 기준으로 실제 제품을 구현합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section">
                   <span>ROLE 3 · REVIEWER</span>
-                  <h3>문서와 작동 여부를 다른 관점에서 검토합니다.</h3>
+                  <h3>요구사항과 구현 결과를 다른 관점에서 검토합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section role-section--human">
                   <span>ROLE 4 · ACTUAL USER</span>
-                  <h3>실장이 직접 써보고 업무와 다른 지점을 찾습니다.</h3>
+                  <h3>임원진이 직접 써보고 실제 업무와 다른 지점을 판단합니다.</h3>
                 </Reveal>
               </div>
+
+              <Reveal className="prd-principle">
+                <span>PLANNING PRINCIPLE · PRD</span>
+                <h3>AI가 써준 PRD를 그대로 구현하지 않습니다.</h3>
+                <p>
+                  AI는 문서를 구조화할 수 있지만, <strong>무엇을 만들고 싶은지 결정하는 사람은 본인</strong>입니다. 사용자, 실제 Pain Point, 원하는 화면과 흐름, 반드시 필요한 기능, 하지 않을 것, 성공 기준을 최대한 구체적으로 설명하고 AI가 이해하지 못한 부분은 질문하게 합니다.
+                </p>
+                <blockquote>
+                  “지금까지 내가 설명한 내용을 기준으로 PRD를 정리해줘. 내가 말하지 않은 요구사항은 임의로 추가하지 말고 질문으로 남겨줘.”
+                </blockquote>
+              </Reveal>
+
+              <Reveal className="founder-build-example">
+                <div className="founder-build-example__intro">
+                  <span>ONE REAL BUILD PATTERN · EXAMPLE</span>
+                  <h3>실제로는 AI마다 역할을 나누어<br />하나의 제품을 만들 수 있습니다.</h3>
+                  <p>아래는 이 교육을 만든 사람이 실제 프로젝트에서 사용하는 한 가지 방식입니다. 특정 도구 조합이 정답이라는 뜻은 아닙니다.</p>
+                </div>
+                <ol>
+                  {founderBuildExample.map(([role, tool, description], index) => (
+                    <li key={role}>
+                      <span>{String(index + 1).padStart(2, '0')} · {role}</span>
+                      <strong>{tool}</strong>
+                      <p>{description}</p>
+                      {index < founderBuildExample.length - 1 && <i aria-hidden="true">↓</i>}
+                    </li>
+                  ))}
+                </ol>
+                <p className="founder-build-example__loop">PLANNER → BUILDER → REVIEWER → ACTUAL USER → TARGETED FIX ↺</p>
+              </Reveal>
+
               <ExecutiveTakeaway>
-                전체 흐름은 <strong>PLAN → BUILD → REVIEW → USE → TARGETED FIX</strong>입니다. 각 단계의 구체적인 문서와 지시 방법은 다음 Book으로 넘깁니다.
+                AI가 구현을 대신해도 <strong>문제 정의·우선순위·PRD의 의도·최종 판단은 임원진이 쥐고 있어야 합니다.</strong>
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -256,7 +296,7 @@ export function Book01Page() {
             <Reveal className="cert-group">
               <p className="cert-group__intro">스스로 확인합니다.</p>
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
-              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Model · Assistant · Agent의 차이를 설명할 수 있다." />
+              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Model · Assistant · Agent의 역할 차이를 설명할 수 있다." />
               <CapabilityCheck id="b01-structure" evidence={false} statement="Frontend부터 Deploy까지 제품의 주요 구성 요소를 설명할 수 있다." />
               <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Workflow와 Agent를 언제 나눠 써야 하는지 설명할 수 있다." />
               <CapabilityCheck id="b01-build-loop" evidence={false} statement="Planner · Builder · Reviewer · Actual User의 역할을 구분할 수 있다." />
