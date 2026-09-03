@@ -178,7 +178,7 @@ export const bookChapters = [
   '대화에서 실행까지, AI는 어떻게 달라지는가',
   '분야 별 핵심 AI 지도',
   '프로그램과 AI 시스템은 무엇으로 이루어지는가',
-  'Workflow · Agent · MCP · Skill',
+  'AI에게 프로젝트의 규칙과 도구를 어떻게 연결하는가',
   '이미 검증된 서비스에서 시작할 수 있다',
   '실제로 AI와 개발하는 방법',
   'The AI Build Map',
