@@ -1,8 +1,4 @@
-.insight-diamond {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: center;
+.design-thinking-particles {
   margin-top: var(--space-9);
   padding: clamp(2rem, 5vw, 4.5rem);
   color: var(--color-paper-bright);
@@ -10,7 +6,7 @@
   overflow: hidden;
 }
 
-.insight-diamond__copy > span,
+.design-thinking-particles__copy > span,
 .prd-principle > span,
 .founder-build-example__intro > span {
   color: var(--color-signal);
@@ -20,7 +16,7 @@
   letter-spacing: 0.12em;
 }
 
-.insight-diamond__copy h3,
+.design-thinking-particles__copy h3,
 .prd-principle h3,
 .founder-build-example__intro h3 {
   margin-top: var(--space-3);
@@ -30,7 +26,7 @@
   line-height: 1.05;
 }
 
-.insight-diamond__copy p,
+.design-thinking-particles__copy p,
 .prd-principle p,
 .founder-build-example__intro p {
   margin-top: var(--space-4);
@@ -39,96 +35,168 @@
   line-height: 1.55;
 }
 
-.insight-diamond__copy strong { color: var(--color-paper-bright); }
-
-.insight-diamond__visual {
-  display: grid;
-  place-items: center;
-  min-width: 0;
+.design-thinking-particles__copy {
+  max-width: 58rem;
 }
 
-.insight-diamond__stage {
-  width: min(100%, 22rem);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  perspective: 900px;
+.design-thinking-particles__copy strong {
+  color: var(--color-paper-bright);
 }
 
-.insight-diamond__gem {
+.design-thinking-particles__visual {
   position: relative;
-  width: 10rem;
-  height: 10rem;
-  transform-style: preserve-3d;
-  animation: insight-diamond-spin 12s linear infinite;
+  min-height: clamp(28rem, 52vw, 37rem);
+  margin-top: var(--space-7);
+  overflow: hidden;
+  border-top: 1px solid rgba(251, 250, 245, 0.18);
+  border-bottom: 1px solid rgba(251, 250, 245, 0.18);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(156, 199, 191, 0.08), transparent 47%),
+    linear-gradient(180deg, rgba(3, 14, 12, 0.18), rgba(3, 14, 12, 0.72));
+  isolation: isolate;
 }
 
-.insight-diamond__face {
+.design-thinking-particles__visual::before {
   position: absolute;
+  z-index: 0;
   inset: 0;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  content: "";
+  pointer-events: none;
+}
+
+.design-thinking-particles__canvas {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.design-thinking-particles__canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.design-thinking-particles__labels {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+}
+
+.design-thinking-particles__stage {
+  position: absolute;
+  width: clamp(7.2rem, 12vw, 10rem);
   display: grid;
-  place-items: center;
-  padding: 1rem;
-  border: 1px solid rgba(251, 250, 245, 0.55);
-  background: linear-gradient(145deg, rgba(217, 255, 87, 0.24), rgba(156, 199, 191, 0.18));
-  backdrop-filter: blur(2px);
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  font-family: var(--font-editorial);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  gap: 0.15rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(251, 250, 245, 0.38);
+  background: rgba(6, 24, 20, 0.72);
+  backdrop-filter: blur(8px);
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
-.insight-diamond__face--front { transform: translateZ(3.6rem); }
-.insight-diamond__face--back { transform: rotateY(180deg) translateZ(3.6rem); }
-.insight-diamond__face--left { transform: rotateY(-90deg) translateZ(3.6rem); }
-.insight-diamond__face--right { transform: rotateY(90deg) translateZ(3.6rem); }
+.design-thinking-particles__stage > span {
+  color: var(--color-signal);
+  font-family: var(--font-editorial);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
 
-.insight-diamond__visual > p {
-  margin-top: -1rem;
-  color: rgba(251, 250, 245, 0.55);
+.design-thinking-particles__stage strong {
+  color: var(--color-paper-bright);
+  font-family: var(--font-editorial);
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  letter-spacing: 0.035em;
+}
+
+.design-thinking-particles__stage small {
+  color: rgba(251, 250, 245, 0.68);
+  font-size: 0.75rem;
+}
+
+.design-thinking-particles__status {
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  bottom: 1rem;
+  color: rgba(251, 250, 245, 0.48);
   font-family: var(--font-editorial);
   font-size: var(--text-xs);
   font-weight: 700;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.1em;
 }
 
-.insight-diamond__steps {
-  grid-column: 1 / -1;
+.design-thinking-particles__visual.is-fallback::after {
+  position: absolute;
+  z-index: 1;
+  inset: 10% 6%;
+  border: 1px dashed rgba(217, 255, 87, 0.2);
+  border-radius: 50%;
+  content: "";
+}
+
+.design-thinking-particles__steps {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  border-top: 1px solid rgba(251, 250, 245, 0.2);
+  border-bottom: 1px solid rgba(251, 250, 245, 0.2);
 }
 
-.insight-diamond__steps li {
+.design-thinking-particles__steps li {
   min-width: 0;
-  min-height: 12rem;
+  min-height: 13rem;
   display: flex;
   flex-direction: column;
   padding: var(--space-3);
   border-right: 1px solid rgba(251, 250, 245, 0.16);
 }
 
-.insight-diamond__steps li:last-child { border-right: 0; }
+.design-thinking-particles__steps li:last-child {
+  border-right: 0;
+}
 
-.insight-diamond__steps li > span {
+.design-thinking-particles__steps li > span {
   color: var(--color-signal);
   font-family: var(--font-editorial);
   font-size: var(--text-xs);
 }
 
-.insight-diamond__steps strong {
+.design-thinking-particles__steps strong {
   margin-top: auto;
   font-family: var(--font-editorial);
   font-size: clamp(1rem, 1.4vw, 1.35rem);
 }
 
-.insight-diamond__steps p {
+.design-thinking-particles__steps em {
+  margin-top: 0.2rem;
+  color: var(--color-signal);
+  font-style: normal;
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.design-thinking-particles__steps p {
   margin-top: 0.45rem;
   color: rgba(251, 250, 245, 0.62);
   font-size: var(--text-sm);
   line-height: 1.45;
+}
+
+.design-thinking-particles__loop-note {
+  margin-top: var(--space-4);
+  color: rgba(251, 250, 245, 0.65);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.design-thinking-particles__loop-note strong {
+  color: var(--color-paper-bright);
 }
 
 .prd-principle,
@@ -205,20 +273,48 @@
   letter-spacing: 0.04em;
 }
 
-@keyframes insight-diamond-spin {
-  0% { transform: rotateX(-16deg) rotateY(0deg) rotateZ(45deg); }
-  50% { transform: rotateX(14deg) rotateY(180deg) rotateZ(45deg); }
-  100% { transform: rotateX(-16deg) rotateY(360deg) rotateZ(45deg); }
-}
-
 @media (max-width: 860px) {
-  .insight-diamond { grid-template-columns: 1fr; }
-  .insight-diamond__steps { grid-template-columns: 1fr; }
-  .insight-diamond__steps li { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(251, 250, 245, 0.16); }
+  .design-thinking-particles__visual {
+    min-height: 31rem;
+  }
+
+  .design-thinking-particles__stage {
+    width: 7rem;
+    padding: 0.5rem;
+  }
+
+  .design-thinking-particles__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .design-thinking-particles__steps li {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(251, 250, 245, 0.16);
+  }
+
   .founder-build-example ol { grid-template-columns: 1fr; }
   .founder-build-example li { min-height: auto; border-right: 0; border-bottom: var(--border-light); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .insight-diamond__gem { animation: none; transform: rotateX(-12deg) rotateY(28deg) rotateZ(45deg); }
+@media (max-width: 560px) {
+  .design-thinking-particles {
+    padding-inline: var(--space-3);
+  }
+
+  .design-thinking-particles__visual {
+    min-height: 34rem;
+  }
+
+  .design-thinking-particles__stage {
+    width: 6.2rem;
+  }
+
+  .design-thinking-particles__stage strong {
+    font-size: 0.66rem;
+  }
+
+  .design-thinking-particles__stage small {
+    font-size: 0.68rem;
+  }
 }
