@@ -156,5 +156,21 @@ export function WavyCubeBackground() {
     }
   }, [])
 
-  return <div ref={hostRef} className="chapter-system-wave" aria-hidden="true" />
+  return (
+    <div
+      ref={hostRef}
+      className="chapter-system-wave"
+      aria-hidden="true"
+      style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        overflow: 'hidden',
+        opacity: 0.24,
+        pointerEvents: 'none',
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 78%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 78%, transparent 100%)',
+      }}
+    />
+  )
 }
