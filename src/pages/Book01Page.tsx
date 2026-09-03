@@ -219,7 +219,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--reference" id="chapter-6">
             <div className="chapter__inner">
-              <SectionIntro number="06" title="이미 검증된 서비스에서 시작할 수 있다" english="REFERENCE-DRIVEN BUILD">
+              <SectionIntro number="06" title="이미 검증된 제품을 벤치마킹 할 수 있다." english="REFERENCE-DRIVEN BUILD">
                 <p>
                   유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 벤치마킹하여 다시 설계할 수 있습니다.
                 </p>
