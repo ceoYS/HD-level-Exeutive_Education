@@ -431,6 +431,23 @@
   line-height: 1.15;
 }
 
+.instruction-grid-six .labeled-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.context-grid-visible .labeled-grid > * {
+  color: var(--color-ink);
+}
+
+.context-grid-visible .labeled-grid__en,
+.context-grid-visible .labeled-grid__desc {
+  color: var(--color-ink-soft);
+}
+
+.context-grid-visible .labeled-grid__label {
+  color: var(--color-ink);
+}
+
 @media (max-width: 860px) {
   .design-thinking-particles__visual {
     min-height: 31rem;
