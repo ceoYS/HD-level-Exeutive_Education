@@ -1,9 +1,10 @@
-import type { CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 
 const shellStyle: CSSProperties = {
   display: 'grid',
   gap: '0.7rem',
   marginTop: '1rem',
+  color: '#17362f',
 }
 
 const detailsStyle: CSSProperties = {
@@ -76,6 +77,7 @@ const imageStyle: CSSProperties = {
   borderRadius: '0.7rem',
   border: '1px solid rgba(17, 46, 40, 0.14)',
   background: '#fff',
+  cursor: 'zoom-in',
 }
 
 const captionStyle: CSSProperties = {
@@ -85,11 +87,97 @@ const captionStyle: CSSProperties = {
   opacity: 0.68,
 }
 
+const zoomButtonStyle: CSSProperties = {
+  display: 'block',
+  width: '100%',
+  padding: 0,
+  border: 'none',
+  background: 'transparent',
+  cursor: 'zoom-in',
+  font: 'inherit',
+  color: 'inherit',
+}
+
+const overlayStyle: CSSProperties = {
+  position: 'fixed',
+  inset: 0,
+  zIndex: 1000,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: 'clamp(1rem, 4vw, 3rem)',
+  background: 'rgba(9, 29, 25, 0.88)',
+  cursor: 'zoom-out',
+}
+
+const lightboxImageStyle: CSSProperties = {
+  maxWidth: '92vw',
+  maxHeight: '88vh',
+  width: 'auto',
+  height: 'auto',
+  objectFit: 'contain',
+  borderRadius: '0.6rem',
+  background: '#fff',
+  boxShadow: '0 24px 70px rgba(0, 0, 0, 0.5)',
+  cursor: 'default',
+}
+
+const closeButtonStyle: CSSProperties = {
+  position: 'fixed',
+  top: 'clamp(0.8rem, 2.5vw, 1.6rem)',
+  right: 'clamp(0.8rem, 2.5vw, 1.6rem)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '2.7rem',
+  height: '2.7rem',
+  fontSize: '1.7rem',
+  lineHeight: 1,
+  color: '#fbfaf5',
+  background: 'rgba(0, 0, 0, 0.42)',
+  border: '1px solid rgba(251, 250, 245, 0.55)',
+  borderRadius: '999px',
+  cursor: 'pointer',
+}
+
 function asset(name: string) {
   return `${import.meta.env.BASE_URL}use-cases/${name}`
 }
 
+type ZoomImageProps = {
+  src: string
+  alt: string
+  onZoom: (src: string, alt: string) => void
+}
+
+function ZoomImage({ src, alt, onZoom }: ZoomImageProps) {
+  return (
+    <button
+      type="button"
+      style={zoomButtonStyle}
+      onClick={() => onZoom(src, alt)}
+      aria-label={`${alt} · 확대해서 보기`}
+    >
+      <img src={src} loading="lazy" alt={alt} style={imageStyle} />
+    </button>
+  )
+}
+
 export function ApiUseCaseDetails() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null)
+
+  useEffect(() => {
+    if (!lightbox) return
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setLightbox(null)
+    }
+    window.addEventListener('keydown', handleKey)
+    return () => window.removeEventListener('keydown', handleKey)
+  }, [lightbox])
+
+  const openLightbox = (src: string, alt: string) => setLightbox({ src, alt })
+  const closeLightbox = () => setLightbox(null)
+
   return (
     <div style={shellStyle}>
       <details style={detailsStyle}>
@@ -117,20 +205,18 @@ export function ApiUseCaseDetails() {
           </div>
           <div style={imageGridStyle}>
             <figure style={figureStyle}>
-              <img
+              <ZoomImage
                 src={asset('kiscon-api-key.webp')}
-                loading="lazy"
                 alt="Copilot 프롬프트에 KISCON API Key를 입력하는 원본 Use Case 화면"
-                style={imageStyle}
+                onZoom={openLightbox}
               />
               <figcaption style={captionStyle}>좌 · Copilot 프롬프트에 KISCON API Key 입력</figcaption>
             </figure>
             <figure style={figureStyle}>
-              <img
+              <ZoomImage
                 src={asset('kiscon-result.webp')}
-                loading="lazy"
                 alt="KISCON 데이터 수집과 협력업체 교차분석 결과를 보여주는 원본 Use Case 화면"
-                style={imageStyle}
+                onZoom={openLightbox}
               />
               <figcaption style={captionStyle}>우 · KISCON 조회 및 협력업체 CSV 교차분석 결과</figcaption>
             </figure>
@@ -163,26 +249,49 @@ export function ApiUseCaseDetails() {
           </div>
           <div style={imageGridStyle}>
             <figure style={figureStyle}>
-              <img
+              <ZoomImage
                 src={asset('contract-api-input.webp')}
-                loading="lazy"
                 alt="계약서 분석 HTML에 국가법령 API Key와 검토 조건을 입력하는 원본 Use Case 화면"
-                style={imageStyle}
+                onZoom={openLightbox}
               />
               <figcaption style={captionStyle}>좌 · 계약서 · 검토조건 · 국가법령 API Key 입력</figcaption>
             </figure>
             <figure style={figureStyle}>
-              <img
+              <ZoomImage
                 src={asset('contract-result.webp')}
-                loading="lazy"
                 alt="계약서 법률 리스크 분석의 최종 요약표와 검증 체크리스트 원본 Use Case 화면"
-                style={imageStyle}
+                onZoom={openLightbox}
               />
               <figcaption style={captionStyle}>우 · 최종 리스크 요약표와 검증 체크리스트</figcaption>
             </figure>
           </div>
         </div>
       </details>
+
+      {lightbox && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={lightbox.alt}
+          style={overlayStyle}
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            style={closeButtonStyle}
+            aria-label="확대 이미지 닫기"
+            onClick={closeLightbox}
+          >
+            ×
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            style={lightboxImageStyle}
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   )
 }

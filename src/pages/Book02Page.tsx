@@ -270,6 +270,7 @@ export function Book02Page() {
                           border: '1px solid rgba(17, 46, 40, 0.18)',
                           borderRadius: '0.95rem',
                           background: 'rgba(255, 255, 255, 0.78)',
+                          color: '#17362f',
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
@@ -280,11 +281,11 @@ export function Book02Page() {
                           KISCON 건설업체 조회 · 협력업체 교차 분석기
                         </strong>
                         <div style={{ display: 'grid', gap: '0.35rem' }}>
-                          <small style={{ fontWeight: 900, opacity: 0.58 }}>목적</small>
+                          <small style={{ fontWeight: 900, color: '#215d4c' }}>목적</small>
                           <span style={{ lineHeight: 1.55 }}>공공 건설업체 데이터와 사내 협력업체 목록 비교</span>
                         </div>
                         <div style={{ display: 'grid', gap: '0.4rem' }}>
-                          <small style={{ fontWeight: 900, opacity: 0.58 }}>핵심 흐름</small>
+                          <small style={{ fontWeight: 900, color: '#215d4c' }}>핵심 흐름</small>
                           <b
                             style={{
                               padding: '0.7rem 0.8rem',
@@ -322,6 +323,7 @@ export function Book02Page() {
                           border: '1px solid rgba(17, 46, 40, 0.18)',
                           borderRadius: '0.95rem',
                           background: 'rgba(255, 255, 255, 0.78)',
+                          color: '#17362f',
                         }}
                       >
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem' }}>
@@ -332,11 +334,11 @@ export function Book02Page() {
                           개발사업 계약서 법률 리스크 분석 시스템
                         </strong>
                         <div style={{ display: 'grid', gap: '0.35rem' }}>
-                          <small style={{ fontWeight: 900, opacity: 0.58 }}>목적</small>
+                          <small style={{ fontWeight: 900, color: '#215d4c' }}>목적</small>
                           <span style={{ lineHeight: 1.55 }}>계약 리스크와 관련 법령 · 최신 법령 후보를 함께 확인</span>
                         </div>
                         <div style={{ display: 'grid', gap: '0.4rem' }}>
-                          <small style={{ fontWeight: 900, opacity: 0.58 }}>핵심 흐름</small>
+                          <small style={{ fontWeight: 900, color: '#215d4c' }}>핵심 흐름</small>
                           <b
                             style={{
                               padding: '0.7rem 0.8rem',
