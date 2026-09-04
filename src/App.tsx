@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { NavigateLink } from './components/NavigateLink'
 import { usePathname } from './hooks/usePathname'
 import { AiPage } from './pages/AiPage'
-import { Book02Page } from './pages/Book02Page'
 import { BuildPage } from './pages/BuildPage'
+import { CasesPage } from './pages/CasesPage'
 import { HomePage } from './pages/HomePage'
 import { VibeCodingPage } from './pages/VibeCodingPage'
 
@@ -12,7 +12,8 @@ const bookPages = {
   '/book/ai': AiPage,
   '/book/understand': AiPage,
   '/book/vibe-coding': VibeCodingPage,
-  '/book/instruct': Book02Page,
+  '/book/cases': CasesPage,
+  '/book/instruct': CasesPage,
   '/book/build': BuildPage,
   '/book/choose': BuildPage,
   '/book/practice': BuildPage,

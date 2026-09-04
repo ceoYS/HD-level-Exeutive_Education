@@ -5,8 +5,10 @@ import { Mission } from './Mission'
 import { AutomationTermCards, PrdPrinciple, ReferenceBody, ReferenceCopy, SystemTermList } from './Part1Blocks'
 import { PromptBlock } from './PromptBlock'
 import { TryThisPrompt } from './TryThisPrompt'
+import { ApiKeyNotice } from './UseCaseCards'
 import { bookChapters } from '../content/books'
 import { missions } from '../content/book05-practice'
+import { exploreTypes } from '../content/explore-types'
 import { REFERENCE_ENGLISH, REFERENCE_TITLE, automationTerms, systemTerms } from '../content/part1-lock'
 
 const term = (name: string) => automationTerms.filter(([t]) => t === name)
@@ -79,6 +81,7 @@ export function WeekTips({ week }: { week: string }) {
           <div className="tip-surface tip-surface--dark">
             <AutomationTermCards terms={term('MCP')} />
           </div>
+          <ApiKeyNotice />
           <ControlledInfrastructure />
         </BuildTip>
       )
@@ -98,6 +101,7 @@ export function WeekTips({ week }: { week: string }) {
         <>
           <BuildTip id="tip-w08-deploy" label="배포 → Deploy">
             <SystemTermList terms={systemTerms.filter(([t]) => t === 'DEPLOY')} />
+            <p className="tip-line">{exploreTypes[1].buildSteps[5]}</p>
           </BuildTip>
           <BuildTip id="tip-w08-baseline" label="Baseline · Pilot 효과" tone="light">
             <LeverageEvidence />

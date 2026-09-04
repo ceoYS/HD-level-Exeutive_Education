@@ -14,6 +14,7 @@ import './styles/book04.css'
 import './styles/book05.css'
 import './styles/part1.css'
 import './styles/build.css'
+import './styles/cases.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
