@@ -67,8 +67,8 @@ export function InsightDiamond() {
         const ringGeometry = new THREE.RingGeometry(0.24, 0.285, 48)
         const outerRingGeometry = new THREE.RingGeometry(0.38, 0.395, 64)
         const dotGeometry = new THREE.CircleGeometry(0.055, 24)
-        const ringGroups: any[] = []
-        const ringMaterials: any[] = []
+        const ringGroups: Array<InstanceType<typeof THREE.Group>> = []
+        const ringMaterials: Array<InstanceType<typeof THREE.MeshBasicMaterial>> = []
 
         attractors.forEach((position, index) => {
           const group = new THREE.Group()
