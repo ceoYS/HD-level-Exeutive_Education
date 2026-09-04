@@ -4,6 +4,7 @@ import { usePathname } from './hooks/usePathname'
 import { AiPage } from './pages/AiPage'
 import { BuildPage } from './pages/BuildPage'
 import { CasesPage } from './pages/CasesPage'
+import { HdecContextPage } from './pages/HdecContextPage'
 import { HomePage } from './pages/HomePage'
 import { VibeCodingPage } from './pages/VibeCodingPage'
 
@@ -12,6 +13,7 @@ const bookPages = {
   '/book/ai': AiPage,
   '/book/understand': AiPage,
   '/book/vibe-coding': VibeCodingPage,
+  '/book/hdec-context': HdecContextPage,
   '/book/cases': CasesPage,
   '/book/instruct': CasesPage,
   '/book/build': BuildPage,
