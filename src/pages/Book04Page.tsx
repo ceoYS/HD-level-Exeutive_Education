@@ -154,8 +154,8 @@ export function Book04Page() {
             <NavigateLink href="/book/practice" className="next-book">
               <span>NEXT BOOK · 05</span>
               <div>
-                <strong>PRACTICE</strong>
-                <p>직접 만들어보기</p>
+                <strong>APPLY</strong>
+                <p>실제 업무에 적용하고 개선하기</p>
               </div>
               <i aria-hidden="true">→</i>
             </NavigateLink>

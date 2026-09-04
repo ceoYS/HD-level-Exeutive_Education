@@ -10,7 +10,11 @@ export function ImplementationShiftDiagram({ compact = false }: ImplementationSh
     <figure className={`implementation-shift${compact ? ' implementation-shift--compact' : ''}`}>
       <figcaption>
         <span>THE IMPLEMENTATION DISTANCE</span>
-        <strong>문제에서 도구까지, 달라진 거리</strong>
+        <strong>
+          문제 해결을 위한 제품 제작까지,
+          <br />
+          AI 덕분에 달라진 방법
+        </strong>
       </figcaption>
       <div className="implementation-shift__lane implementation-shift__lane--before">
         <div className="implementation-shift__label">
@@ -29,7 +33,7 @@ export function ImplementationShiftDiagram({ compact = false }: ImplementationSh
       <div className="implementation-shift__lane implementation-shift__lane--now">
         <div className="implementation-shift__label">
           <span>NOW</span>
-          <small>가까워진 실험과 MVP</small>
+          <small>빠른 실험과 MVP 제작</small>
         </div>
         <ol>
           {now.map((item, index) => (

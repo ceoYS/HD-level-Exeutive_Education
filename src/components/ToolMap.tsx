@@ -1,5 +1,62 @@
-import { useState, type CSSProperties, type KeyboardEvent } from 'react'
+import { useState, type CSSProperties, type KeyboardEvent, type ReactNode } from 'react'
 import { toolGroups } from '../content/books'
+
+type ToolLink = { label: string; url: string }
+
+const toolLinks: Record<string, ToolLink[]> = {
+  ChatGPT: [{ label: 'ChatGPT', url: 'https://chatgpt.com/' }],
+  Claude: [{ label: 'Claude', url: 'https://claude.ai/' }],
+  Gemini: [{ label: 'Gemini', url: 'https://gemini.google.com/' }],
+  Perplexity: [{ label: 'Perplexity', url: 'https://www.perplexity.ai/' }],
+  NotebookLM: [{ label: 'NotebookLM', url: 'https://notebooklm.google.com/' }],
+  'Claude Project': [{ label: 'Claude Project', url: 'https://claude.ai/' }],
+  'ChatGPT Project': [{ label: 'ChatGPT Project', url: 'https://chatgpt.com/' }],
+  'Gemini Gem': [{ label: 'Gemini Gem', url: 'https://gemini.google.com/gems/' }],
+  'ChatGPT Images': [{ label: 'ChatGPT Images', url: 'https://chatgpt.com/images/' }],
+  'Adobe Firefly': [{ label: 'Adobe Firefly', url: 'https://firefly.adobe.com/' }],
+  Higgsfield: [{ label: 'Higgsfield', url: 'https://higgsfield.ai/' }],
+  'Google Flow · Veo': [{ label: 'Google Flow · Veo', url: 'https://labs.google/fx/tools/flow' }],
+  Suno: [{ label: 'Suno', url: 'https://suno.com/' }],
+  ElevenLabs: [{ label: 'ElevenLabs', url: 'https://elevenlabs.io/' }],
+  'Figma Make': [{ label: 'Figma Make', url: 'https://www.figma.com/make/' }],
+  'Claude Artifacts': [{ label: 'Claude Artifacts', url: 'https://claude.ai/artifacts' }],
+  'Gemini Canvas': [{ label: 'Gemini Canvas', url: 'https://gemini.google.com/' }],
+  'Claude Code': [{ label: 'Claude Code', url: 'https://claude.com/code' }],
+  'Codex CLI': [{ label: 'Codex CLI', url: 'https://github.com/openai/codex' }],
+  Cursor: [{ label: 'Cursor', url: 'https://cursor.com/' }],
+  'Google Antigravity': [{ label: 'Google Antigravity', url: 'https://antigravity.google/' }],
+  n8n: [{ label: 'n8n', url: 'https://n8n.io/' }],
+  Zapier: [{ label: 'Zapier', url: 'https://zapier.com/' }],
+  Make: [{ label: 'Make', url: 'https://www.make.com/' }],
+  'Power Automate': [{ label: 'Power Automate', url: 'https://make.powerautomate.com/' }],
+  'ChatGPT agent': [{ label: 'ChatGPT agent', url: 'https://chatgpt.com/' }],
+  'Copilot Studio': [{ label: 'Copilot Studio', url: 'https://copilotstudio.microsoft.com/' }],
+  'Claude Code · Codex': [
+    { label: 'Claude Code', url: 'https://claude.com/code' },
+    { label: 'Codex', url: 'https://chatgpt.com/codex' },
+  ],
+  'n8n · Zapier · Make': [
+    { label: 'n8n', url: 'https://n8n.io/' },
+    { label: 'Zapier', url: 'https://zapier.com/' },
+    { label: 'Make', url: 'https://www.make.com/' },
+  ],
+}
+
+function renderToolName(name: string): ReactNode {
+  const links = toolLinks[name]
+  if (!links?.length) return <strong>{name}</strong>
+
+  return (
+    <strong>
+      {links.map((link, index) => (
+        <span key={link.label}>
+          {index > 0 && ' · '}
+          <a href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a>
+        </span>
+      ))}
+    </strong>
+  )
+}
 
 export function ToolMap() {
   const [activeId, setActiveId] = useState(toolGroups[0].id)
@@ -30,7 +87,7 @@ export function ToolMap() {
       <div className="tool-map__header">
         <div>
           <span>AI CAPABILITY MAP</span>
-          <strong>해야 할 일로 고릅니다.</strong>
+          <strong>업무에 따라 선택합니다.</strong>
         </div>
         <p>
           <b>UPDATED · 2026.09</b>
@@ -65,7 +122,7 @@ export function ToolMap() {
         >
           {activeGroup.tools.map((tool, index) => (
             <div className="tool-map__tool" key={tool.name} style={{ '--item-index': index } as CSSProperties}>
-              <strong>{tool.name}</strong>
+              {renderToolName(tool.name)}
               <span>{tool.role}</span>
             </div>
           ))}

@@ -63,6 +63,143 @@
 
 .solution-card__note strong { color: var(--color-ink); }
 
+/* Book 02 EXPLORE — product type + expandable build process. */
+.explore-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: var(--reading-max);
+  margin: 2rem 0;
+}
+
+.explore-panel {
+  padding: clamp(1.2rem, 2.5vw, 1.8rem);
+  border: var(--border-hairline);
+  background: color-mix(in srgb, var(--color-paper-bright) 86%, transparent);
+}
+
+.chapter--spruce .explore-panel {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.explore-panel > span,
+.explore-concepts > span,
+.explore-build-detail summary > span {
+  font-family: var(--font-editorial);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.explore-panel h3 {
+  margin-top: 0.45rem;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.2rem, 1rem + 0.7vw, 1.65rem);
+  letter-spacing: -0.035em;
+}
+
+.explore-panel ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 1rem;
+}
+
+.explore-panel li {
+  position: relative;
+  padding-left: 1rem;
+  line-height: 1.5;
+}
+
+.explore-panel li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  font-weight: 900;
+}
+
+.explore-build-detail {
+  max-width: var(--reading-max);
+  margin: 1.5rem 0 2rem;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+
+.explore-build-detail summary {
+  display: grid;
+  grid-template-columns: 12rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.1rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.explore-build-detail summary::-webkit-details-marker { display: none; }
+
+.explore-build-detail summary strong {
+  font-family: var(--font-editorial);
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.45rem);
+  letter-spacing: -0.025em;
+}
+
+.explore-build-detail summary i {
+  font-style: normal;
+  font-size: 1.5rem;
+  transition: transform 180ms ease;
+}
+
+.explore-build-detail[open] summary i { transform: rotate(45deg); }
+
+.explore-build-detail__body {
+  padding: 0 0 1.6rem;
+}
+
+.explore-build-steps {
+  counter-reset: build-step;
+  display: grid;
+  gap: 0;
+  border-top: var(--border-hairline);
+}
+
+.explore-build-steps li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-bottom: var(--border-hairline);
+}
+
+.explore-build-steps li span {
+  font-family: var(--font-editorial);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.explore-build-steps li p { line-height: 1.5; }
+
+.explore-concepts {
+  margin-top: 1.3rem;
+}
+
+.explore-concepts > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+}
+
+.explore-concepts strong {
+  padding: 0.42rem 0.68rem;
+  border: var(--border-hairline);
+  font-family: var(--font-editorial);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+}
+
 /* Difficulty / risk matrix. */
 .difficulty-matrix {
   max-width: var(--reading-max);
@@ -96,5 +233,8 @@
 
 @media (max-width: 760px) {
   .solution-card { grid-template-columns: 1fr; gap: 1rem; }
+  .explore-type-grid { grid-template-columns: 1fr; }
+  .explore-build-detail summary { grid-template-columns: 1fr auto; }
+  .explore-build-detail summary > span { grid-column: 1 / -1; }
   .difficulty-matrix__row { grid-template-columns: 1fr; gap: 0.6rem; }
 }

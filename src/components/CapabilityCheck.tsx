@@ -48,7 +48,9 @@ export function CapabilityCheck({ id, statement, evidence = true, ace = false }:
           checked={state.done}
           onChange={(event) => setState((prev) => ({ ...prev, done: event.target.checked }))}
         />
-        <span className="capability-check__box" aria-hidden="true" />
+        <span className="capability-check__box" aria-hidden="true">
+          {state.done ? '✓' : ''}
+        </span>
         <span className="capability-check__statement">{statement}</span>
       </label>
 
@@ -71,7 +73,9 @@ export function CapabilityCheck({ id, statement, evidence = true, ace = false }:
             checked={state.ace}
             onChange={(event) => setState((prev) => ({ ...prev, ace: event.target.checked }))}
           />
-          <span className="capability-check__box capability-check__box--sm" aria-hidden="true" />
+          <span className="capability-check__box capability-check__box--sm" aria-hidden="true">
+            {state.ace ? '✓' : ''}
+          </span>
           ACE 확인
         </label>
       )}

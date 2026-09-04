@@ -1,28 +1,46 @@
-const agentParts = ['CONTEXT', 'TOOLS', 'MEMORY / KNOWLEDGE', 'LOOP', 'GUARDRAILS']
-
 export function AiLayersDiagram() {
   return (
     <figure className="ai-layers">
-      <figcaption>A SIMPLE LAYERED MODEL</figcaption>
+      <figcaption>FROM CONVERSATION TO ACTION</figcaption>
+      <div className="ai-layer ai-layer--model">
+        <span>01</span>
+        <strong>CHAT</strong>
+        <p>
+          질문하고 답하며 함께 생각합니다. 사람이 다음 행동을 계속 지시합니다.
+          <br />
+          <span className="ai-layer__links">
+            <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT ↗</a> ·{' '}
+            <a href="https://claude.ai/" target="_blank" rel="noreferrer">Claude ↗</a> ·{' '}
+            <a href="https://gemini.google.com/" target="_blank" rel="noreferrer">Gemini ↗</a>
+          </span>
+        </p>
+      </div>
+      <div className="ai-layer ai-layer--assistant">
+        <span>02</span>
+        <strong>PROJECT / WORKSPACE</strong>
+        <p>
+          파일·지시·이전 대화 등 프로젝트 맥락을 유지하며 계속 같이 일합니다.
+          <br />
+          <span className="ai-layer__links">
+            <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT Project ↗</a> ·{' '}
+            <a href="https://claude.ai/projects" target="_blank" rel="noreferrer">Claude Project ↗</a>
+          </span>
+        </p>
+      </div>
       <div className="ai-layer ai-layer--agent">
         <div>
           <span>03</span>
           <strong>AGENT</strong>
-          <p>목표를 받아 다음 행동을 판단하고, 도구를 쓰고, 결과를 본 뒤 계속하거나 멈춥니다.</p>
+          <p>
+            목표를 받아 필요한 도구를 사용해 여러 단계를 실제로 수행하고, 결과를 확인하며 다음 행동을 이어갑니다.
+            <br />
+            <span className="ai-layer__links">
+              <a href="https://docs.anthropic.com/en/docs/claude-code/getting-started" target="_blank" rel="noreferrer">Claude Code ↗</a> ·{' '}
+              <a href="https://chatgpt.com/codex/" target="_blank" rel="noreferrer">Codex ↗</a> ·{' '}
+              <a href="https://chatgpt.com/" target="_blank" rel="noreferrer">ChatGPT agent ↗</a>
+            </span>
+          </p>
         </div>
-        <div className="ai-layer__parts">
-          {agentParts.map((part) => <span key={part}>{part}</span>)}
-        </div>
-      </div>
-      <div className="ai-layer ai-layer--assistant">
-        <span>02</span>
-        <strong>AI ASSISTANT / PRODUCT</strong>
-        <p>ChatGPT · Claude · Gemini처럼 사람이 묻고 AI가 응답하는 사용 화면과 제품</p>
-      </div>
-      <div className="ai-layer ai-layer--model">
-        <span>01</span>
-        <strong>MODEL / LLM</strong>
-        <p>입력과 맥락을 바탕으로 생성하고 추론하는 기반 모델</p>
       </div>
     </figure>
   )

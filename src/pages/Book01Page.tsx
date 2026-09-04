@@ -5,6 +5,7 @@ import { ExecutiveTakeaway, SecurityGate, WatchOut } from '../components/Callout
 import { CapabilityCheck } from '../components/CapabilityCheck'
 import { DevelopmentLoop } from '../components/DevelopmentLoop'
 import { ImplementationShiftDiagram } from '../components/ImplementationShiftDiagram'
+import { InsightDiamond } from '../components/InsightDiamond'
 import { NavigateLink } from '../components/NavigateLink'
 import { Reveal } from '../components/Reveal'
 import { SectionIntro } from '../components/SectionIntro'
@@ -23,20 +24,31 @@ const systemTerms = [
   ['SERVER', '서비스가 실제로 실행되는 환경'],
   ['AUTHENTICATION', '누가 무엇을 할 수 있는지 확인'],
   ['DEPLOY', '다른 사람이 접속할 수 있게 내보내는 과정'],
+  ['GITHUB REPOSITORY', '코드와 변경 이력을 저장하고, 이미 다른 개발자가 만들어 둔 기능·구조를 찾아 참고·활용할 수 있는 저장소'],
 ]
 
 const automationTerms = [
-  ['WORKFLOW', '순서와 조건이 비교적 정해진 반복 업무'],
-  ['AGENT', '상황을 보고 다음 행동이나 도구를 선택해야 하는 업무'],
-  ['MCP', 'AI가 외부 도구·데이터와 연결되는 방식을 표준화한 규격'],
-  ['SKILL', '특정 일을 반복해서 수행하도록 만든 재사용 가능한 작업법'],
+  ['PROJECT INSTRUCTIONS / RULES', 'AI가 프로젝트 전체에서 계속 지켜야 할 상시 작업 지시사항\n\n- 프로젝트 목적·기술 스택·수정 금지 범위·코딩/작성 규칙·Build/Test 방법 등을 기록해 매번 다시 설명하지 않아도 Agent가 같은 기준으로 일하도록 함.\n- ex) 관련 없는 파일 수정 금지 · 확정 UI 임의 변경 금지 · 변경 후 Build/Test 실행 · CLAUDE.md · AGENTS.md · .cursor/rules'],
+  ['CONTEXT / DOCS', 'AI가 무엇을 만들고 무엇을 기준으로 판단할지 알려주는 프로젝트 기준 문서\n\n- 문제 정의·요구사항·기능 범위·사용자 흐름·작업 계획·남은 과제 등을 문서로 남겨 Agent가 같은 기준을 참고하도록 함.\n- ex) README.md · PRD.md · SPEC.md · PLAN.md · TASKS.md'],
+  ['HAND-OFF / CHECKPOINT', '한 채팅방의 Context가 길어질수록 중요한 맥락을 안정적으로 유지하기 어려워지고 답변이 압축되거나 대화를 빨리 마무리하는 듯한 현상이 생길 수 있습니다. 현재 상태·결정사항·남은 작업·읽어야 할 파일을 Hand-Off 문서로 받아 프로젝트 내 새 채팅방으로 인계합니다.'],
+  ['MCP', 'AI가 프로젝트 밖의 도구·데이터·서비스를 연결해 사용할 수 있게 하는 표준 연결 방식\n\n- Agent가 GitHub·Figma·Google Drive·Database 등 외부 시스템을 조회·사용할 수 있도록 연결하는 역할\n- ex) GitHub · Figma · Google Drive · Database 등의 외부 시스템 연결'],
+  ['SKILL', '반복해서 시킬 일을 재사용 가능한 작업법으로 만들어 둡니다.'],
+  ['HARNESS / LOOP', '여러 AI·도구·문서·검증 절차를 하나의 제품 제작 흐름으로 묶어 운영하는 방식\n\n- Harness: Planner·Builder·Reviewer 등 역할과 도구를 연결해 반복 가능한 작업 구조로 구성\n- Loop: PLAN → BUILD → REVIEW → USE → FIX를 반복하며 결과를 검증·개선하는 순환 구조'],
 ]
 
 const referenceSteps = [
-  ['01', 'USE', '유사 서비스를 직접 써본다'],
+  ['01', 'DIG UP', '벤치마크할 유사 서비스를 발굴합니다.'],
   ['02', 'ANALYZE', '정보구조와 사용자 흐름을 본다'],
-  ['03', 'EXTRACT', '재사용할 해결 원리를 뽑는다'],
-  ['04', 'REINTERPRET', '우리 업무의 제약과 우선순위로 다시 설계한다'],
+  ['03', 'EXTRACT', '재사용할 제품의 구조를 추출한다.'],
+  ['04', 'REINTERPRET', '업무 인프라 제약과 우선순위를 고려해 다시 설계한다.'],
+  ['05', 'VALIDATE', '재설계한 구조가 실제 우리 업무에 맞는지 작은 Prototype으로 검증합니다.'],
+]
+
+const founderBuildExample = [
+  ['PLANNER', 'ChatGPT Project', '장기 프로젝트 맥락을 유지하면서 문제 정의·제품 방향·기능 우선순위·PRD/SPEC을 함께 논의합니다.'],
+  ['BUILDER', 'Claude Code', 'CMD/터미널에서 프로젝트 파일과 구현 문서를 읽고 실제 코드를 만들고 실행·수정합니다.'],
+  ['REVIEWER', 'Codex', '별도의 관점에서 요구사항 준수, 코드 변경 범위, 테스트와 빠진 항목을 검토합니다.'],
+  ['ACTUAL USER', 'Executive', '직접 제품을 써보고 현업과 다른 지점을 판단한 뒤 필요한 부분만 다시 수정합니다.'],
 ]
 
 export function Book01Page() {
@@ -58,14 +70,14 @@ export function Book01Page() {
             <div className="book-opening__statement">
               <p>AI BUILD · THE MASTER MAP</p>
               <h1>
-                AI로 만드는 일의
+                바이브코딩과
                 <br />
-                전체 지도.
+                Product 구조
               </h1>
               <p className="book-opening__sub">
-                이 책에서는 세부 사용법보다
+                제품을 만들기 위한
                 <br />
-                <em>무엇이 어디에 연결되는지</em> 봅니다.
+                <em>기초 IT · AI 개념을 이해합니다.</em>
               </p>
             </div>
             <button
@@ -97,44 +109,50 @@ export function Book01Page() {
             <div className="chapter__inner">
               <SectionIntro number="01" title="AI가 바꾼 것은 구현의 장벽" english="THE IMPLEMENTATION LEVERAGE">
                 <p>
-                  AI는 산업 경험을 대신하지 않습니다. 대신 경험에서 발견한 문제를 <strong>직접 확인할 수 있는 형태로
-                  빠르게 옮겨보는 힘</strong>을 줍니다.
+                  개발자를 통해서 제품을 만들어야 하는 환경에서 AI 바이브코딩을 통해 빠르게 제작할 수 있게 되었습니다.
                 </p>
               </SectionIntro>
               <Reveal className="founder-thesis">
                 <span>THE CENTRAL THESIS</span>
-                <blockquote>
-                  AI가 줄인 것은 구현의 장벽입니다.
+                <blockquote style={{ fontSize: 'clamp(1.8rem, 3vw, 3rem)' }}>
+                  But, AI가 줄인 것은 구현의 장벽 뿐입니다.
                   <br />
                   <em>문제를 보는 눈까지 만들어준 것은 아닙니다.</em>
                 </blockquote>
               </Reveal>
               <Reveal><ImplementationShiftDiagram compact /></Reveal>
               <ExecutiveTakeaway>
-                이 교육은 개발자 양성이 아니라, <strong>실장이 문제를 고르고 작은 버전을 직접 써보며 판단하는 능력</strong>을 다룹니다.
+                이 교육은 개발자 양성이 아니라, <strong>임원진이 해결할 문제를 고르고 MVP제품을 AI로 직접 제작하는 기초 능력</strong>을 배양합니다.
               </ExecutiveTakeaway>
+              <InsightDiamond />
             </div>
           </section>
 
           <section className="chapter chapter--tools" id="chapter-2">
             <div className="chapter__inner">
-              <SectionIntro number="02" title="AI · Assistant · Agent는 무엇이 다른가" inverse>
+              <SectionIntro number="02" title="대화에서 실행까지, AI는 어떻게 달라지는가" inverse>
                 <p>
-                  제품 이름보다 <strong>Model → Assistant → Agent</strong> 세 층을 구분하면 현재 도구가 어디에 속하는지 판단하기 쉽습니다.
+                  AI 제품 이름을 외우기보다 <strong>사람이 계속 지시하는 대화, 맥락을 이어가는 프로젝트, 도구를 사용해 실제 행동하는 Agent</strong>의 차이를 이해합니다.
                 </p>
               </SectionIntro>
               <Reveal><AiLayersDiagram /></Reveal>
-              <WatchOut>
-                Custom GPT·Project·Gem처럼 지시와 지식을 저장했다고 자동으로 Agent가 되는 것은 아닙니다. 목표를 받고 도구를 선택하며 여러 행동을 이어갈 때 Agent에 가까워집니다.
-              </WatchOut>
+              <ExecutiveTakeaway>
+                참고 · 이 모든 AI 제품의 판단과 생성 능력 뒤에는 <strong>Model / LLM</strong>이 있습니다.
+                <br />
+                지금 단계에서는 모델 종류와 ai를 외우기보다 각 업무에 어떤 ai를 사용하는지를 구분하면 됩니다.
+              </ExecutiveTakeaway>
             </div>
           </section>
 
           <section className="chapter chapter--screen" id="chapter-3">
             <div className="chapter__inner">
-              <SectionIntro number="03" title="AI로 할 수 있는 일의 전체 지도" english="AI CAPABILITY MAP">
+              <SectionIntro number="03" title="분야 별 핵심 AI 지도" english="AI CAPABILITY MAP">
                 <p>
-                  브랜드를 외우기보다 <strong>지금 해야 할 일</strong>로 도구를 고릅니다. 한 제품이 여러 역할을 할 수도 있습니다.
+                  툴 이름을 외우기보다
+                  <br />
+                  각 분야에서 제일 유능한 도구부터 사용해봅니다.
+                  <br />
+                  한 제품이 여러 역할을 할 수도 있습니다.
                 </p>
               </SectionIntro>
               <Reveal><ToolMap /></Reveal>
@@ -146,7 +164,7 @@ export function Book01Page() {
 
           <section className="chapter chapter--system" id="chapter-4">
             <div className="chapter__inner">
-              <SectionIntro number="04" title="프로그램과 AI 시스템은 무엇으로 이루어지는가" inverse>
+              <SectionIntro number="04" title={<>프로그램과<br />AI 시스템은 무엇으로 이루어지는가</>} inverse>
                 <p>
                   코딩 문법보다 화면·규칙·데이터·연결·실행 환경이 어떻게 이어지는지 이해하면 됩니다.
                 </p>
@@ -155,7 +173,16 @@ export function Book01Page() {
               <div className="system-terms">
                 {systemTerms.map(([term, meaning]) => (
                   <Reveal as="div" className="system-term" key={term}>
-                    <strong>{term}</strong><p>{meaning}</p>
+                    <strong>{term}</strong>
+                    <p>
+                      {meaning}
+                      {term === 'GITHUB REPOSITORY' && (
+                        <>
+                          <br />
+                          <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
+                        </>
+                      )}
+                    </p>
                   </Reveal>
                 ))}
               </div>
@@ -167,32 +194,37 @@ export function Book01Page() {
 
           <section className="chapter chapter--connect" id="chapter-5">
             <div className="chapter__inner">
-              <SectionIntro number="05" title="Workflow · Agent · MCP · Skill">
+              <SectionIntro number="05" title="AI에게 프로젝트의 규칙과 도구를 어떻게 연결하는가">
                 <p>
-                  자동화는 <strong>정해진 흐름을 실행하는 부분</strong>과 <strong>AI가 다음 행동을 판단하는 부분</strong>을 나눠서 보면 됩니다.
+                  Agent가 제대로 일하려면 <strong>계속 지킬 규칙, 기준 문서, 외부 도구 연결, 반복 작업법</strong>이 필요합니다.
                 </p>
               </SectionIntro>
               <div className="project-language project-language--three">
                 {automationTerms.map(([term, meaning], index) => (
                   <Reveal as="article" className="project-term" delay={(index % 3) * 60} key={term}>
-                    <span>{String(index + 1).padStart(2, '0')}</span><h3>{term}</h3><p>{meaning}</p>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <h3>{term}</h3>
+                    <p style={{ whiteSpace: 'pre-line' }}>{meaning}</p>
+                    {term === 'SKILL' && (
+                      <a className="project-term__link" href="https://skills.sh/" target="_blank" rel="noreferrer">skills.sh ↗</a>
+                    )}
                   </Reveal>
                 ))}
               </div>
               <ExecutiveTakeaway>
-                예측 가능한 단계는 Workflow로 두고, 해석과 예외 판단이 필요한 곳만 Agent에 맡기는 편이 운영하기 쉽습니다.
+                <strong>Rules는 어떻게 일할 것인가, Docs는 무엇을 만들 것인가</strong>를 알려줍니다. MCP는 외부 도구·데이터를 연결하고, Skill은 반복 작업을 재사용하게 합니다.
               </ExecutiveTakeaway>
             </div>
           </section>
 
           <section className="chapter chapter--reference" id="chapter-6">
             <div className="chapter__inner">
-              <SectionIntro number="06" title="이미 검증된 서비스에서 시작할 수 있다" english="REFERENCE-DRIVEN BUILD">
+              <SectionIntro number="06" title="이미 검증된 제품을 벤치마킹 할 수 있다." english="REFERENCE-DRIVEN BUILD">
                 <p>
-                  유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 다시 설계할 수 있습니다.
+                  유사 서비스를 베끼는 것이 아니라 <strong>어떤 문제를 어떤 구조로 풀었는지</strong> 분석해 우리 업무에 맞게 벤치마킹하여 다시 설계할 수 있습니다.
                 </p>
               </SectionIntro>
-              <div className="reference-sequence">
+              <div className="reference-sequence" style={{ gridTemplateColumns: `repeat(${referenceSteps.length}, minmax(0, 1fr))` }}>
                 {referenceSteps.map(([number, english, korean], index) => (
                   <Reveal className="reference-step" delay={index * 50} key={number}>
                     <span>{number}</span><strong>{english}</strong><p>{korean}</p>
@@ -208,32 +240,74 @@ export function Book01Page() {
 
           <section className="chapter chapter--harness" id="chapter-7">
             <div className="chapter__inner">
-              <SectionIntro number="07" title="실제로 AI와 개발하는 방법" english="PLAN → BUILD → REVIEW → USE" inverse>
+              <SectionIntro number="07" title={<>AI에게 역할을 부여해<br />피드백 반영 과정을 자동 반복 세팅해 제품 개발</>} english="PLAN → BUILD → REVIEW → USE" inverse>
                 <p>
-                  실제 개발은 네 역할이 이어지는 반복입니다. <strong>여기서는 역할만 보고</strong>, PRD·SPEC·Builder Handoff는 Book 02에서 다룹니다.
+                  바이브코딩은 AI 하나에게 전부 맡기는 일이 아닙니다. <strong>기획·구현·검토·실사용의 역할을 나누고</strong> 각 단계에서 사람이 방향과 기준을 잡습니다.
                 </p>
               </SectionIntro>
               <Reveal><DevelopmentLoop /></Reveal>
               <div className="role-sections">
                 <Reveal as="article" className="role-section">
                   <span>ROLE 1 · PLANNER</span>
-                  <h3>문제와 요구사항을 문서로 정리합니다.</h3>
+                  <h3>문제와 요구사항을 함께 구체화합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section role-section--builder">
                   <span>ROLE 2 · BUILDER</span>
-                  <h3>문서를 기준으로 실제 파일을 만들고 실행합니다.</h3>
+                  <h3>확정된 문서를 기준으로 실제 제품을 구현합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section">
                   <span>ROLE 3 · REVIEWER</span>
-                  <h3>문서와 작동 여부를 다른 관점에서 검토합니다.</h3>
+                  <h3>요구사항과 구현 결과를 다른 관점에서 검토합니다.</h3>
                 </Reveal>
                 <Reveal as="article" className="role-section role-section--human">
                   <span>ROLE 4 · ACTUAL USER</span>
-                  <h3>실장이 직접 써보고 업무와 다른 지점을 찾습니다.</h3>
+                  <h3>임원진이 직접 써보고 실제 업무와 다른 지점을 판단합니다.</h3>
                 </Reveal>
               </div>
+
+              <Reveal className="prd-principle">
+                <span>PLANNING PRINCIPLE · PRD</span>
+                <h3>
+                  AI가 써준 PRD를
+                  <br />
+                  그대로 구현하지 않습니다.
+                </h3>
+                <p>
+                  AI는 문서를 구조화할 수 있지만, <strong>무엇을 만들고 싶은지 결정하는 사람은 본인</strong>입니다. 사용자, 실제 Pain Point, 원하는 화면과 흐름, 반드시 필요한 기능, 하지 않을 것, 성공 기준을 최대한 구체적으로 설명하고 AI가 이해하지 못한 부분은 질문하게 합니다.
+                </p>
+                <blockquote>
+                  “지금까지 내가 설명한 내용을 기준으로 PRD를 정리해줘.
+                  <br />
+                  내가 말하지 않은 요구사항은 임의로 추가하지 말고 질문으로 남겨줘.”
+                </blockquote>
+              </Reveal>
+
+              <Reveal className="founder-build-example">
+                <div className="founder-build-example__intro">
+                  <span>ONE REAL BUILD PATTERN · EXAMPLE</span>
+                  <h3>실제로는 AI마다 역할을 나누어<br />하나의 제품을 만들 수 있습니다.</h3>
+                  <p>아래는 AI디자인랩 선윤성 매니저가 실제 프로젝트에서 활용하는 방식입니다. 단, 특정 도구 조합이 정답이라는 뜻은 아닙니다.</p>
+                </div>
+                <ol>
+                  {founderBuildExample.map(([role, tool, description], index) => (
+                    <li key={role}>
+                      <span>{String(index + 1).padStart(2, '0')} · {role}</span>
+                      <strong>{tool}</strong>
+                      <p>{description}</p>
+                      {index < founderBuildExample.length - 1 && <i aria-hidden="true">↓</i>}
+                    </li>
+                  ))}
+                </ol>
+                <div className="founder-build-example__loop" aria-label="Planner, Builder, Reviewer, Actual User, Targeted Fix 반복 루프">
+                  <span>PLANNER →</span>
+                  <span>BUILDER →</span>
+                  <span>REVIEWER →</span>
+                  <span>ACTUAL USER → TARGETED FIX ↺</span>
+                </div>
+              </Reveal>
+
               <ExecutiveTakeaway>
-                전체 흐름은 <strong>PLAN → BUILD → REVIEW → USE → TARGETED FIX</strong>입니다. 각 단계의 구체적인 문서와 지시 방법은 다음 Book으로 넘깁니다.
+                AI가 구현을 대신해도 <strong>문제 정의·우선순위·PRD의 의도·최종 판단은 임원진이 쥐고 있어야 합니다.</strong>
               </ExecutiveTakeaway>
             </div>
           </section>
@@ -257,9 +331,9 @@ export function Book01Page() {
             <Reveal className="cert-group">
               <p className="cert-group__intro">스스로 확인합니다.</p>
               <p className="cert-group__label">SELF CERTIFICATION · 나는 지금 이것을 할 수 있다</p>
-              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Model · Assistant · Agent의 차이를 설명할 수 있다." />
+              <CapabilityCheck id="b01-ai-layers" evidence={false} statement="Chat · Project · Agent가 각각 어디까지 일을 맡는지 설명할 수 있다." />
               <CapabilityCheck id="b01-structure" evidence={false} statement="Frontend부터 Deploy까지 제품의 주요 구성 요소를 설명할 수 있다." />
-              <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Workflow와 Agent를 언제 나눠 써야 하는지 설명할 수 있다." />
+              <CapabilityCheck id="b01-workflow-agent" evidence={false} statement="Project Instructions · Docs · MCP · Skill이 각각 무엇을 위한 것인지 설명할 수 있다." />
               <CapabilityCheck id="b01-build-loop" evidence={false} statement="Planner · Builder · Reviewer · Actual User의 역할을 구분할 수 있다." />
             </Reveal>
             <NavigateLink href="/book/instruct" className="next-book">

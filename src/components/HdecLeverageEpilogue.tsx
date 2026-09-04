@@ -76,9 +76,9 @@ export function HdecLeverageEpilogue() {
   return (
     <section className="hdec-leverage" id="hdec-leverage" aria-labelledby="hdec-leverage-title">
       <header className="hdec-leverage__opening">
-        <p>FINAL COURSE EPILOGUE · THE REASON THIS MATTERS</p>
+        <p>FINAL COURSE EPILOGUE · FROM INDIVIDUAL BUILD TO ORGANIZATIONAL LEVERAGE</p>
         <h2 id="hdec-leverage-title">HDEC AI<br />LEVERAGE</h2>
-        <span>사람과 문서에 쌓인 지식을 다음 업무에서 다시 쓸 수 있게 만드는 구조</span>
+        <span>개인이 만든 업무 도구와 판단을 조직이 다시 쓸 수 있는 지식으로 연결합니다.</span>
       </header>
 
       <div className="hdec-leverage__body">
@@ -109,20 +109,6 @@ export function HdecLeverageEpilogue() {
                 <li>축적된 정형·비정형 데이터</li>
               </ul>
             </article>
-          </div>
-        </Reveal>
-
-        <Reveal className="construction-knowledge-note">
-          <span>EXTERNAL RESEARCH · CONSTRUCTION KNOWLEDGE</span>
-          <h3>프로젝트에서 얻은 판단과 교훈을<br />다음 프로젝트가 다시 쓸 수 있어야 합니다.</h3>
-          <p>
-            건설업은 프로젝트마다 조직과 참여자가 달라집니다. 그래서 경험과 Lessons Learned를 다음
-            프로젝트로 전달하고 다시 쓰는 일이 오래전부터 지식관리 과제로 다뤄져 왔습니다.
-          </p>
-          <div className="research-links">
-            <a href="https://salford-repository.worktribe.com/output/1461831/collaborative-knowledge-management-a-construction-case-study" target="_blank" rel="noreferrer">Dave & Koskela · Automation in Construction ↗</a>
-            <a href="https://epress.lib.uts.edu.au/journals/index.php/AJCEB/article/view/8390" target="_blank" rel="noreferrer">Hubbard et al. · Lessons Learned in Construction ↗</a>
-            <a href="https://journals.vilniustech.lt/index.php/JCEM/article/view/16006" target="_blank" rel="noreferrer">Yepes & López · Construction Knowledge Management Review ↗</a>
           </div>
         </Reveal>
 
@@ -174,28 +160,6 @@ export function HdecLeverageEpilogue() {
           <b aria-hidden="true">↺ CAPTURE · LEARN · REUSE</b>
         </Reveal>
 
-        <Reveal className="long-horizon">
-          <span>LONGER HORIZON</span>
-          <div>
-            {[
-              ['SOFTWARE', '업무 도구'],
-              ['AGENTIC SYSTEMS', '여러 단계의 디지털 실행'],
-              ['VISION · ROBOT · DRONE · SENSOR', '현장과 물리 세계를 읽고 작동'],
-              ['PHYSICAL AI', '디지털 판단과 물리 행동의 결합'],
-            ].map(([title, note], index) => (
-              <article key={title}>
-                <strong>{title}</strong><p>{note}</p>
-                {index < 3 && <i aria-hidden="true">→</i>}
-              </article>
-            ))}
-          </div>
-          <p>
-            Physical AI는 데이터 기반, 안전 검증, Hardware·현장 통합, 규제와 전문 Engineering이 함께
-            필요한 장기 과제입니다. Software Prototype을 만든 뒤 바로 이어지는 단순한 다음 단계로
-            보기는 어렵습니다.
-          </p>
-        </Reveal>
-
         <div className="evidence-section">
           <Reveal className="evidence-section__intro">
             <span>EXTERNAL BENCHMARKS / POTENTIAL RANGE</span>
@@ -231,7 +195,7 @@ export function HdecLeverageEpilogue() {
 
         <Reveal className="hdec-leverage__finale">
           <p>실장의 판단이 도구에 반영되고,<br />그 도구의 사용 경험과 데이터가 다음 판단을 돕습니다.</p>
-          <h3>교육의 목표는<br />이 반복을 실제 업무에서 시작하는 것입니다.</h3>
+          <h3>한 사람이 만든 개선을<br />다음 사람과 다음 프로젝트가 다시 쓸 수 있게 합니다.</h3>
           <span>THIS IS HDEC AI LEVERAGE.</span>
         </Reveal>
 
@@ -239,7 +203,7 @@ export function HdecLeverageEpilogue() {
           <span>BACK TO</span>
           <div>
             <strong>THE LIBRARY</strong>
-            <p>다섯 권의 가이드로 돌아가기</p>
+            <p>다섯 단계로 돌아가기</p>
           </div>
           <i aria-hidden="true">↗</i>
         </NavigateLink>

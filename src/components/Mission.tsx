@@ -10,21 +10,19 @@ type MissionProps = {
   children?: ReactNode
 }
 
-/**
- * Book 05의 실습 미션. 휴대폰/태블릿에서도 따라갈 수 있도록 단계는 짧고 명확하게.
- */
+/** Book 05의 실전 Playbook. 필요한 상황에서 바로 꺼내 쓰도록 짧고 명확하게 구성한다. */
 export function Mission({ number, title, goal, minutes, steps, children }: MissionProps) {
   return (
     <section className="mission" id={`mission-${number}`}>
       <Reveal className="mission__head">
         <div className="mission__index">
-          <span>MISSION</span>
+          <span>PLAYBOOK</span>
           <strong>{number}</strong>
         </div>
         <div className="mission__headline">
           <h3>{title}</h3>
           <p className="mission__goal">
-            <span>목표</span>
+            <span>언제 쓰나</span>
             {goal}
           </p>
           {minutes && <p className="mission__minutes">약 {minutes}</p>}
@@ -32,7 +30,7 @@ export function Mission({ number, title, goal, minutes, steps, children }: Missi
       </Reveal>
 
       <Reveal className="mission__steps" delay={60}>
-        <p className="mission__label">따라 하기</p>
+        <p className="mission__label">이렇게 합니다</p>
         <ol>
           {steps.map((step, index) => (
             <li key={step}>

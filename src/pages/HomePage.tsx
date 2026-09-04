@@ -6,38 +6,17 @@ import { SiteHeader } from '../components/SiteHeader'
 import { books, type Book } from '../content/books'
 import { toAppHref } from '../routing'
 
-const partners = [
-  {
-    number: '01',
-    name: 'EXECUTIVE',
-    korean: '문제와 우선순위를 정합니다',
-    detail: '실제 업무에서 무엇이 불편한지 고르고, 결과가 쓸모 있는지 판단합니다.',
-  },
-  {
-    number: '02',
-    name: 'AI',
-    korean: '빠르게 만들고 시험합니다',
-    detail: '대화에서 시작해 문서, 화면, 코드까지 빠르게 만들어볼 수 있게 합니다.',
-  },
-  {
-    number: '03',
-    name: 'ACE',
-    korean: '과정을 함께 연결합니다',
-    detail: '문제 정리부터 구현·검토까지 실장과 1:1로 함께합니다.',
-  },
-]
-
 const libraryJourney = [
-  ['01', '전체 지도를 이해하고'],
-  ['02', '의도를 문서로 넘기고'],
-  ['03', '무엇을 만들지 정하고'],
-  ['04', '8주 동안 실제로 만들고'],
-  ['05', '작게 한 번 끝까지 해봅니다'],
+  ['01', 'AI와 바이브코딩을 이해하고'],
+  ['02', '무엇을 만들 수 있는지 살펴보고'],
+  ['03', '내가 만들 제품을 고르고'],
+  ['04', '실제 제품으로 만들고'],
+  ['05', '직접 적용하고 개선합니다'],
 ]
 
 const libraryShelves = [
-  { label: 'FOUNDATION', range: 'VOLUMES 01—02', books: books.slice(0, 2) },
-  { label: 'DECIDE · MAKE · PRACTICE', range: 'VOLUMES 03—05', books: books.slice(2) },
+  { label: 'UNDERSTAND · EXPLORE', range: 'STEPS 01—02', books: books.slice(0, 2) },
+  { label: 'CHOOSE · BUILD · APPLY', range: 'STEPS 03—05', books: books.slice(2) },
 ]
 
 type ViewTransitionDocument = Document & {
@@ -150,77 +129,35 @@ export function HomePage() {
               <strong>Build</strong>
             </h1>
             <p className="home-hero__kicker">
-              실장의 경험을 AI와 연결해
+              임원진의 경험에서 발견한 업무 Pain Point를
               <br />
-              실제 업무 문제를 직접 도구로 만들어봅니다.
+              AI로 제품화하여 해결합니다.
             </p>
           </div>
           <div className="home-hero__foot">
             <p>
               8주 동안 ACE와 함께
               <br />
-              하나의 문제를 끝까지 가져갑니다.
+              실제 업무 문제 하나를 제품으로 만들어봅니다.
             </p>
-            <a href="#course" className="scroll-cue">
+            <a href="#library-transition" className="scroll-cue">
               <span>BEGIN THE FIELD GUIDE</span>
               <i aria-hidden="true">↓</i>
             </a>
           </div>
         </section>
 
-        <section className="thesis" id="course" aria-labelledby="course-title">
-          <Reveal className="thesis__opening">
-            <span className="folio">01 · THE COURSE</span>
-            <h2 id="course-title">
-              이 과정에서
-              <br />
-              <em>하나를 직접 만듭니다.</em>
-            </h2>
-            <p>AI 기능을 많이 아는 것보다, 실제 업무 문제를 끝까지 다뤄보는 데 초점을 둡니다.</p>
-          </Reveal>
-
-          <Reveal className="home-domain-thesis">
-            <p>
-              문제를 고르고, 의도를 문서로 남기고, 작은 버전을 만들고, 직접 써보고, 필요한 부분을 고칩니다.
-              왜 이 방식이 가능한지와 AI·IT의 전체 구조는 Book 01에서 설명합니다.
-            </p>
-            <strong>PROBLEM → DOCUMENT → BUILD → USE → FIX</strong>
-          </Reveal>
-        </section>
-
-        <section className="partnership" aria-labelledby="partnership-title">
-          <div className="partnership__intro">
-            <span className="folio">02 · HOW WE WORK</span>
-            <h2 id="partnership-title">
-              세 역할이
-              <br />
-              <span>분명하게 나뉩니다.</span>
-            </h2>
-          </div>
-          <div className="partnership__people">
-            {partners.map((partner, index) => (
-              <Reveal as="article" className="partner" delay={index * 90} key={partner.name}>
-                <span>{partner.number}</span>
-                <h3>{partner.name}</h3>
-                <strong>{partner.korean}</strong>
-                <p>{partner.detail}</p>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section className="library-transition" aria-labelledby="library-transition-title">
+        <section className="library-transition" id="library-transition" aria-labelledby="library-transition-title">
           <div className="library-transition__inner">
-            <span className="folio">03 · THE HDEC AI BUILD LIBRARY</span>
+            <span className="folio">THE HDEC AI BUILD JOURNEY</span>
             <Reveal className="library-transition__statement">
               <h2 id="library-transition-title">
-                다섯 권은
+                다섯 단계로
                 <br />
-                <em>서로 다른 역할을 맡습니다.</em>
+                <em>AI Builder가 되실 수 있습니다.</em>
               </h2>
-              <p>앞에서 설명한 내용을 뒤에서 다시 가르치지 않고, 다음 단계로 이어갑니다.</p>
             </Reveal>
-            <ol className="library-journey" aria-label="다섯 권의 학습 흐름">
+            <ol className="library-journey" aria-label="다섯 단계의 AI Builder 학습 흐름">
               {libraryJourney.map(([number, label], index) => (
                 <Reveal as="li" delay={index * 60} key={number}>
                   <span>{number}</span>
@@ -239,19 +176,19 @@ export function HomePage() {
         >
           <header className="library__header">
             <div>
-              <span className="folio">THE COLLECTION · VOLUMES 01—05</span>
+              <span className="folio">THE COLLECTION · STEPS 01—05</span>
               <h2 id="library-title">OPEN A BOOK</h2>
             </div>
             <p>
-              처음부터 읽어도 되고, 지금 필요한 권부터 꺼내도 됩니다.
+              01부터 순서대로 따라가면 됩니다.
               <br />
-              각 권은 맡은 역할만 설명합니다.
+              각 단계는 다음 단계의 선택과 실습으로 이어집니다.
             </p>
           </header>
 
           <div className="library-mobile-guide" aria-hidden="true">
-            <span>05 VOLUMES</span>
-            <p>한 권씩 넘겨 살펴보세요.</p>
+            <span>05 STEPS</span>
+            <p>한 단계씩 넘겨 살펴보세요.</p>
             <span>SWIPE →</span>
           </div>
 
@@ -285,7 +222,7 @@ export function HomePage() {
 
         <footer className="home-footer">
           <span>HDEC AI BUILD</span>
-          <p>EXECUTIVE × AI × ACE</p>
+          <p>EXECUTIVE EXPERIENCE × AI BUILD</p>
           <span>EXECUTIVE FIELD GUIDE · 2026</span>
         </footer>
       </main>

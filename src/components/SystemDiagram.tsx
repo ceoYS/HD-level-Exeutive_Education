@@ -34,7 +34,11 @@ export function SystemDiagram() {
         </div>
       </div>
       <span className="flow-arrow" aria-hidden="true">↓</span>
-      <div className="system-diagram__systems">DEPLOY · 다른 사람이 접속해 쓸 수 있게 내보내기</div>
+      <div className="system-diagram__systems">
+        <strong>DEPLOY = 배포하기</strong>
+        <br />
+        = 다른 사람이 접속해 쓸 수 있게 내보내기
+      </div>
     </figure>
   )
 }
