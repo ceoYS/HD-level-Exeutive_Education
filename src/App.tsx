@@ -1,15 +1,19 @@
 import { useEffect } from 'react'
 import { NavigateLink } from './components/NavigateLink'
 import { usePathname } from './hooks/usePathname'
-import { Book01Page } from './pages/Book01Page'
+import { AiPage } from './pages/AiPage'
 import { Book02Page } from './pages/Book02Page'
 import { Book03Page } from './pages/Book03Page'
 import { Book04Page } from './pages/Book04Page'
 import { Book05Page } from './pages/Book05Page'
 import { HomePage } from './pages/HomePage'
+import { VibeCodingPage } from './pages/VibeCodingPage'
 
+// 신규 route + 구 alias(기존 링크 보존)
 const bookPages = {
-  '/book/understand': Book01Page,
+  '/book/ai': AiPage,
+  '/book/understand': AiPage,
+  '/book/vibe-coding': VibeCodingPage,
   '/book/instruct': Book02Page,
   '/book/choose': Book03Page,
   '/book/build': Book04Page,

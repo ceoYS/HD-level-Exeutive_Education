@@ -8,6 +8,7 @@ import { SectionIntro } from '../components/SectionIntro'
 import { SiteHeader } from '../components/SiteHeader'
 import { TryThisPrompt } from '../components/TryThisPrompt'
 import { WeekCanvas } from '../components/WeekCanvas'
+import { WeekTips } from '../components/WeekTips'
 import { weeks } from '../content/book04-build'
 import { useCurrentChapter } from '../hooks/useCurrentChapter'
 import { useReadingProgress } from '../hooks/useReadingProgress'
@@ -116,6 +117,7 @@ export function Book04Page() {
                     </PromptBlock>
                   </TryThisPrompt>
                 )}
+                <WeekTips week={week.week} />
                 {week.security && (
                   <SecurityGate>
                     실제 사내 정보를 연결하기 전에는 승인 범위와 권한을 먼저 확인합니다. 승인되지 않은
