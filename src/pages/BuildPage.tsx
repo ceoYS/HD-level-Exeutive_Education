@@ -1,9 +1,15 @@
-import { useState, type CSSProperties } from 'react'
+import type { CSSProperties } from 'react'
+import { Blueprint } from '../components/Blueprint'
+import { BookCover } from '../components/BookCover'
+import { BuildRoadmap } from '../components/BuildRoadmap'
 import { ExecutiveTakeaway, SecurityGate } from '../components/Callout'
 import { CapabilityCheck } from '../components/CapabilityCheck'
-import { NavigateLink } from '../components/NavigateLink'
+import { ChooseStep } from '../components/ChooseStep'
+import { LeverageFinale } from '../components/HdecLeverageEpilogue'
 import { PromptBlock } from '../components/PromptBlock'
 import { Reveal } from '../components/Reveal'
+import { RoleSelect } from '../components/RoleSelect'
+import { RoleSplit } from '../components/RoleSplit'
 import { SectionIntro } from '../components/SectionIntro'
 import { SiteHeader } from '../components/SiteHeader'
 import { TryThisPrompt } from '../components/TryThisPrompt'
@@ -13,24 +19,27 @@ import { weeks } from '../content/book04-build'
 import { useCurrentChapter } from '../hooks/useCurrentChapter'
 import { useReadingProgress } from '../hooks/useReadingProgress'
 
-export function Book04Page() {
+// 05 EXECUTIVE × ACE BUILD · PART 3 적용.
+// HOW WE WORK(원문) + EXECUTIVE × ACE → STEP 1 역할 3유형 → STEP 2 과제 선택(구 Book03 원문) → BUILD ROADMAP → W01(+BLUEPRINT) … W08 + TIP → 엔딩.
+export function BuildPage() {
   const progress = useReadingProgress()
   const currentChapter = useCurrentChapter()
-  const [chaptersOpen, setChaptersOpen] = useState(false)
 
   return (
     <div className="book-page" style={{ '--book-accent': 'var(--color-blue)' } as CSSProperties}>
-      <SiteHeader bookMode progress={progress} currentChapter={currentChapter} bookNumber="04" bookKeyword="BUILD" />
+      <SiteHeader bookMode progress={progress} currentChapter={currentChapter} bookNumber="05" bookKeyword="EXECUTIVE × ACE BUILD" />
       <main id="main-content">
         <article>
-          <header className="book-opening book-entry-surface">
-            <div className="book-opening__index">
-              <span>BOOK</span>
-              <strong>04</strong>
-              <span>BUILD</span>
-            </div>
+          <BookCover
+            number="05"
+            keyword="EXECUTIVE × ACE BUILD"
+            count="8 WEEKS"
+            chapters={weeks.map((week) => ({ href: `#week-${week.week}`, label: `${week.phase} · ${week.title}` }))}
+            beginHref="#how-we-work"
+            beginLabel="START THE PROJECT"
+          >
             <div className="book-opening__statement">
-              <p>AI BUILD · 8-WEEK WORKBOOK</p>
+              <p>PART 3 · 적용</p>
               <h1>
                 실장 × ACE
                 <br />
@@ -42,32 +51,9 @@ export function Book04Page() {
                 <em>실제 업무 도구 하나</em>를 함께 만듭니다.
               </p>
             </div>
-            <button
-              type="button"
-              className="chapter-toggle"
-              aria-expanded={chaptersOpen}
-              aria-controls="chapter-list"
-              onClick={() => setChaptersOpen((current) => !current)}
-            >
-              <span>8 WEEKS</span>
-              <i aria-hidden="true">{chaptersOpen ? '−' : '+'}</i>
-            </button>
-            <ol id="chapter-list" className={`chapter-list${chaptersOpen ? ' is-open' : ''}`}>
-              {weeks.map((week) => (
-                <li key={week.week}>
-                  <a href={`#week-${week.week}`} onClick={() => setChaptersOpen(false)}>
-                    <span>{week.week}</span>
-                    {`${week.phase} · ${week.title}`}
-                  </a>
-                </li>
-              ))}
-            </ol>
-            <a className="book-opening__begin" href="#intro">
-              START THE PROJECT <span aria-hidden="true">↓</span>
-            </a>
-          </header>
+          </BookCover>
 
-          <section className="chapter chapter--light" id="intro">
+          <section className="chapter chapter--light" id="how-we-work">
             <div className="chapter__inner">
               <SectionIntro number="00" title="실장이 문제와 방향을 잡습니다" english="HOW WE WORK">
                 <p>
@@ -75,19 +61,7 @@ export function Book04Page() {
                   구현 과정을 지원합니다.
                 </p>
               </SectionIntro>
-              <div className="contrast-pair">
-                <div className="contrast-pair__side contrast-pair__side--accent">
-                  <span>EXECUTIVE · 실장</span>
-                  <strong>문제와 결정을 맡습니다</strong>
-                  <p>무엇이 중요한지 알고, 우선순위를 정하고, 결과가 실제 업무에 맞는지 판단합니다.</p>
-                </div>
-                <span className="contrast-pair__op" aria-hidden="true">×</span>
-                <div className="contrast-pair__side">
-                  <span>ACE</span>
-                  <strong>정리와 구현을 지원합니다</strong>
-                  <p>맥락을 정리하고, 막힌 곳을 함께 풀고, AI와 구현 작업을 이어갈 수 있게 돕습니다.</p>
-                </div>
-              </div>
+              <RoleSplit />
               <p className="editorial-lead">
                 매주 산출물을 하나씩 남기고, 그 주에 <strong>직접 해본 것</strong>을 짧게 확인합니다.
                 결과물만 남기는 것이 아니라 다음 프로젝트에서도 다시 쓸 수 있는 방식까지 익히는 과정입니다.
@@ -96,6 +70,20 @@ export function Book04Page() {
                 8주 뒤에는 <strong>작동하는 도구 하나와 그 도구가 왜 필요한지 설명할 수 있는 경험</strong>이
                 남습니다.
               </ExecutiveTakeaway>
+            </div>
+          </section>
+
+          <section className="chapter chapter--spruce" id="step-1">
+            <div className="chapter__inner">
+              <RoleSelect />
+            </div>
+          </section>
+
+          <ChooseStep />
+
+          <section className="chapter chapter--dark" id="roadmap">
+            <div className="chapter__inner">
+              <BuildRoadmap />
             </div>
           </section>
 
@@ -110,6 +98,7 @@ export function Book04Page() {
                 tasks={week.tasks}
                 deliverable={week.deliverable}
               >
+                {week.week === '01' && <Blueprint />}
                 {week.prompt && (
                   <TryThisPrompt heading={week.prompt.label}>
                     <PromptBlock label="SAY THIS" tone={week.prompt.tone ?? 'dark'}>
@@ -135,7 +124,7 @@ export function Book04Page() {
             ))}
           </section>
 
-          <footer className="book-ending">
+          <footer className="book-ending" id="book-05-ending">
             <div className="book-ending__opening">
               <p>8주 뒤</p>
               <h2>실제 업무에서 시험해본 도구 하나가 남습니다.</h2>
@@ -153,15 +142,23 @@ export function Book04Page() {
                 이 방식이 다음 AI Build의 출발점이 됩니다.
               </span>
             </Reveal>
-            <NavigateLink href="/book/practice" className="next-book">
-              <span>NEXT BOOK · 05</span>
-              <div>
-                <strong>APPLY</strong>
-                <p>실제 업무에 적용하고 개선하기</p>
-              </div>
-              <i aria-hidden="true">→</i>
-            </NavigateLink>
+            <div className="book-ending__opening book-ending__opening--short">
+              <p>현업에서 계속 쓸 때</p>
+              <h2>다시 처음부터 만들지 않고, 필요한 부분만 정확하게 이어갑니다.</h2>
+            </div>
+            <Reveal className="book-ending__finale book-ending__finale--short">
+              <p>AI Builder에게 중요한 것은</p>
+              <h2>
+                첫 버전을 만드는 것보다
+                <br />
+                계속 다듬을 수 있는 능력입니다.
+              </h2>
+              <span>
+                상태를 보여주고 · 범위를 통제하고 · 검토하고 · 기록하고 · 필요한 기능만 확장합니다.
+              </span>
+            </Reveal>
           </footer>
+          <LeverageFinale />
         </article>
       </main>
     </div>

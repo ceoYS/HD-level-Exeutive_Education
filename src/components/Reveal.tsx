@@ -5,9 +5,10 @@ type RevealProps = {
   children: ReactNode
   className?: string
   delay?: number
+  id?: string
 }
 
-export function Reveal({ as: Tag = 'div', children, className = '', delay = 0 }: RevealProps) {
+export function Reveal({ as: Tag = 'div', children, className = '', delay = 0, id }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null)
 
   useEffect(() => {
@@ -31,6 +32,7 @@ export function Reveal({ as: Tag = 'div', children, className = '', delay = 0 }:
   return (
     <Tag
       ref={ref}
+      id={id}
       className={`reveal ${className}`.trim()}
       style={{ '--reveal-delay': `${delay}ms` } as CSSProperties}
     >

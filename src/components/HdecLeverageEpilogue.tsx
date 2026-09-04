@@ -72,128 +72,112 @@ const kpis = [
   'USER ADOPTION',
 ]
 
-export function HdecLeverageEpilogue() {
+/** 사내 통제형 AI 인프라 · 원문(옵션 3 · 요건 11). 05 W06 TIP 접이식에서 재렌더. */
+export function ControlledInfrastructure() {
+  return (
+    <div className="hdec-leverage hdec-leverage--inline">
+      <Reveal className="internal-premise">
+        <span>CONNECTING KNOWLEDGE TO AI</span>
+        <p>
+          민감한 사내 지식과 데이터를 AI에 연결하려면 접근 권한, 감사 기록, 데이터 등급, 모델 연결,
+          내부 검색까지 함께 관리해야 합니다.
+          <br />
+          이런 운영 조건을 한곳에서 통제할 수 있는 ‘사내 통제형 AI 인프라’가 필요합니다.
+        </p>
+      </Reveal>
+
+      <Reveal className="controlled-infrastructure">
+        <div className="controlled-infrastructure__intro">
+          <span>CONTROLLED AI INFRASTRUCTURE</span>
+          <h3>사내 통제형<br />AI 인프라</h3>
+          <p>
+            안전성은 서버의 물리적 위치만으로 결정되지 않습니다. 어떤 배치 형태를 쓰든 사람, 데이터,
+            모델, 비용, 행동을 통제하고 기록하는 운영 체계가 함께 있어야 합니다.
+          </p>
+        </div>
+        <div className="deployment-options">
+          <span>ON-PREMISES</span>
+          <span>PRIVATE CLOUD / VPC</span>
+          <span>APPROVED ENTERPRISE MODEL ENDPOINTS</span>
+        </div>
+        <div className="control-requirements">
+          {controlRequirements.map((item, index) => (
+            <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>
+          ))}
+        </div>
+      </Reveal>
+    </div>
+  )
+}
+
+/** FLYWHEEL · 외부 벤치마크 4 · KPI 8 · 원문. 05 W08 TIP에서 재렌더. */
+export function LeverageEvidence() {
+  return (
+    <div className="hdec-leverage hdec-leverage--inline">
+      <Reveal as="figure" className="knowledge-flywheel">
+        <figcaption>
+          <span>HDEC KNOWLEDGE FLYWHEEL</span>
+          <strong>지식을 업무에 쓰고,<br />업무에서 다시 지식을 남깁니다.</strong>
+        </figcaption>
+        <ol>
+          {flywheel.map(([phase, label], index) => (
+            <li className={index === 0 || index === flywheel.length - 1 ? 'is-knowledge' : index === 1 ? 'is-control' : ''} key={phase}>
+              <span>{String(index + 1).padStart(2, '0')} · {phase}</span>
+              <strong>{label}</strong>
+              {index < flywheel.length - 1 && <i aria-hidden="true">↓</i>}
+            </li>
+          ))}
+        </ol>
+        <b aria-hidden="true">↺ CAPTURE · LEARN · REUSE</b>
+      </Reveal>
+
+      <div className="evidence-section">
+        <Reveal className="evidence-section__intro">
+          <span>EXTERNAL BENCHMARKS / POTENTIAL RANGE</span>
+          <h3>외부 수치는<br />Pilot 목표를 잡을 때 참고합니다.</h3>
+        </Reveal>
+        <div className="benchmark-evidence">
+          {benchmarks.map((benchmark, index) => (
+            <Reveal as="article" delay={(index % 2) * 80} key={benchmark.source}>
+              <span>{benchmark.source}</span>
+              <strong>{benchmark.metric}</strong>
+              <b>{benchmark.second}</b>
+              <p>{benchmark.detail}</p>
+              <small>{benchmark.caveat}</small>
+              <a href={benchmark.href} target="_blank" rel="noreferrer">SOURCE ↗</a>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
+      <Reveal className="pilot-measurement">
+        <div>
+          <span>HDEC-ORIENTED INTERPRETATION</span>
+          <h3>먼저 Baseline,<br />그다음 Pilot.</h3>
+        </div>
+        <p>
+          Use Case마다 현재 업무시간·오류·재작업을 먼저 측정하고 Pilot 뒤에 실제 변화를 확인합니다.
+          내부 Pilot 데이터가 생기기 전에는 외부 benchmark를 HDEC의 개선률로 쓰지 않습니다.
+        </p>
+        <div className="pilot-kpis">
+          {kpis.map((kpi) => <span key={kpi}>{kpi}</span>)}
+        </div>
+      </Reveal>
+    </div>
+  )
+}
+
+/** 에필로그 오프닝 + 피날레 · 원문. 05 엔딩 마지막에 놓인다. */
+export function LeverageFinale() {
   return (
     <section className="hdec-leverage" id="hdec-leverage" aria-labelledby="hdec-leverage-title">
-      <header className="hdec-leverage__opening">
+      <header className="hdec-leverage__opening hdec-leverage__opening--short">
         <p>FINAL COURSE EPILOGUE · FROM INDIVIDUAL BUILD TO ORGANIZATIONAL LEVERAGE</p>
         <h2 id="hdec-leverage-title">HDEC AI<br />LEVERAGE</h2>
         <span>개인이 만든 업무 도구와 판단을 조직이 다시 쓸 수 있는 지식으로 연결합니다.</span>
       </header>
-
       <div className="hdec-leverage__body">
-        <Reveal className="knowledge-premise">
-          <div className="knowledge-premise__heading">
-            <span>HDEC HAS</span>
-            <h3>두 곳에 쌓이는<br />업무 지식.</h3>
-          </div>
-          <div className="knowledge-pair">
-            <article>
-              <span>01 · PEOPLE</span>
-              <h4>TACIT KNOWLEDGE</h4>
-              <ul>
-                <li>사람에게 축적된 판단</li>
-                <li>노하우와 현장 감각</li>
-                <li>프로젝트를 겪으며 배운 교훈</li>
-                <li>문서만으로 옮기기 어려운 맥락</li>
-              </ul>
-            </article>
-            <i aria-hidden="true">+</i>
-            <article>
-              <span>02 · RECORDS</span>
-              <h4>EXPLICIT KNOWLEDGE</h4>
-              <ul>
-                <li>매뉴얼과 시방서</li>
-                <li>보고서와 Lessons Learned</li>
-                <li>프로젝트 문서</li>
-                <li>축적된 정형·비정형 데이터</li>
-              </ul>
-            </article>
-          </div>
-        </Reveal>
-
-        <Reveal className="internal-premise">
-          <span>CONNECTING KNOWLEDGE TO AI</span>
-          <p>
-            민감한 사내 지식과 데이터를 AI에 연결하려면 접근 권한, 감사 기록, 데이터 등급, 모델 연결,
-            내부 검색까지 함께 관리해야 합니다.
-            <br />
-            이런 운영 조건을 한곳에서 통제할 수 있는 ‘사내 통제형 AI 인프라’가 필요합니다.
-          </p>
-        </Reveal>
-
-        <Reveal className="controlled-infrastructure">
-          <div className="controlled-infrastructure__intro">
-            <span>CONTROLLED AI INFRASTRUCTURE</span>
-            <h3>사내 통제형<br />AI 인프라</h3>
-            <p>
-              안전성은 서버의 물리적 위치만으로 결정되지 않습니다. 어떤 배치 형태를 쓰든 사람, 데이터,
-              모델, 비용, 행동을 통제하고 기록하는 운영 체계가 함께 있어야 합니다.
-            </p>
-          </div>
-          <div className="deployment-options">
-            <span>ON-PREMISES</span>
-            <span>PRIVATE CLOUD / VPC</span>
-            <span>APPROVED ENTERPRISE MODEL ENDPOINTS</span>
-          </div>
-          <div className="control-requirements">
-            {controlRequirements.map((item, index) => (
-              <div key={item}><span>{String(index + 1).padStart(2, '0')}</span><strong>{item}</strong></div>
-            ))}
-          </div>
-        </Reveal>
-
-        <Reveal as="figure" className="knowledge-flywheel">
-          <figcaption>
-            <span>HDEC KNOWLEDGE FLYWHEEL</span>
-            <strong>지식을 업무에 쓰고,<br />업무에서 다시 지식을 남깁니다.</strong>
-          </figcaption>
-          <ol>
-            {flywheel.map(([phase, label], index) => (
-              <li className={index === 0 || index === flywheel.length - 1 ? 'is-knowledge' : index === 1 ? 'is-control' : ''} key={phase}>
-                <span>{String(index + 1).padStart(2, '0')} · {phase}</span>
-                <strong>{label}</strong>
-                {index < flywheel.length - 1 && <i aria-hidden="true">↓</i>}
-              </li>
-            ))}
-          </ol>
-          <b aria-hidden="true">↺ CAPTURE · LEARN · REUSE</b>
-        </Reveal>
-
-        <div className="evidence-section">
-          <Reveal className="evidence-section__intro">
-            <span>EXTERNAL BENCHMARKS / POTENTIAL RANGE</span>
-            <h3>외부 수치는<br />Pilot 목표를 잡을 때 참고합니다.</h3>
-          </Reveal>
-          <div className="benchmark-evidence">
-            {benchmarks.map((benchmark, index) => (
-              <Reveal as="article" delay={(index % 2) * 80} key={benchmark.source}>
-                <span>{benchmark.source}</span>
-                <strong>{benchmark.metric}</strong>
-                <b>{benchmark.second}</b>
-                <p>{benchmark.detail}</p>
-                <small>{benchmark.caveat}</small>
-                <a href={benchmark.href} target="_blank" rel="noreferrer">SOURCE ↗</a>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
-        <Reveal className="pilot-measurement">
-          <div>
-            <span>HDEC-ORIENTED INTERPRETATION</span>
-            <h3>먼저 Baseline,<br />그다음 Pilot.</h3>
-          </div>
-          <p>
-            Use Case마다 현재 업무시간·오류·재작업을 먼저 측정하고 Pilot 뒤에 실제 변화를 확인합니다.
-            내부 Pilot 데이터가 생기기 전에는 외부 benchmark를 HDEC의 개선률로 쓰지 않습니다.
-          </p>
-          <div className="pilot-kpis">
-            {kpis.map((kpi) => <span key={kpi}>{kpi}</span>)}
-          </div>
-        </Reveal>
-
-        <Reveal className="hdec-leverage__finale">
+        <Reveal className="hdec-leverage__finale hdec-leverage__finale--short">
           <p>실장의 판단이 도구에 반영되고,<br />그 도구의 사용 경험과 데이터가 다음 판단을 돕습니다.</p>
           <h3>한 사람이 만든 개선을<br />다음 사람과 다음 프로젝트가 다시 쓸 수 있게 합니다.</h3>
           <span>THIS IS HDEC AI LEVERAGE.</span>
