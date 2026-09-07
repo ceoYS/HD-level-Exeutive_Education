@@ -26,7 +26,6 @@ const contextParts = [
 
 export function DevelopmentLoop() {
   return (
-    <>
       <figure className="development-loop">
         <figcaption>
           <span>HOW AI DEVELOPMENT ACTUALLY WORKS</span>
@@ -139,7 +138,11 @@ export function DevelopmentLoop() {
           </span>
         </div>
       </figure>
+  )
+}
 
+export function GoodInstruction() {
+  return (
       <div className="prd-principle">
         <span>BEFORE YOU DELEGATE · GOOD INSTRUCTION</span>
         <h3>
@@ -152,7 +155,11 @@ export function DevelopmentLoop() {
           <LabeledGrid items={instructionParts} />
         </div>
       </div>
+  )
+}
 
+export function ContextPack() {
+  return (
       <div className="prd-principle">
         <span>CONTEXT · WHAT AI DOES NOT KNOW</span>
         <h3>
@@ -168,6 +175,5 @@ export function DevelopmentLoop() {
           <LabeledGrid items={contextParts} />
         </div>
       </div>
-    </>
   )
 }

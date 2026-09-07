@@ -13,7 +13,7 @@ Core thesis:
 ## Current architecture
 
 - Vite + React + TypeScript single-page frontend
-- Client-side routing for the Library and Book 01 reading experience
+- Client-side routing for the Library and all five V3 reading experiences
 - GitHub Pages deployment uses the repository base path and a static `404.html` route-restoration fallback for direct SPA loads.
 - Home uses an editorial introduction followed by a publication-style Library; the Library is the primary navigation metaphor for Books 01–05.
 - `src/pages`: route-level experiences
@@ -46,11 +46,12 @@ Keep the architecture intentionally small. Prefer semantic React components, CSS
 - Keep screenshot placeholders reusable and content-driven so real images can replace them without page redesign.
 - Separate curriculum copy/configuration from presentation where it improves future editing.
 
-## Current scope — Design Baseline V1
+## Current scope — Executive Context V3
 
 - Home / Library
-- Complete long-scroll BOOK 01 — UNDERSTAND experience
-- Visually complete teaser states for Books 02–05
+- Complete long-scroll 5 STEP experience across Books 01–05
+- Diagram-led 03 HDEC CONTEXT and LITE vs CONNECTED cases in Book 04
+- Executive × ACE role selection, Blueprint gate, and 8-week Build in Book 05
 - Responsive desktop, tablet, and mobile layouts
 - Reusable editorial sections, diagrams, prompt examples, and screenshot placeholders
 - Subtle reveal/progress interactions
@@ -58,13 +59,12 @@ Keep the architecture intentionally small. Prefer semantic React components, CSS
 
 ## Non-goals for this baseline
 
-- Full Books 02–05 content
 - Backend, authentication, database, API integration, or learning-state persistence
 - Real quizzes or self-certification tracking
 - Admin/content management system
 - Real product screenshots, proprietary assets, or official Hyundai/HDEC brand claims
 - Analytics
-- Git commit or remote push before Founder review
+- VIDEO 01–03 media production; empty video slots stay hidden
 
 ## Working agreements
 

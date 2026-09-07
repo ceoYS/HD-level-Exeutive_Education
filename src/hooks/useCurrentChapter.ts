@@ -12,7 +12,10 @@ export function useCurrentChapter() {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0]
 
         if (visible) {
-          const chapter = Number(visible.target.id.replace('chapter-', ''))
+          const visual = /^visual-([a-z])$/.exec(visible.target.id)
+          const chapter = visual
+            ? visual[1].charCodeAt(0) - 96
+            : Number(visible.target.id.replace('chapter-', ''))
           if (Number.isFinite(chapter)) setCurrentChapter(chapter)
         }
       },

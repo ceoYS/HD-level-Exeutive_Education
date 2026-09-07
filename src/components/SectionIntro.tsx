@@ -7,12 +7,13 @@ type SectionIntroProps = {
   english?: string
   children?: ReactNode
   inverse?: boolean
+  label?: string
 }
 
-export function SectionIntro({ number, title, english, children, inverse = false }: SectionIntroProps) {
+export function SectionIntro({ number, title, english, children, inverse = false, label = 'CHAPTER' }: SectionIntroProps) {
   return (
     <Reveal className={`section-intro${inverse ? ' section-intro--inverse' : ''}`}>
-      <p className="section-intro__number">CHAPTER {number}</p>
+      <p className="section-intro__number">{label} {number}</p>
       <div className="section-intro__title">
         {english && <span>{english}</span>}
         <h2>{title}</h2>

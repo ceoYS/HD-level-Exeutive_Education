@@ -1,19 +1,24 @@
 import { useEffect } from 'react'
 import { NavigateLink } from './components/NavigateLink'
 import { usePathname } from './hooks/usePathname'
-import { Book01Page } from './pages/Book01Page'
-import { Book02Page } from './pages/Book02Page'
-import { Book03Page } from './pages/Book03Page'
-import { Book04Page } from './pages/Book04Page'
-import { Book05Page } from './pages/Book05Page'
+import { AiPage } from './pages/AiPage'
+import { BuildPage } from './pages/BuildPage'
+import { CasesPage } from './pages/CasesPage'
+import { HdecContextPage } from './pages/HdecContextPage'
 import { HomePage } from './pages/HomePage'
+import { VibeCodingPage } from './pages/VibeCodingPage'
 
+// 신규 route + 구 alias(기존 링크 보존)
 const bookPages = {
-  '/book/understand': Book01Page,
-  '/book/instruct': Book02Page,
-  '/book/choose': Book03Page,
-  '/book/build': Book04Page,
-  '/book/practice': Book05Page,
+  '/book/ai': AiPage,
+  '/book/understand': AiPage,
+  '/book/vibe-coding': VibeCodingPage,
+  '/book/hdec-context': HdecContextPage,
+  '/book/cases': CasesPage,
+  '/book/instruct': CasesPage,
+  '/book/build': BuildPage,
+  '/book/choose': BuildPage,
+  '/book/practice': BuildPage,
 } as const
 
 export default function App() {
