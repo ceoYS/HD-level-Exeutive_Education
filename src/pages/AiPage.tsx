@@ -1,4 +1,8 @@
 import { AiCoreVisual } from '../components/AiCoreVisual'
+import { AiReadyData } from '../components/ai-foundation/AiReadyData'
+import { DataRoles } from '../components/ai-foundation/DataRoles'
+import { ModelVsCompanyKnowledge } from '../components/ai-foundation/ModelVsCompanyKnowledge'
+import { TrainingVsUse } from '../components/ai-foundation/TrainingVsUse'
 import { BookCover } from '../components/BookCover'
 import { CapabilityCheck } from '../components/CapabilityCheck'
 import { ContextPack, GoodInstruction } from '../components/DevelopmentLoop'
@@ -11,7 +15,7 @@ import { CERT_LABEL, book01Certs } from '../content/part1-lock'
 import { useCurrentChapter } from '../hooks/useCurrentChapter'
 import { useReadingProgress } from '../hooks/useReadingProgress'
 
-// 01 AI · PART 1 개념. AI CORE VISUAL(신규) → 원문 Ch2 → 원문 Ch3.
+// 01 AI · PART 1 개념. AI CORE VISUAL(신규) → AI/DATA FOUNDATION 4 Visual(신규) → 원문 Ch2 → 원문 Ch3.
 export function AiPage() {
   const progress = useReadingProgress()
   const currentChapter = useCurrentChapter()
@@ -39,6 +43,11 @@ export function AiPage() {
           </BookCover>
 
           <AiCoreVisual />
+
+          <TrainingVsUse />
+          <DataRoles />
+          <AiReadyData />
+          <ModelVsCompanyKnowledge />
 
           <ChapterAiLayers number="01">
             <GoodInstruction />

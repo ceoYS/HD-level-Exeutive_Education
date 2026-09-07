@@ -1,5 +1,6 @@
 import { BookCover } from '../components/BookCover'
 import { CapabilityCheck } from '../components/CapabilityCheck'
+import { ClaudeDesignFlow } from '../components/ClaudeDesignFlow'
 import { ConnectMap } from '../components/ConnectMap'
 import { NavigateLink } from '../components/NavigateLink'
 import {
@@ -43,7 +44,9 @@ export function VibeCodingPage() {
           <ChapterConnect number="03">
             <ConnectMap />
           </ChapterConnect>
-          <ChapterHarness number="04" />
+          <ChapterHarness number="04">
+            <ClaudeDesignFlow />
+          </ChapterHarness>
           <ChapterMap number="05" />
 
           <footer className="book-ending">
@@ -54,6 +57,17 @@ export function VibeCodingPage() {
               {book01Certs.slice(1).map((cert) => (
                 <CapabilityCheck key={cert.id} id={cert.id} evidence={false} statement={cert.statement} />
               ))}
+            </Reveal>
+            <Reveal className="book-ending__bridge">
+              <div className="knowledge__bridge">
+                <p>
+                  그렇다면,
+                  <br />
+                  현대건설의 DATA + RELATIONSHIP + CONTEXT는
+                  <br />
+                  어디에 있고 어떻게 연결되어야 할까요?
+                </p>
+              </div>
             </Reveal>
             <NavigateLink href="/book/hdec-context" className="next-book">
               <span>NEXT BOOK · 03</span>

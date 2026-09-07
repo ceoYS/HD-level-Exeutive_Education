@@ -821,6 +821,13 @@
   margin: 0 auto;
 }
 
+/* 02 → 03 최종 bridge: knowledge__bridge 톤을 book-ending 인셋에 맞춰 재사용 */
+.book-ending__bridge {
+  max-width: var(--reading-max);
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) var(--space-8);
+}
+
 .book-ending__opening {
   min-height: 80svh;
   display: flex;
