@@ -7,16 +7,17 @@ import { books, type Book } from '../content/books'
 import { toAppHref } from '../routing'
 
 const libraryJourney = [
-  ['01', 'AI와 바이브코딩을 이해하고'],
-  ['02', '무엇을 만들 수 있는지 살펴보고'],
-  ['03', '내가 만들 제품을 고르고'],
-  ['04', '실제 제품으로 만들고'],
-  ['05', '직접 적용하고 개선합니다'],
+  ['01', 'AI를 이해하고'],
+  ['02', 'AI와 함께 만드는 방식을 보고'],
+  ['03', '우리 회사의 맥락을 보고'],
+  ['04', '무엇을 만들 수 있는지 살펴보고'],
+  ['05', 'AI에게 맡길 역할을 정해 ACE와 함께 만듭니다'],
 ]
 
 const libraryShelves = [
-  { label: 'UNDERSTAND · EXPLORE', range: 'STEPS 01—02', books: books.slice(0, 2) },
-  { label: 'CHOOSE · BUILD · APPLY', range: 'STEPS 03—05', books: books.slice(2) },
+  { label: 'PART 1 · 개념', range: '01—02', books: books.slice(0, 2) },
+  { label: 'PART 2 · 우리 회사', range: '03', books: books.slice(2, 3) },
+  { label: 'PART 3 · 적용', range: '04—05', books: books.slice(3) },
 ]
 
 type ViewTransitionDocument = Document & {

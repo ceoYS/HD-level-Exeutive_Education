@@ -11,8 +11,10 @@ type BookCoverProps = {
   aside?: ReactNode
 }
 
+const DEFAULT_BEGIN_LABEL = 'START READING'
+
 /** Shared book opening: index · statement · chapter list · begin link. Text comes from the page. */
-export function BookCover({ number, keyword, count, chapters, beginHref, beginLabel = 'START READING', children, aside }: BookCoverProps) {
+export function BookCover({ number, keyword, count, chapters, beginHref, beginLabel = DEFAULT_BEGIN_LABEL, children, aside }: BookCoverProps) {
   const [chaptersOpen, setChaptersOpen] = useState(false)
 
   return (
